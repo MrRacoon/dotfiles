@@ -1,7 +1,8 @@
 "== Pathogen =="
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/.vim/bundle/{}')
+execute pathogen#infect('~/dotfiles/vim/bundle/{}')
+", '~/.vim/bundle/{}')
 
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
@@ -37,6 +38,8 @@ set visualbell                                " Please no sounds, other then the
 set noerrorbells                              " Please no sounds, other then the patter of my fingers
 set list                                      " Highlight whitespace
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
+set laststatus=2                              " Make sure that we use two lines for using status bars
+set t_Co=256                                  " Make sure vim uses 256 color mode
 
 let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
 let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
