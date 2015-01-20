@@ -22,3 +22,6 @@
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/bundle/vim-lastplace"]
+	path = vim/bundle/vim-lastplace
+	url = https://github.com/dietsche/vim-lastplace.git
