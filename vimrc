@@ -1,0 +1,122 @@
+"== Pathogen =="
+
+" I go with Pathogen for my plugin management. Unix Philosophy Right?
+execute pathogen#infect('~/.vim/bundle/{}')
+
+" Get that Syntax Highlighting
+" Arguably the developer's best friend
+syntax on
+
+" User indentation in plugins?
+filetype plugin indent on
+
+"== Settings =="
+set spell
+set colorcolumn=80
+highlight ColorColumn ctermbg=cyan
+
+
+
+set nowrap                                    " Do not wrap lines
+set number                                    " Get the line numbers going
+set showmatch                                 " Show matching parenthesis
+syntax on                                     " Turn that syntax highlighting on
+set autoindent                                " Automatically indent the lines to match the previous indent
+"set smartindent                              " Automatically indent in the contents of functions
+set shiftround                                " Use a multiple of shift width when indenting with '<' or '> 
+set copyindent                                " Copy the previous indentation
+set tabstop=4                                 " Turn tabs into 4 spaces
+set shiftwidth=4                              " Let each indent equal 4 spaces
+set expandtab                                 " Use spaces instead of tabs
+set smarttab                                  " Use shift width to set tabs instead of tabstop
+set ignorecase                                " Ignore case when searching 
+set smartcase                                 " case insensitive if search term is all lowercased
+set pastetoggle=<f12>                         " Set the past toggle to F-12 because pasting can be hard :P
+set history=1000                              " Lets tore a bunch of old commands and things
+set undolevels=1000                           " Store a ton of undo operations
+set wildignore=*.swp,*.bak,*.pyc,*.class      " Ignore any of the files with the following extensions in tab completion
+set title                                     " Let Vim set the window's title
+set visualbell                                " Please no sounds, other then the patter of my fingers
+set noerrorbells                              " Please no sounds, other then the patter of my fingers
+set list                                      " Highlight whitespace
+set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
+
+let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
+let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
+let backspace ="indent,eol,start"             " Do the delete button thing
+
+"== Ctags =="
+
+" C-] Follows a function to its definition
+" C-T Pops back up the ctag stack
+set tags+=./tags;/                            " Check the current directory, and then work up to the root, looking for tags
+" Open up function definitions in a vertical split
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Open up function definitions in a new tab
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR> 
+
+"== keystrokes =="
+
+" The Alchemist
+" ev - Edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
+
+" The Shape Shifter
+" sv - Reload vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr> 
+
+" Keystrokes define us, they grant us extra bonus perks that we can use
+" to slay our enemies.
+
+" The Button Masher
+" Another escape sequence for the Insert Mode
+inoremap kj <esc>
+
+" The Button Masher (Upgrade)
+" turn off the <esc> key for returning to normal mode from insert mode
+inoremap <esc> <nop>
+
+" The Quick Scoper
+" Cut out like 3 keystrokes from nearly every command
+noremap ; :
+" The NoScoper
+" Beast Mode level command usage
+" 'damn this is hard to relearn' - me
+noremap : <nop>
+
+" The Nwb Pwnr
+" I don't have a problem with this, But I put it here to make a point
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" The Quick Draw
+" | Cut out the middle man. Quicker buffer navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" The Stalker
+" Clear the search buffer
+nmap <silent> ,/ :nohlsearch<CR>
+
+" The Forgetful Oper
+" For the case where I forget to sudo before editing configuration files
+cmap w!! w !sudo tee % >/dev/null
+
+" The Smirk
+" replace all tabs in the current file with space characters
+nnoremap <leader>nt :retab<cr>
+
+" The Flip Flopper
+" Flop back and forth quicker from the beggining to the end of the line
+nnoremap H ^
+nnoremap L $
+
+" Plugin Notes
+" 
+" Tabularize (git clone git://github.com/godlygeek/tabular.git)
+"   Align on commas
+"   :Tab /,
