@@ -1,7 +1,7 @@
 "== Pathogen =="
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/dotfiles/vim/bundle/{}')
+execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}')
 ", '~/.vim/bundle/{}')
 
 " I always figure that the leader information should always be located at the
