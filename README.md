@@ -33,8 +33,15 @@ This is where I will start, and may I never feel content with my editor.
 
 ZshRC
 -----
-```
-The vessel by which we traverse the multifaceted, complex, enigma of computing.
-```
+`The vessel by which we traverse the multifaceted, complex, enigma of
+ computing.`
 
+NpmRC
+-----
+`In a land without rules, this file mat help guide you`
+
+
+GHCI
+----
+`Pure witchcraft, in a file`
 

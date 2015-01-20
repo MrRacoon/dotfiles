@@ -1,3 +1,11 @@
+-- Set my editor to the greatest editor of all
 :set editor vim
+
+-- Change my prompt soo people know I'm in busines
 :set prompt "%s λ: "
 
+-- Show type information, Like a G
+:set +t
+
+-- Why should I ever have to quit ghci just to go shell around?
+:def z \_ -> return ":! zsh"
