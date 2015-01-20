@@ -1,0 +1,37 @@
+[user]
+    name     = Erik Sutherland
+    email    = erik.misu@gmail.com
+
+[core]
+    editor   = vim
+
+[credential]
+    username = MrRacoon
+    helper   = cache --timeout=7200
+
+[color]
+    ui       = auto
+    diff     = auto
+    status   = auto
+    branch   = auto
+
+[alias]
+    st        = status
+    sup       = submodule update
+    sub       = submodule
+    sst       = submodule status
+    co        = checkout
+    b         = branch
+    ba        = branch --all
+    ci        = commit
+    unstage   = reset HEAD --
+    last      = log -1 HEAD
+    hist      = log --all --decorate --oneline --graph
+    show      = show --color --pretty=format:%b $COMMIT
+    nuke      = reset --hard
+
+[commit]
+	template = $HOME/dotfiles/git-commit-template
+
+[push]
+	default = matching
