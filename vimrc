@@ -11,25 +11,22 @@ syntax on
 filetype plugin indent on
 
 "== Settings =="
-set spell
-set colorcolumn=80
-highlight ColorColumn ctermbg=cyan
-
-
-
+set colorcolumn=80 " set an indicator for showing me where i can never be caugh outside " of.......
+highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 set nowrap                                    " Do not wrap lines
 set number                                    " Get the line numbers going
+set spell                                     " Turn Spelling on
 set showmatch                                 " Show matching parenthesis
 syntax on                                     " Turn that syntax highlighting on
 set autoindent                                " Automatically indent the lines to match the previous indent
-"set smartindent                              " Automatically indent in the contents of functions
-set shiftround                                " Use a multiple of shift width when indenting with '<' or '> 
+"set smartindent                               " Automatically indent in the contents of functions
+set shiftround                                " Use a multiple of shift width when indenting with '<' or '>
 set copyindent                                " Copy the previous indentation
 set tabstop=4                                 " Turn tabs into 4 spaces
-set shiftwidth=4                              " Let each indent equal 4 spaces
+set shiftwidth=3                              " Let each indent equal 4 spaces
 set expandtab                                 " Use spaces instead of tabs
 set smarttab                                  " Use shift width to set tabs instead of tabstop
-set ignorecase                                " Ignore case when searching 
+set ignorecase                                " Ignore case when searching
 set smartcase                                 " case insensitive if search term is all lowercased
 set pastetoggle=<f12>                         " Set the past toggle to F-12 because pasting can be hard :P
 set history=1000                              " Lets tore a bunch of old commands and things
@@ -56,6 +53,8 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR> 
 
 "== keystrokes =="
+" Keystrokes define us, they grant us extra bonus perks that we can use
+" to slay our enemies.
 
 " The Alchemist
 " ev - Edit vimrc
@@ -65,13 +64,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " sv - Reload vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr> 
 
-" Keystrokes define us, they grant us extra bonus perks that we can use
-" to slay our enemies.
-
 " The Button Masher
 " Another escape sequence for the Insert Mode
 inoremap kj <esc>
-
 " The Button Masher (Upgrade)
 " turn off the <esc> key for returning to normal mode from insert mode
 inoremap <esc> <nop>
@@ -82,7 +77,7 @@ noremap ; :
 " The NoScoper
 " Beast Mode level command usage
 " 'damn this is hard to relearn' - me
-noremap : <nop>
+noremap : ;
 
 " The Nwb Pwnr
 " I don't have a problem with this, But I put it here to make a point
