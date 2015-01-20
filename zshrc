@@ -21,3 +21,5 @@ antigen theme bureau
 
 # Apply all the above declarations
 antigen apply
+
+PATH="/home/erik/bin:/home/erik/npm/bin:$PATH"
