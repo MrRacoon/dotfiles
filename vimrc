@@ -11,7 +11,7 @@ syntax on
 filetype plugin indent on
 
 "== Settings =="
-set colorcolumn=80 " set an indicator for showing me where i can never be caugh outside " of.......
+set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
 highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 set nowrap                                    " Do not wrap lines
 set number                                    " Get the line numbers going
