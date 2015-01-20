@@ -40,6 +40,10 @@ set list                                      " Highlight whitespace
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
 set laststatus=2                              " Make sure that we use two lines for using status bars
 set t_Co=256                                  " Make sure vim uses 256 color mode
+set undofile                                  " Save all undos into a file
+set undodir=~/dotfiles/.undos/                " save these indos into a dile in .undos in the dotfiles dir
+
+
 
 let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
 let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
@@ -118,3 +122,9 @@ nnoremap L $
 " Tabularize (git clone git://github.com/godlygeek/tabular.git)
 "   Align on commas
 "   :Tab /, 
+
+
+
+
+
+
