@@ -1,7 +1,7 @@
 "== Pathogen =="
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/.vim/bundle/{}')
+execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/.vim/bundle/{}')
 
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
@@ -15,7 +15,7 @@ set colorcolumn=80 " set an indicator for showing me where i can never be caugh 
 highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 set nowrap                                    " Do not wrap lines
 set number                                    " Get the line numbers going
-set spell                                     " Turn Spelling on
+set nospell                                     " Turn Spelling on
 set showmatch                                 " Show matching parenthesis
 syntax on                                     " Turn that syntax highlighting on
 set autoindent                                " Automatically indent the lines to match the previous indent
