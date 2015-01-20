@@ -44,15 +44,12 @@ set t_Co=256                                  " Make sure vim uses 256 color mod
 set undofile                                  " Save all undos into a file
 set undolevels=1000                           " Store a ton of undo operations
 set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
+
 " Ensure that the undo folder exists, and create it if it doesn't
 if !isdirectory(&undodir)
    echom "Creating undo directory"
    call system('mkdir ' . &undodir)
 endif
-
-
-
-
 
 
 let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
@@ -127,19 +124,17 @@ nnoremap <leader>nt :retab<cr>
 nnoremap H ^
 nnoremap L $
 
+"==Plugins=="
+
+" NERDTree
 " Map f2 to toggle the NERDTree
 noremap <f2> :NERDTreeToggle<cr>
 
-
-" k
-" Plugin Notes
-" 
-" Tabularize (git clone git://github.com/godlygeek/tabular.git)
-"   Align on commas
-"   :Tab /, 
-
-
-
-
-
+" GitGutter
+" Change the coloring in the GitGutter to ensure that is is actually visable
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green guifg=darkgreen
+highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+highlight GitGutterDelete ctermfg=red guifg=darkred
+highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
