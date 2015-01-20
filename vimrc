@@ -127,6 +127,11 @@ nnoremap <leader>nt :retab<cr>
 nnoremap H ^
 nnoremap L $
 
+" Map f2 to toggle the NERDTree
+noremap <f2> :NERDTreeToggle<cr>
+
+
+" k
 " Plugin Notes
 " 
 " Tabularize (git clone git://github.com/godlygeek/tabular.git)
