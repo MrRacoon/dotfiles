@@ -1,0 +1,3 @@
+:set editor vim
+:set prompt "%s λ: "
+
