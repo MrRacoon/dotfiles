@@ -126,6 +126,10 @@ nnoremap <leader>nt :retab<cr>
 nnoremap H ^
 nnoremap L $
 
+" The Klutz
+" No more will I accidently enter that damn Ex mode
+nnoremap Q <nop>
+
 "==Plugins=="
 
 " NERDTree
