@@ -154,3 +154,7 @@ omap / <Plug>(easymotion-tn)
 " different highlight method and have some other features )
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
+"== SCRATCH SPACE =="
+" Anything below here is considered temporary, and may be removed whenever
+

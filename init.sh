@@ -22,3 +22,14 @@ for i in "${dotFiles[@]}"; do
 
 done
 
+# YouCompleteMe in vim requires that you install some packages and build the
+# module
+# git submodule --recursive update $dotFileDir
+
+# Necessary packages
+# PKG_INSTALL=("build-essential" "python-dev" "cmake")
+
+# Updata and install necessary stuff
+# sudo apt-get update
+# sudo apt-get install $PKG_INSTALL
+
