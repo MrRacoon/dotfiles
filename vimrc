@@ -4,6 +4,13 @@
 execute pathogen#infect('~/dotfiles/vim/bundle/{}')
 ", '~/.vim/bundle/{}')
 
+" I always figure that the leader information should always be located at the
+" top of this file for anyone who might want to try, and need a quick way to
+" find out.
+let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
+let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
+let backspace ="indent,eol,start"             " Do the delete button thing
+
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
 syntax on
@@ -50,10 +57,6 @@ if !isdirectory(&undodir)
    echom "Creating undo directory"
    call system('mkdir ' . &undodir)
 endif
-
-let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
-let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
-let backspace ="indent,eol,start"             " Do the delete button thing
 
 "== Ctags =="
 
@@ -140,3 +143,14 @@ highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 " UndoTree
 " toggle the undo tree
 noremap <f5> :UndotreeToggle<cr>
+
+" EasyMotion
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
