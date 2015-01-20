@@ -45,3 +45,13 @@ GHCI
 ----
 `Pure witchcraft, in a file`
 
+GitConfig
+---------
+`When all is said and done, only that which you safely put away will ever be
+ preserved`
+
+Git-Commit-Template
+-------------------
+`Because, You never seem to remember how not to piss off the rest of your team`
+
+
