@@ -51,7 +51,6 @@ if !isdirectory(&undodir)
    call system('mkdir ' . &undodir)
 endif
 
-
 let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
 let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
 let backspace ="indent,eol,start"             " Do the delete button thing
@@ -138,3 +137,6 @@ highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
+" UndoTree
+" toggle the undo tree
+noremap <f5> :UndotreeToggle<cr>
