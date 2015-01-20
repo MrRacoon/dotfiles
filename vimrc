@@ -15,7 +15,7 @@ set colorcolumn=80                            " set an indicator for showing me 
 highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 set nowrap                                    " Do not wrap lines
 set number                                    " Get the line numbers going
-set nospell                                     " Turn Spelling on
+set nospell                                   " Turn Spelling on
 set showmatch                                 " Show matching parenthesis
 syntax on                                     " Turn that syntax highlighting on
 set autoindent                                " Automatically indent the lines to match the previous indent
@@ -114,4 +114,4 @@ nnoremap L $
 " 
 " Tabularize (git clone git://github.com/godlygeek/tabular.git)
 "   Align on commas
-"   :Tab /,
+"   :Tab /, 
