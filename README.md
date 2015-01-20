@@ -9,8 +9,10 @@ I'm hoping to start with my vimrc, which I dub as the most important df of all!
 
 VimRC
 -----
+```
 This is my editor. There are many like it but this one is mine. Without Vim, I 
 am useless. Without me, Vim is useless.
+```
 
 The road before you, no matter your path, will require you to write bagillions
 upon millions of lines of code. You're main weapon on this journey, will
