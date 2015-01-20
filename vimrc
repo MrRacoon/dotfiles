@@ -31,7 +31,6 @@ set ignorecase                                " Ignore case when searching
 set smartcase                                 " case insensitive if search term is all lowercased
 set pastetoggle=<f12>                         " Set the past toggle to F-12 because pasting can be hard :P
 set history=1000                              " Lets tore a bunch of old commands and things
-set undolevels=1000                           " Store a ton of undo operations
 set wildignore=*.swp,*.bak,*.pyc,*.class      " Ignore any of the files with the following extensions in tab completion
 set title                                     " Let Vim set the window's title
 set visualbell                                " Please no sounds, other then the patter of my fingers
@@ -40,8 +39,19 @@ set list                                      " Highlight whitespace
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
 set laststatus=2                              " Make sure that we use two lines for using status bars
 set t_Co=256                                  " Make sure vim uses 256 color mode
+
+"== Persistent file changing =="
 set undofile                                  " Save all undos into a file
-set undodir=~/dotfiles/.undos/                " save these indos into a dile in .undos in the dotfiles dir
+set undolevels=1000                           " Store a ton of undo operations
+set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
+" Ensure that the undo folder exists, and create it if it doesn't
+if !isdirectory(&undodir)
+   echom "Creating undo directory"
+   call system('mkdir ' . &undodir)
+endif
+
+
+
 
 
 
