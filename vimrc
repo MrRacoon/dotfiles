@@ -1,5 +1,10 @@
 "== Pathogen =="
 
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
+if !has('python3')
+   call add(g:pathogen_disabled, 'YouCompleteMe')
+endif
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
 execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}', '~/dotfiles/vim/snippets/{}')
 ", '~/.vim/bundle/{}')

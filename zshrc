@@ -9,6 +9,9 @@ antigen bundle git
 # Hehehe
 antigen bundle nyan
 
+# Cause Im sick of forgetting
+antigen bundle ssh-agent
+
 # Some web stuff I do
 antigen bundle node
 antigen bundle npm
