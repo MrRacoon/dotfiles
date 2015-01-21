@@ -9,7 +9,7 @@ execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}
 " find out.
 let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
 let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
-let backspace ="indent,eol,start"             " Do the delete button thing
+set backspace=2                               " Do the delete button thing
 
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
@@ -106,8 +106,10 @@ map <right> <nop>
 " | Cut out the middle man. Quicker buffer navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
-map <C-k> <C-w>k
+"map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+
 
 " The Stalker
 " Clear the search buffer
@@ -178,17 +180,16 @@ let g:javascript_conceal_prototype  = "¶"
 " Toggle Nerd Tree Tabs
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/bundle/vim-snippets/snippets"
+let g:UltiSnipsExpandTrigger="<leader>a"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-
-
-
 "== SCRATCH SPACE =="
 " Anything below here is considered temporary, and may be removed whenever
+
 
