@@ -175,6 +175,9 @@ let g:javascript_conceal_undefined  = "¿"
 let g:javascript_conceal_NaN        = "ℕ"
 let g:javascript_conceal_prototype  = "¶"
 
+" Toggle Nerd Tree Tabs
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 "== SCRATCH SPACE =="
 " Anything below here is considered temporary, and may be removed whenever
 
