@@ -46,6 +46,7 @@ set list                                      " Highlight whitespace
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
 set laststatus=2                              " Make sure that we use two lines for using status bars
 set t_Co=256                                  " Make sure vim uses 256 color mode
+set conceallevel=2                            " Ensure that the cool conceling options are set
 
 "== Persistent file changing =="
 set undofile                                  " Save all undos into a file
