@@ -31,7 +31,7 @@
     nuke      = reset --hard
 
 [commit]
-	template = $HOME/dotfiles/git-commit-template
+	template = ~/dotfiles/git-commit-template
 
 [push]
 	default = matching

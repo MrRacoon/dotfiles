@@ -5,6 +5,10 @@ let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
 if !has('python3')
    call add(g:pathogen_disabled, 'YouCompleteMe')
 endif
+
+
+
+
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
 execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}', '~/dotfiles/vim/snippets/{}')
 ", '~/.vim/bundle/{}')
@@ -24,8 +28,6 @@ syntax on
 filetype plugin indent on
 
 "== Settings =="
-set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
-highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 set nowrap                                    " Do not wrap lines
 set number                                    " Get the line numbers going
 set nospell                                   " Turn Spelling on
@@ -51,18 +53,21 @@ set list                                      " Highlight whitespace
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
 set laststatus=2                              " Make sure that we use two lines for using status bars
 set t_Co=256                                  " Make sure vim uses 256 color mode
-set conceallevel=2                            " Ensure that the cool conceling options are set
-
-"== Persistent file changing =="
-set undofile                                  " Save all undos into a file
 set undolevels=1000                           " Store a ton of undo operations
-set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
 
-" Ensure that the undo folder exists, and create it if it doesn't
-if !isdirectory(&undodir)
-   echom "Creating undo directory"
-   call system('mkdir ' . &undodir)
+if v:version >= 704
+   "== Persistent file changing =="
+   set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
+   set undofile                                  " Save all undos into a file
+   if !isdirectory(&undodir)
+      echom "Creating undo directory"
+      call system('mkdir ' . &undodir)
+   endif
+   set conceallevel=2                            " Ensure that the cool conceling options are set
+   set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
+   highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 endif
+" Ensure that the undo folder exists, and create it if it doesn't
 
 "== Ctags =="
 
