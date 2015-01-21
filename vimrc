@@ -181,16 +181,20 @@ let g:javascript_conceal_prototype  = "¶"
 " Toggle Nerd Tree Tabs
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
-
+" UltiSnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/bundle/vim-snippets/snippets"
-let g:UltiSnipsExpandTrigger="<leader>a"
+", ~/dotfiles/vim/bundle/snippets/angular-vim-snippets/UltiSnips"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+" You Complete Me
+"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
 "== SCRATCH SPACE =="
 " Anything below here is considered temporary, and may be removed whenever
-
-
