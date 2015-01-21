@@ -48,3 +48,21 @@
 [submodule "vim/languages/sparkup"]
 	path = vim/languages/sparkup
 	url = https://github.com/rstacruz/sparkup
+[submodule "vim/bundle/snippets/angular-vim-snippets"]
+	path = vim/bundle/snippets/angular-vim-snippets
+	url = https://github.com/matthewsimo/angular-vim-snippets
+[submodule "vim/languages/vim-angular"]
+	path = vim/languages/vim-angular
+	url = https://github.com/burnettk/vim-angular
+[submodule "vim/languages/vim-javascript"]
+	path = vim/languages/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/languages/javascript-libraries-syntax.vim"]
+	path = vim/languages/javascript-libraries-syntax.vim
+	url = https://github.com/othree/javascript-libraries-syntax.vim.git
+[submodule "vim/languages/jasmine.vim"]
+	path = vim/languages/jasmine.vim
+	url = https://github.com/claco/jasmine.vim.git
+[submodule "vim/bundle/vim-tmux-navigator"]
+	path = vim/bundle/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator

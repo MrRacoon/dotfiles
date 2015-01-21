@@ -1,7 +1,7 @@
 "== Pathogen =="
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}')
+execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}', '~/dotfiles/vim/snippets')
 ", '~/.vim/bundle/{}')
 
 " I always figure that the leader information should always be located at the
@@ -158,6 +158,22 @@ omap / <Plug>(easymotion-tn)
 " different highlight method and have some other features )
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
+" Vim-Javascript
+" Enables HTML/CSS syntax highlighting in your JavaScript file.
+let javascript_enable_domhtmlcss=1
+" Enables JavaScript code folding.
+let b:javascript_fold=1
+" Disables JSDoc syntax highlighting
+let javascript_ignore_javaScriptdoc=0
+" Enable concealing characters to impress
+let g:javascript_conceal_function   = "ƒ"
+let g:javascript_conceal_null       = "ø"
+let g:javascript_conceal_this       = "@"
+let g:javascript_conceal_return     = "⇚"
+let g:javascript_conceal_undefined  = "¿"
+let g:javascript_conceal_NaN        = "ℕ"
+let g:javascript_conceal_prototype  = "¶"
 
 "== SCRATCH SPACE =="
 " Anything below here is considered temporary, and may be removed whenever
