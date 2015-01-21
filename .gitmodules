@@ -42,3 +42,9 @@
 [submodule "vim/bundle/neco-ghc"]
 	path = vim/bundle/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc
+[submodule "vim/languages/vim-markdown"]
+	path = vim/languages/vim-markdown
+	url = https://github.com/tpope/vim-markdown
+[submodule "vim/languages/sparkup"]
+	path = vim/languages/sparkup
+	url = https://github.com/rstacruz/sparkup
