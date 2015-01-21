@@ -54,6 +54,7 @@
 [submodule "vim/languages/vim-angular"]
 	path = vim/languages/vim-angular
 	url = https://github.com/burnettk/vim-angular
+    ignore = dirty
 [submodule "vim/languages/vim-javascript"]
 	path = vim/languages/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
@@ -81,6 +82,7 @@
 [submodule "vim/bundle/taglist.vim"]
 	path = vim/bundle/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim
+    ignore = dirty
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
