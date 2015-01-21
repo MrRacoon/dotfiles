@@ -75,3 +75,6 @@
 [submodule "vim/bundle/ghcmod-vim"]
 	path = vim/bundle/ghcmod-vim
 	url = https://github.com/eagletmt/ghcmod-vim
+[submodule "vim/bundle/vim-eunuch"]
+	path = vim/bundle/vim-eunuch
+	url = git://github.com/tpope/vim-eunuch.git
