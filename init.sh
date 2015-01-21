@@ -33,3 +33,7 @@ done
 # sudo apt-get update
 # sudo apt-get install $PKG_INSTALL
 
+
+# cd vim/bundle/vimproc.vim
+# make
+
