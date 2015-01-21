@@ -54,6 +54,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
 set laststatus=2                              " Make sure that we use two lines for using status bars
 set t_Co=256                                  " Make sure vim uses 256 color mode
 set undolevels=1000                           " Store a ton of undo operations
+set hidden
 
 if v:version >= 704
    "== Persistent file changing =="
@@ -200,7 +201,11 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+"
+" vim-airline 
+let g:airline#extensions#tabline#enabled = 1
 
+" 
 " You Complete Me
 "
 let g:ycm_key_list_select_completion=[]

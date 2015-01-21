@@ -80,9 +80,6 @@
     path = vim/bundle/taglist.vim
     url = https://github.com/vim-scripts/taglist.vim
     ignore = dirty
-[submodule "vim/bundle/tagbar"]
-    path = vim/bundle/tagbar
-    url = https://github.com/majutsushi/tagbar
 [submodule "vim/bundle/vim-nerdtree-tabs"]
     path = vim/bundle/vim-nerdtree-tabs
     url = https://github.com/jistr/vim-nerdtree-tabs.git
