@@ -1,9 +1,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/vim-markdown"]
-   path = vim/languages/vim-markdown
-	url = https://github.com/tpope/vim-markdown
 [submodule "zsh/antigen"]
 	path = zsh/antigen
 	url = https://github.com/zsh-users/antigen.git
@@ -45,6 +42,3 @@
 [submodule "vim/bundle/neco-ghc"]
 	path = vim/bundle/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc
-[submodule "vim/languages/vim-markdown"]
-	path = vim/languages/vim-markdown
-	url = https://github.com/tpope/vim-markdown
