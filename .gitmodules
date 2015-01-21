@@ -10,6 +10,7 @@
 [submodule "vim/bundle/ctrlp.vim"]
     path = vim/bundle/ctrlp.vim
     url = https://github.com/kien/ctrlp.vim
+    ignore = dirty
 [submodule "vim/bundle/undotree"]
     path = vim/bundle/undotree
     url = https://github.com/mbbill/undotree

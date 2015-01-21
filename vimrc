@@ -66,6 +66,18 @@ if v:version >= 704
    set conceallevel=2                            " Ensure that the cool conceling options are set
    set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
    highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
+   " Enable concealing characters to impress
+   let g:javascript_conceal_function   = "ƒ"
+   let g:javascript_conceal_null       = "ø"
+   let g:javascript_conceal_this       = "@"
+   let g:javascript_conceal_return     = "⇚"
+   let g:javascript_conceal_undefined  = "¿"
+   let g:javascript_conceal_NaN        = "ℕ"
+   let g:javascript_conceal_prototype  = "¶"
+   " EasyMotion
+   " Gif config
+   map  / <Plug>(easymotion-sn)
+   omap / <Plug>(easymotion-tn)
 endif
 " Ensure that the undo folder exists, and create it if it doesn't
 
@@ -161,10 +173,7 @@ highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 " toggle the undo tree
 noremap <f5> :UndotreeToggle<cr>
 
-" EasyMotion
-" Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+"
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
 " EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
@@ -179,15 +188,6 @@ let javascript_enable_domhtmlcss=1
 let b:javascript_fold=1
 " Disables JSDoc syntax highlighting
 let javascript_ignore_javaScriptdoc=0
-" Enable concealing characters to impress
-let g:javascript_conceal_function   = "ƒ"
-let g:javascript_conceal_null       = "ø"
-let g:javascript_conceal_this       = "@"
-let g:javascript_conceal_return     = "⇚"
-let g:javascript_conceal_undefined  = "¿"
-let g:javascript_conceal_NaN        = "ℕ"
-let g:javascript_conceal_prototype  = "¶"
-
 " Toggle Nerd Tree Tabs
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
