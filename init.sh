@@ -22,6 +22,17 @@ for i in "${dotFiles[@]}"; do
 
 done
 
+# mkdir -p ~/.vim/autoload
+# cd ~/.vim/autoload
+# https://github.com/tpope/vim-pathogen.git
+# cd -
+
+# mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+# curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# Vim source
+# ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+
 # YouCompleteMe in vim requires that you install some packages and build the
 # module
 # git submodule --recursive update $dotFileDir
