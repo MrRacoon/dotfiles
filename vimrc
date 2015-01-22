@@ -211,5 +211,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
+" CoVim
+let CoVim_default_name = "MrRacoon"
+let CoVim_default_port = "1337"
+
+
+
 "== SCRATCH SPACE =="
 " Anything below here is considered temporary, and may be removed whenever
