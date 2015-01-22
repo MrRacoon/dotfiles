@@ -12,17 +12,22 @@ antigen bundle nyan
 # Cause Im sick of forgetting
 antigen bundle ssh-agent
 
-# Some web stuff I do
+# Some web stuff I do.
 antigen bundle node
 antigen bundle npm
 
-# That awesome syntax highlighting
+# That awesome syntax highlighting.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Get my favorite theme
+# Get my favorite theme.
 antigen theme bureau
 
-# Apply all the above declarations
+# Apply all the above declarations.
 antigen apply
 
 PATH="$PATH:~bin:~/npm/bin:~/.cabal/bin:~/.node_packages/bin"
+
+# If the aliases file is present, then scoop it up.
+[ -e "~/.aliases" ] && . ~/.aliases
+
+
