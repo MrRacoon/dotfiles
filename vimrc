@@ -38,7 +38,7 @@ set autoindent                                " Automatically indent the lines t
 set shiftround                                " Use a multiple of shift width when indenting with '<' or '>
 set copyindent                                " Copy the previous indentation
 set tabstop=4                                 " Turn tabs into 4 spaces
-set shiftwidth=3                              " Let each indent equal 4 spaces
+set shiftwidth=4                              " Let each indent equal 4 spaces
 set expandtab                                 " Use spaces instead of tabs
 set smarttab                                  " Use shift width to set tabs instead of tabstop
 set ignorecase                                " Ignore case when searching
@@ -194,7 +194,7 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " UltiSnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/bundle/vim-snippets/snippets"
+let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
 ", ~/dotfiles/vim/bundle/snippets/angular-vim-snippets/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"

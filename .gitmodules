@@ -48,6 +48,7 @@
 [submodule "vim/bundle/snippets/angular-vim-snippets"]
     path = vim/bundle/snippets/angular-vim-snippets
     url = https://github.com/matthewsimo/angular-vim-snippets
+    ignore = dirty
 [submodule "vim/languages/vim-angular"]
     path = vim/languages/vim-angular
     url = https://github.com/burnettk/vim-angular

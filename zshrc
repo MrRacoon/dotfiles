@@ -25,4 +25,4 @@ antigen theme bureau
 # Apply all the above declarations
 antigen apply
 
-PATH="$PATH:/home/erik/bin:/home/erik/npm/bin:/home/erik/.cabal/bin"
+PATH="$PATH:~bin:~/npm/bin:~/.cabal/bin:~/.node_packages/bin"
