@@ -211,9 +211,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
-" CoVim
+" CoVim (Plugin is a bust. Made in a senior capstone)
 let CoVim_default_name = "MrRacoon"
-let CoVim_default_port = "1337"
+let CoVim_default_port = "13377"
 
 
 
