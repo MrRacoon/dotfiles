@@ -103,3 +103,6 @@
 [submodule "vim/bundle/CoVim"]
 	path = vim/bundle/CoVim
 	url = git://github.com/FredKSchott/CoVim.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
