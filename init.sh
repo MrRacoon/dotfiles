@@ -1,26 +1,32 @@
 #!/bin/bash
 
 # default expectation
-dotFileDir="$HOME/dotfiles"
+DOT_FILE_DIR="$HOME/dotfiles"
 
-# Load the following dotfiles
-dotFiles=("vimrc" "zshrc" "npmrc" "ghci" "tmux.conf" "gitconfig" "ctags" "aliases")
+# linkerate :: String -> String -> IO (LinkFromAToB)
+linkerate() {
+    if [ ! "$1" ]; then
+        echo "LINKERATE: Missing Source param"
+        return -1
+    fi
+    if [ ! "$2" ]; then
+        echo "LINKERATE: Missing Destination Param"
+        return -1
+    fi
+    [ ! -e "$HOME/$2" ]       || (echo "LINKERATE: $2 Exists"; return -1) && \
+    [ -e "$DOT_FILE_DIR/$1" ] || (echo "LINKERATE: Source file does not exist"; return -1) && \
+    ln -s "$DOT_FILE_DIR/$1" "$HOME/$2"
+}
 
-for i in "${dotFiles[@]}"; do
-   # Ensure that the file exists in the source directory
-   if [ -e "$dotFileDir/$i" ]; then
-      # Ensure that the file doesn't already exist in the destination dir
-      if [ -e "$HOME/.$i" ]; then
-         echo "File $i exists already"
-      else
-         ln -s $dotFileDir/$i $HOME/.$i
-      fi
-   else
-      echo "Source file $i does not exist"
-      continue
-   fi
 
-done
+linkerate vimrc     .vimrc
+linkerate vimrc     .ideavimrc
+linkerate npmrc     .npmrc
+linkerate ghci      .ghci
+linkerate tmux.conf .tmux.conf
+linkerate gitconfig .gitconfig
+linkerate ctags     .ctags
+linkerate aliases   .aliases
 
 # mkdir -p ~/.vim/autoload
 # cd ~/.vim/autoload

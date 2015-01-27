@@ -25,7 +25,7 @@ deps_you_complete_me:
 	sudo apt-get install build-essential cmake python-dev
 
 build_you_complete_me: you_complete_me_deps
-	cd vim/bundle/YouCompleteMe; ./install.sh
+	cd vim/bundle/YouCompleteMe && ./install.sh
 
 # VimProc
 build_vimproc:
@@ -37,7 +37,7 @@ deps_tern:
 
 
 build_tern: deps_tern
-	cd vim/bundle/tern_for_vim; npm install
+	cd vim/bundle/tern_for_vim && npm install
 
 # Make the whole shebang
 install:

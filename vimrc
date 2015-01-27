@@ -6,9 +6,6 @@ if !has('python3')
    call add(g:pathogen_disabled, 'YouCompleteMe')
 endif
 
-
-
-
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
 execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}', '~/dotfiles/vim/snippets/{}')
 ", '~/.vim/bundle/{}')
@@ -92,6 +89,10 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Open up function definitions in a new tab
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR> 
 
+" Auto Save/Reload VimViews
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
 "== keystrokes =="
 " Keystrokes define us, they grant us extra bonus perks that we can use
 " to slay our enemies.
@@ -133,8 +134,6 @@ map <C-j> <C-w>j
 "map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-
-
 " The Stalker
 " Clear the search buffer
 nmap <silent> ,/ :nohlsearch<CR>
@@ -158,11 +157,25 @@ nnoremap Q <nop>
 
 "==Plugins=="
 
-" NERDTree
+"~NERDTree~"
+" f2 -> Toggle NerdTree
 " Map f2 to toggle the NERDTree
 noremap <f2> :NERDTreeToggle<cr>
+" f3 -> Toggle NerdTreeTabs
+" NerdTree that is persistent acros open tabs
+map <f3> <plug>NERDTreeTabsToggle<CR>
 
-" GitGutter
+" TagBar
+" f4 -> Toggle the tagbar
+noremap <f4> :TagBarToggle<cr>
+
+"~UndoTree~"
+" f5 -> Toggle the UndoTree window
+" Toggle the undo tree
+" Awesome Plugins
+noremap <f5> :UndotreeToggle<cr>
+
+"~GitGutter~"
 " Change the coloring in the GitGutter to ensure that is is actually visable
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green guifg=darkgreen
@@ -170,52 +183,57 @@ highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
-" UndoTree
-" toggle the undo tree
-noremap <f5> :UndotreeToggle<cr>
-
-"
+"~EasyMotion~"
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
 " EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+noremap  n <Plug>(easymotion-next)
+noremap  N <Plug>(easymotion-prev)
 
-" Vim-Javascript
+"~VimJavascript~"
 " Enables HTML/CSS syntax highlighting in your JavaScript file.
 let javascript_enable_domhtmlcss=1
 " Enables JavaScript code folding.
 let b:javascript_fold=1
 " Disables JSDoc syntax highlighting
 let javascript_ignore_javaScriptdoc=0
-" Toggle Nerd Tree Tabs
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
-" UltiSnips
+"~UltiSnips~"
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
 ", ~/dotfiles/vim/bundle/snippets/angular-vim-snippets/UltiSnips"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" TODO: Fix this mess
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-d>"
+let g:UltiSnipsJumpBackwardTrigger="<c-u>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-"
-" vim-airline 
+
+"~VimAirline~"
 let g:airline#extensions#tabline#enabled = 1
 
-" 
-" You Complete Me
-"
+"~YouCompleteMe~"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
-" CoVim (Plugin is a bust. Made in a senior capstone)
+"~CoVim~"
+" (Plugin is a bust. Made in a senior capstone)
+" Awesome Idea though...
 let CoVim_default_name = "MrRacoon"
-let CoVim_default_port = "13377"
+let CoVim_default_port = "13337"
 
+"~TagBar~"
+" Tell it how to javascript
+let g:tagbar_type_javascript = {
+    \ 'ctagstype' : 'JavaScript',
+    \ 'kinds'     : [
+        \ 'o:objects',
+        \ 'f:functions',
+        \ 'a:arrays',
+        \ 's:strings'
+    \ ]
+    \ }
 
-
-"== SCRATCH SPACE =="
+"===SCRATCH SPACE==="
 " Anything below here is considered temporary, and may be removed whenever
