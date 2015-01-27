@@ -103,6 +103,13 @@
 [submodule "vim/bundle/CoVim"]
 	path = vim/bundle/CoVim
 	url = git://github.com/FredKSchott/CoVim.git
+    ignore = dirty
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/autoload/vim-pathogen"]
+	path = vim/autoload/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
