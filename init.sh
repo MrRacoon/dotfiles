@@ -19,14 +19,15 @@ linkerate() {
 }
 
 
+linkerate aliases   .aliases
+linkerate ctags     .ctags
+linkerate ghci      .ghci
+linkerate gitconfig .gitconfig
+linkerate npmrc     .npmrc
+linkerate profile   .profile
+linkerate tmux.conf .tmux.conf
 linkerate vimrc     .vimrc
 linkerate vimrc     .ideavimrc
-linkerate npmrc     .npmrc
-linkerate ghci      .ghci
-linkerate tmux.conf .tmux.conf
-linkerate gitconfig .gitconfig
-linkerate ctags     .ctags
-linkerate aliases   .aliases
 
 # mkdir -p ~/.vim/autoload
 # cd ~/.vim/autoload
