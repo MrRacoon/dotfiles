@@ -54,6 +54,7 @@ set undolevels=1000                           " Store a ton of undo operations
 set hidden
 
 if v:version >= 704
+
    "== Persistent file changing =="
    set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
    set undofile                                  " Save all undos into a file
@@ -61,10 +62,11 @@ if v:version >= 704
       echom "Creating undo directory"
       call system('mkdir ' . &undodir)
    endif
-   set conceallevel=2                            " Ensure that the cool conceling options are set
    set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
    highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
+
    " Enable concealing characters to impress
+   set conceallevel=2                            " Ensure that the cool conceling options are set
    let g:javascript_conceal_function   = "ƒ"
    let g:javascript_conceal_null       = "ø"
    let g:javascript_conceal_this       = "@"
@@ -72,10 +74,11 @@ if v:version >= 704
    let g:javascript_conceal_undefined  = "¿"
    let g:javascript_conceal_NaN        = "ℕ"
    let g:javascript_conceal_prototype  = "¶"
+
    " EasyMotion
-   " Gif config
    map  / <Plug>(easymotion-sn)
    omap / <Plug>(easymotion-tn)
+
 endif
 " Ensure that the undo folder exists, and create it if it doesn't
 
