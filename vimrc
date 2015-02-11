@@ -158,6 +158,14 @@ nnoremap L $
 " No more will I accidently enter that damn Ex mode
 nnoremap Q <nop>
 
+" Moving Lines Up and Down
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+inoremap <leader>j <Esc>:m .+1<CR>==gi
+inoremap <leader>k <Esc>:m .-2<CR>==gi
+vnoremap <leader>j :m '>+1<CR>gv=gv
+vnoremap <leader>k :m '<-2<CR>gv=gv
+
 "==Plugins=="
 
 "~NERDTree~"
