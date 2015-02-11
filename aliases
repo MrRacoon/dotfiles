@@ -1,0 +1,9 @@
+alias setKeyboard="sudo dpkg-reconfigure console-setup"
+alias qwerty="setxkbmap us"
+alias colemak="setxkbmap us -variant colemak"
+alias dvorak="setxkbmap dvorak"
+
+
+alias google="w3m https://google.com"
+
+
