@@ -4,7 +4,7 @@
 dotFileDir="$HOME/dotfiles"
 
 # Load the following dotfiles
-dotFiles=("vimrc" "zshrc" "npmrc" "ghci" "tmux.conf" "gitconfig" "ctags" "aliases")
+dotFiles=("vimrc" "zshrc" "npmrc" "ghci" "tmux.conf" "gitconfig" "ctags" "aliases" "pentadactyl")
 
 for i in "${dotFiles[@]}"; do
    # Ensure that the file exists in the source directory
