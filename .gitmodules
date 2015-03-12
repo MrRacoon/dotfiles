@@ -87,9 +87,6 @@
 [submodule "vim/bundle/vim-thematic"]
     path = vim/bundle/vim-thematic
     url = https://github.com/reedes/vim-thematic
-[submodule "vim/bundle/vim-snippets"]
-    path = vim/bundle/vim-snippets
-    url = https://github.com/honza/vim-snippets
 [submodule "vim/bundle/YouCompleteMe"]
     path = vim/bundle/YouCompleteMe
     url = https://github.com/Valloric/YouCompleteMe.git
@@ -113,3 +110,6 @@
 [submodule "vim/autoload/vim-pathogen"]
 	path = vim/autoload/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim/bundle/vim-haskellConcealPlus"]
+	path = vim/bundle/vim-haskellConcealPlus
+	url = https://github.com/enomsg/vim-haskellConcealPlus.git
