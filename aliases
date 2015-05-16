@@ -1,9 +1,28 @@
+# Run the keyboard setup util
 alias setKeyboard="sudo dpkg-reconfigure console-setup"
+
+# switch to qwert Key bindings
 alias qwerty="setxkbmap us"
+
+# switch to colemac key bindings
 alias colemak="setxkbmap us -variant colemak"
+
+# switch to dvorak key bindings
 alias dvorak="setxkbmap dvorak"
 
-
+# Command line googling
 alias google="w3m https://google.com"
+
+# TaskWarrior Commands
+alias ta="task add"
+alias tl="task list"
+alias td="task delete"
+
+
+tc() {
+    task $1 done
+}
+
+
 
 

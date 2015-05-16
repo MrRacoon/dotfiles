@@ -249,3 +249,14 @@ let g:tagbar_type_javascript = {
 
 "===SCRATCH SPACE==="
 " Anything below here is considered temporary, and may be removed whenever
+
+" Reload
+map <silent> tu :call GHC_BrowseAll()<CR>
+" Type Lookup
+map <silent> tw :call GHC_ShowType(1)<CR>
+
+nmap <leader>= :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
+
+let g:jsx_ext_required = 0

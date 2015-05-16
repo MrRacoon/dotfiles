@@ -16,18 +16,24 @@ antigen bundle ssh-agent
 antigen bundle node
 antigen bundle npm
 
+antigen bundle cabal
+
 # That awesome syntax highlighting.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Get my favorite theme.
-antigen theme bureau
+antigen theme blinks
 
 # Apply all the above declarations.
 antigen apply
 
-PATH="$PATH:~bin:~/npm/bin:~/.cabal/bin:~/.node_packages/bin"
+PATH="$HOME/bin:$HOME/npm/bin:$HOME/.cabal/bin:$HOME/.npm_packages/bin:$PATH"
 
 # If the aliases file is present, then scoop it up.
 [ -e "~/.aliases" ] && . ~/.aliases
+
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
 
 
