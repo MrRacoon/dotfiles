@@ -67,7 +67,7 @@ myFocusFollowsMouse  :: Bool
 myFocusFollowsMouse  = False
 myBorderWidth        = 2
 myModMask            = mod4Mask
-myWorkspaces         = ["Front","2","3","4","5","6","7","8","9"]
+myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
 myFocusedBorderColor = "#f3993f"
 beepOptions = "-l 1000"
@@ -260,9 +260,9 @@ myLogHook   = fadeInactiveLogHook 0.5
 
 myStartupHook :: X ()
 myStartupHook = setWMName "LG3D" >> do
-        spawn myTerminal
-        spawn "firefox"
-        spawnOn "Music" "spotify"
+        spawnOn "Main" myTerminal
+        spawnOn "Main" "firefox"
+        spawnOn "3:Music" "spotify"
         return ()
 
 main = do
