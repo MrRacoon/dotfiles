@@ -24,6 +24,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Get my favorite theme.
 antigen theme blinks
 
+# Get my favorite theme.
+antigen bundle tmux
+
 # Apply all the above declarations.
 antigen apply
 
