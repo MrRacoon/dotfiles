@@ -19,6 +19,8 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
+import Data.List
+
 import Data.Monoid
 import System.Exit
 
@@ -141,19 +143,20 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
-    -- Add Some sounds to the keyboard
-    , ((modm .|. controlMask , xK_1           ), spawn $ ("beep -f 261.63"++beepOptions))
-    , ((modm .|. controlMask , xK_2           ), spawn $ ("beep -f 277.18"++beepOptions))
-    , ((modm .|. controlMask , xK_3           ), spawn $ ("beep -f 293.66"++beepOptions))
-    , ((modm .|. controlMask , xK_4           ), spawn $ ("beep -f 311.13"++beepOptions))
-    , ((modm .|. controlMask , xK_5           ), spawn $ ("beep -f 329.63"++beepOptions))
-    , ((modm .|. controlMask , xK_6           ), spawn $ ("beep -f 349.23"++beepOptions))
-    , ((modm .|. controlMask , xK_7           ), spawn $ ("beep -f 369.99"++beepOptions))
-    , ((modm .|. controlMask , xK_8           ), spawn $ ("beep -f 392.00"++beepOptions))
-    , ((modm .|. controlMask , xK_9           ), spawn $ ("beep -f 415.30"++beepOptions))
-    , ((modm .|. controlMask , xK_0           ), spawn $ ("beep -f 440.00"++beepOptions))
-    , ((modm .|. controlMask , xK_KP_Subtract ), spawn $ ("beep -f 466.16"++beepOptions))
-    , ((modm .|. controlMask , xK_KP_Equal    ), spawn $ ("beep -f 523.25"++beepOptions))
+    -- interac with lifx
+
+
+    -- Add commands to turn my bulbs different colors
+    , ((modm .|. controlMask , xK_0           ), spawn $ (bulbs "off" []))
+    , ((modm .|. controlMask , xK_1           ), spawn $ (bulbs "on" []))
+    , ((modm .|. controlMask , xK_2           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=red"]))
+    , ((modm .|. controlMask , xK_3           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=orange"]))
+    , ((modm .|. controlMask , xK_4           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=yellow"]))
+    , ((modm .|. controlMask , xK_5           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=green"]))
+    , ((modm .|. controlMask , xK_6           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=blue"]))
+    , ((modm .|. controlMask , xK_7           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=black"]))
+    , ((modm .|. controlMask , xK_8           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=purple"]))
+    , ((modm .|. controlMask , xK_9           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=pink"]))
 
 
     -- Toggle the status bar gap
@@ -209,6 +212,12 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
+bulbs comand argList = "curl localhost:3333/lighting/" ++ end
+  where
+    end  = if null argList
+            then comand
+            else comand ++ " -X POST -d '" ++ concat args ++ "'"
+    args = intersperse "&" argList
 ------------------------------------------------------------------------
 -- Layouts:
 myLayout = Full ||| tiled ||| Mirror tiled
@@ -262,7 +271,7 @@ myStartupHook :: X ()
 myStartupHook = setWMName "LG3D" >> do
         spawnOn "Main" myTerminal
         spawnOn "Main" "firefox"
-        spawnOn "3:Music" "spotify"
+        spawnOn "Music" "spotify"
         return ()
 
 main = do
