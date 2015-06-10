@@ -1,4 +1,5 @@
 vim/undos
+vim/view
 vim/snippets
 *.swp
 xmonad/xmonad-*
