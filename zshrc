@@ -22,7 +22,7 @@ antigen bundle cabal
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Get my favorite theme.
-antigen theme gallois
+antigen theme bureau
 
 # Get my favorite theme.
 antigen bundle tmux
