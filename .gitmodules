@@ -118,3 +118,6 @@
 [submodule "vim/bundle/sparkup"]
 	path = vim/bundle/sparkup
 	url = https://github.com/rstacruz/sparkup.git
+[submodule "vim/bundle/vim-jsx-riot"]
+	path = vim/bundle/vim-jsx-riot
+	url = https://github.com/nicklasos/vim-jsx-riot.git

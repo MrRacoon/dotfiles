@@ -258,5 +258,7 @@ map <silent> tw :call GHC_ShowType(1)<CR>
 nmap <leader>= :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
+" Add RiotJs Syntaxing
+au BufNewFile,BufRead *.tag setlocal ft=html
 
 let g:jsx_ext_required = 0
