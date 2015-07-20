@@ -29,6 +29,7 @@ linkerate tmux.conf .tmux.conf
 linkerate vimrc     .vimrc
 linkerate vimrc     .ideavimrc
 
+
 # mkdir -p ~/.vim/autoload
 # cd ~/.vim/autoload
 # https://github.com/tpope/vim-pathogen.git

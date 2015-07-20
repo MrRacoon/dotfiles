@@ -2,12 +2,12 @@
 
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
-if !has('python3')
-   call add(g:pathogen_disabled, 'YouCompleteMe')
-endif
+" if !has('python3')
+"    call add(g:pathogen_disabled, 'YouCompleteMe')
+" endif
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}', '~/dotfiles/vim/snippets/{}')
+execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}')
 ", '~/.vim/bundle/{}')
 
 " I always figure that the leader information should always be located at the
@@ -53,6 +53,12 @@ set t_Co=256                                  " Make sure vim uses 256 color mod
 set undolevels=1000                           " Store a ton of undo operations
 set hidden
 
+
+" set the colors
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
 if v:version >= 704
 
    "== Persistent file changing =="
@@ -74,10 +80,6 @@ if v:version >= 704
    let g:javascript_conceal_undefined  = "¿"
    let g:javascript_conceal_NaN        = "ℕ"
    let g:javascript_conceal_prototype  = "¶"
-
-   " EasyMotion
-   map  / <Plug>(easymotion-sn)
-   omap / <Plug>(easymotion-tn)
 
 endif
 " Ensure that the undo folder exists, and create it if it doesn't
@@ -124,7 +126,7 @@ noremap ; :
 noremap : ;
 
 " The Nwb Pwnr
-" I don't have a problem with this, But I put it here to make a point
+" | I don't have a problem with this, But I put it here to make a point
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -138,34 +140,36 @@ map <C-j> <C-w>j
 map <C-l> <C-w>l
 
 " The Stalker
-" Clear the search buffer
+" | Clear the search buffer
 nmap <silent> ,/ :nohlsearch<CR>
 
 " The Forgetful Oper
-" For the case where I forget to sudo before editing configuration files
+" | For the case where I forget to sudo before editing configuration files
 cmap w!! w !sudo tee % >/dev/null
 
 " The Smirk
-" replace all tabs in the current file with space characters
+" | replace all tabs in the current file with space characters
 nnoremap <leader>nt :retab<cr>
 
 " The Flip Flopper
-" Flop back and forth quicker from the beggining to the end of the line
+" | Flop back and forth quicker from the beggining to the end of the line
 nnoremap H ^
 nnoremap L $
 
 " The Klutz
-" No more will I accidently enter that damn Ex mode
+" | No more will I accidently enter that damn Ex mode
 nnoremap Q <nop>
 
 " The Scrambler
-" Moving Lines Up and Down
+" | Moving Lines Up and Down
 nnoremap <leader>J :m .+1<CR>==
 nnoremap <leader>K :m .-2<CR>==
 inoremap <leader>J <Esc>:m .+1<CR>==gi
 inoremap <leader>K <Esc>:m .-2<CR>==gi
 vnoremap <leader>J :m '>+1<CR>gv=gv
 vnoremap <leader>K :m '<-2<CR>gv=gv
+
+
 
 "==Plugins=="
 
@@ -175,7 +179,7 @@ vnoremap <leader>K :m '<-2<CR>gv=gv
 noremap <f2> :NERDTreeToggle<cr>
 " f3 -> Toggle NerdTreeTabs
 " NerdTree that is persistent acros open tabs
-map <f3> <plug>NERDTreeTabsToggle<CR>
+noremap <f3> <plug>NERDTreeTabsToggle<CR>
 
 " TagBar
 " f4 -> Toggle the tagbar
@@ -196,12 +200,15 @@ highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
 "~EasyMotion~"
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
 " EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-noremap  n <Plug>(easymotion-next)
-noremap  N <Plug>(easymotion-prev)
+noremap n <Plug>(easymotion-next)
+noremap N <Plug>(easymotion-prev)
 
 "~VimJavascript~"
 " Enables HTML/CSS syntax highlighting in your JavaScript file.
@@ -212,22 +219,24 @@ let b:javascript_fold=1
 let javascript_ignore_javaScriptdoc=0
 
 "~UltiSnips~"
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+"
+" " better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
-", ~/dotfiles/vim/bundle/snippets/angular-vim-snippets/UltiSnips"
-" TODO: Fix this mess
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-u>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
+
+
 
 "~VimAirline~"
 let g:airline#extensions#tabline#enabled = 1
-
-"~YouCompleteMe~"
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1
 
 "~CoVim~"
 " (Plugin is a bust. Made in a senior capstone)
@@ -249,3 +258,6 @@ let g:tagbar_type_javascript = {
 
 "===SCRATCH SPACE==="
 " Anything below here is considered temporary, and may be removed whenever
+
+
+
