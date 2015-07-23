@@ -7,7 +7,7 @@ if !has('python3')
 endif
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}', '~/dotfiles/vim/snippets/{}')
+execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}')
 ", '~/.vim/bundle/{}')
 
 " I always figure that the leader information should always be located at the
@@ -224,6 +224,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 "~VimAirline~"
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 "~YouCompleteMe~"
 let g:ycm_key_list_select_completion=[]

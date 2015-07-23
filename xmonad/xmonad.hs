@@ -269,8 +269,8 @@ myLogHook   = fadeInactiveLogHook 0.5
 
 myStartupHook :: X ()
 myStartupHook = setWMName "LG3D" >> do
-        spawnOn "Main" myTerminal
-        spawnOn "Main" "firefox"
+        spawnOn "Main"  myTerminal
+        spawnOn "Main"  "firefox"
         spawnOn "Music" "spotify"
         spawn "ckb"
         return ()
