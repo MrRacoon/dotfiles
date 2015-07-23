@@ -13,9 +13,9 @@ execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}
 " I always figure that the leader information should always be located at the
 " top of this file for anyone who might want to try, and need a quick way to
 " find out.
-let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
-let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
-set backspace=2                               " Do the delete button thing
+" I map leader to the space bar. Because it simply rocks. I use map here
+" because it seems to work better in insery mode.
+map <space> <leader>
 
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
@@ -51,6 +51,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
 set laststatus=2                              " Make sure that we use two lines for using status bars
 set t_Co=256                                  " Make sure vim uses 256 color mode
 set undolevels=1000                           " Store a ton of undo operations
+set backspace=2                               " Do the delete button thing
 set hidden
 
 if v:version >= 704
@@ -123,8 +124,20 @@ noremap ; :
 " 'damn this is hard to relearn' - me
 noremap : ;
 
+
+" The maintainer
+" | An assortmant of git commands
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gv :Gvdiff<cr>
+nnoremap <leader>gg :Ggrep 
+nnoremap <leader>gu :Gpull<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>hg :help fugitive<cr>
+
 " The Nwb Pwnr
-" I don't have a problem with this, But I put it here to make a point
+" | I don't have a problem with this, But I put it here to make a point
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -138,28 +151,28 @@ map <C-j> <C-w>j
 map <C-l> <C-w>l
 
 " The Stalker
-" Clear the search buffer
+" | Clear the search buffer
 nmap <silent> ,/ :nohlsearch<CR>
 
 " The Forgetful Oper
-" For the case where I forget to sudo before editing configuration files
+" | For the case where I forget to sudo before editing configuration files
 cmap w!! w !sudo tee % >/dev/null
 
 " The Smirk
-" replace all tabs in the current file with space characters
+" | Replace all tabs in the current file with space characters
 nnoremap <leader>nt :retab<cr>
 
 " The Flip Flopper
-" Flop back and forth quicker from the beggining to the end of the line
+" | Flop back and forth quicker from the beggining to the end of the line
 nnoremap H ^
 nnoremap L $
 
 " The Klutz
-" No more will I accidently enter that damn Ex mode
+" | No more will I accidently enter that damn Ex mode
 nnoremap Q <nop>
 
 " The Scrambler
-" Moving Lines Up and Down
+" | Moving Lines Up and Down
 nnoremap <leader>J :m .+1<CR>==
 nnoremap <leader>K :m .-2<CR>==
 inoremap <leader>J <Esc>:m .+1<CR>==gi
@@ -167,27 +180,31 @@ inoremap <leader>K <Esc>:m .-2<CR>==gi
 vnoremap <leader>J :m '>+1<CR>gv=gv
 vnoremap <leader>K :m '<-2<CR>gv=gv
 
-"==Plugins=="
+" The OCDork
+" | I use this map because the action has become so common in my world
+nnoremap <CR> o<ESC>
+nnoremap <leader><CR> O<ESC>
 
-"~NERDTree~"
+"===== Plugins ====="
+
+" NERDTree
 " f2 -> Toggle NerdTree
-" Map f2 to toggle the NERDTree
 noremap <f2> :NERDTreeToggle<cr>
-" f3 -> Toggle NerdTreeTabs
 " NerdTree that is persistent acros open tabs
+" f3 -> Toggle NerdTreeTabs
 map <f3> <plug>NERDTreeTabsToggle<CR>
 
 " TagBar
 " f4 -> Toggle the tagbar
 noremap <f4> :TagBarToggle<cr>
 
-"~UndoTree~"
+" UndoTree
 " f5 -> Toggle the UndoTree window
 " Toggle the undo tree
 " Awesome Plugins
 noremap <f5> :UndotreeToggle<cr>
 
-"~GitGutter~"
+" GitGutter
 " Change the coloring in the GitGutter to ensure that is is actually visable
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green guifg=darkgreen
@@ -195,7 +212,7 @@ highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
-"~EasyMotion~"
+" EasyMotion
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
 " EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
@@ -203,7 +220,7 @@ highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 noremap  n <Plug>(easymotion-next)
 noremap  N <Plug>(easymotion-prev)
 
-"~VimJavascript~"
+" VimJavascript
 " Enables HTML/CSS syntax highlighting in your JavaScript file.
 let javascript_enable_domhtmlcss=1
 " Enables JavaScript code folding.
@@ -211,7 +228,7 @@ let b:javascript_fold=1
 " Disables JSDoc syntax highlighting
 let javascript_ignore_javaScriptdoc=0
 
-"~UltiSnips~"
+" UltiSnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
 ", ~/dotfiles/vim/bundle/snippets/angular-vim-snippets/UltiSnips"
@@ -222,21 +239,21 @@ let g:UltiSnipsJumpBackwardTrigger="<c-u>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-"~VimAirline~"
+" VimAirline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-"~YouCompleteMe~"
+" YouCompleteMe
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
-"~CoVim~"
+" CoVim
 " (Plugin is a bust. Made in a senior capstone)
 " Awesome Idea though...
 let CoVim_default_name = "MrRacoon"
 let CoVim_default_port = "13337"
 
-"~TagBar~"
+" TagBar
 " Tell it how to javascript
 let g:tagbar_type_javascript = {
     \ 'ctagstype' : 'JavaScript',
@@ -248,16 +265,13 @@ let g:tagbar_type_javascript = {
     \ ]
     \ }
 
-"===SCRATCH SPACE==="
+" ===== SCRATCH SPACE ===== "
 " Anything below here is considered temporary, and may be removed whenever
 
 " Reload
 map <silent> tu :call GHC_BrowseAll()<CR>
 " Type Lookup
 map <silent> tw :call GHC_ShowType(1)<CR>
-
-nmap <leader>= :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
 
 " Add RiotJs Syntaxing
 au BufNewFile,BufRead *.tag setlocal ft=html
