@@ -52,38 +52,28 @@ set t_Co=256                                  " Make sure vim uses 256 color mod
 set undolevels=1000                           " Store a ton of undo operations
 set hidden
 set backspace=2                               " Do the delete button thing
-
-
+set conceallevel=2                            " Ensure that the cool conceling options are set
+set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
+highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 
 " set the colors
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
-if v:version >= 704
-
-   "== Persistent file changing =="
-   set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
-   set undofile                                  " Save all undos into a file
-   if !isdirectory(&undodir)
-      echom "Creating undo directory"
-      call system('mkdir ' . &undodir)
-   endif
-   set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
-   highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
-
-   " Enable concealing characters to impress
-   set conceallevel=2                            " Ensure that the cool conceling options are set
-   let g:javascript_conceal_function   = "ƒ"
-   let g:javascript_conceal_null       = "ø"
-   let g:javascript_conceal_this       = "@"
-   let g:javascript_conceal_return     = "⇚"
-   let g:javascript_conceal_undefined  = "¿"
-   let g:javascript_conceal_NaN        = "ℕ"
-   let g:javascript_conceal_prototype  = "¶"
-
-endif
+" Persistent file changing
+set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
+set undofile                                  " Save all undos into a file
 " Ensure that the undo folder exists, and create it if it doesn't
+if !isdirectory(&undodir)
+    echom "Creating undo directory"
+    call system('mkdir ' . &undodir)
+endif
+
+
+if v:version >= 704
+   " echom "Woot vim > 7.04"
+endif
 
 "== Ctags =="
 
@@ -99,9 +89,10 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
-"== keystrokes =="
-" Keystrokes define us, they grant us extra bonus perks that we can use
-" to slay our enemies.
+"===== keystrokes ====="
+"
+" > Keystrokes define us, they grant us extra bonus perks that we can use
+" > to slay our enemies.
 
 " The Insertion operator
 " | A binding made to take care of a very common keystroke in my life
@@ -109,7 +100,7 @@ nnoremap <cr> o<esc>
 nnoremap <leader><cr> O<esc>
 
 " The Maintainer
-" | Git commands for the win
+" | For the cautious and exact carpenter
 nnoremap <leader>gg :Gstatus<cr> " I use g for efficiency, this is the most common case
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gv :Gvdiff<cr>
@@ -127,18 +118,15 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr> 
 
 " The Button Masher
-" Another escape sequence for the Insert Mode
+" | Another escape sequence for the Insert Mode
 inoremap kj <esc>
-" The Button Masher (Upgrade)
-" turn off the <esc> key for returning to normal mode from insert mode
+" | turn off the <esc> key for returning to normal mode from insert mode
 inoremap <esc> <nop>
 
 " The Quick Scoper
-" Cut out like 3 keystrokes from nearly every command
+" | Cut out like 3 keystrokes from nearly every command
+" | Beast Mode level command usage
 noremap ; :
-" The NoScoper
-" Beast Mode level command usage
-" 'damn this is hard to relearn' - me
 noremap : ;
 
 " The Nwb Pwnr
@@ -148,11 +136,16 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+" The Digger
+" | Dig down those function definitions
+nnoremap <leader>tt <C-]>
+nnoremap <leader>tu <C-t>
+
 " The Quick Draw
 " | Cut out the middle man. Quicker buffer navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
-"map <C-k> <C-w>k
+map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " The Stalker
@@ -189,81 +182,85 @@ vnoremap <leader>K :m '<-2<CR>gv=gv
 " | Switch between spec files and source in an angularjs project
 nnoremap <leader>a :A<CR>
 
-
 "==Plugins=="
 
-"~NERDTree~"
-" f2 -> Toggle NerdTree
-" Map f2 to toggle the NERDTree
+" NERDTree
+" | Toggle the NERDTree
 noremap <f2> :NERDTreeToggle<cr>
-" f3 -> Toggle NerdTreeTabs
-" NerdTree that is persistent acros open tabs
+" | NerdTree that is persistent acros open tabs
 noremap <f3> <plug>NERDTreeTabsToggle<CR>
 
 " TagBar
-" f4 -> Toggle the tagbar
+" | Toggle the tagbar
 noremap <f4> :TagBarToggle<cr>
 
-"~UndoTree~"
-" f5 -> Toggle the UndoTree window
-" Toggle the undo tree
-" Awesome Plugins
+" UndoTree
+" | Toggle the UndoTree window
 noremap <f5> :UndotreeToggle<cr>
 
-"~GitGutter~"
-" Change the coloring in the GitGutter to ensure that is is actually visable
+" GitGutter
+" | Change the coloring in the GitGutter to ensure that is is actually visable
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green guifg=darkgreen
 highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
-"~EasyMotion~"
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" EasyMotion
+" | Find stuff in the file with awesome ease
+map  <leader>f <Plug>(easymotion-sn)
+omap <leader>f <Plug>(easymotion-tn)
 
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
-" EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-noremap n <Plug>(easymotion-next)
-noremap N <Plug>(easymotion-prev)
+" VimJavascript
+" | Some highlighting for javascript
+let javascript_enable_domhtmlcss=1    " Enables HTML/CSS syntax highlighting in your JavaScript file.
+let b:javascript_fold=1               " Enables JavaScript code folding.
+let javascript_ignore_javaScriptdoc=0 " Disables JSDoc syntax highlighting
+" Enable concealing characters to impress
+let g:javascript_conceal_function   = "ƒ"
+let g:javascript_conceal_null       = "ø"
+let g:javascript_conceal_this       = "@"
+let g:javascript_conceal_return     = "⇚"
+let g:javascript_conceal_undefined  = "¿"
+let g:javascript_conceal_NaN        = "ℕ"
+let g:javascript_conceal_prototype  = "¶"
 
-"~VimJavascript~"
-" Enables HTML/CSS syntax highlighting in your JavaScript file.
-let javascript_enable_domhtmlcss=1
-" Enables JavaScript code folding.
-let b:javascript_fold=1
-" Disables JSDoc syntax highlighting
-let javascript_ignore_javaScriptdoc=0
 
-"~UltiSnips~"
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" UltiSnips and YouCompleteMe and SuperTab
+" | better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger           = "<tab>"
+let g:UltiSnipsJumpForwardTrigger      = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger     = "<s-tab>"
+let g:UltiSnipsSnippetsDir             = ["~/dotFiles/vim/bundle/angular-vim-snippets/UltiSnips"]
+" | make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-"
-" " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetsDir =["~/dotFiles/vim/bundle/angular-vim-snippets/UltiSnips"]
+" | makes everything tab-completable!
+let g:SuperTabDefaultCompletionType    = '<C-n>'
 
+" Ctrlp
+" | Fuzzy searching for project things
+let g:ctrlp_extensions = ['tag']
+nnoremap <leader>pp :CtrlPLastMode<cr> " Most common case
+nnoremap <leader>pf :CtrlP<cr>        " Find a file
+nnoremap <leader>pt :CtrlPTag<cr>     " Find tags in the project
+nnoremap <leader>pb :CtrlPBuffer<cr>  " Find a term in the current buffer
+nnoremap <leader>pr :CtrlPMRU<cr>     " Find a file in recent files
 
+" VimAirline
+" | I Love this thing...once you figure out the damn fonts
+let g:airline#extensions#tabline#enabled = 1        " Enable the tab line when multiple files are opened
+let g:airline#extensions#tabline#fnamemod = ':t'    " Only show the filename
+let g:airline_powerline_fonts = 1                   " Yes, we have those damn fonts
 
-"~VimAirline~"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts = 1
-
-"~CoVim~"
-" (Plugin is a bust. Made in a senior capstone)
-" Awesome Idea though...
+" CoVim
+" | (Plugin is a bust. Made in a senior capstone)
+" | Awesome Idea though...
 let CoVim_default_name = "MrRacoon"
 let CoVim_default_port = "13337"
 
-"~TagBar~"
-" Tell it how to javascript
+" TagBar
+" | Tell it how to javascript
 let g:tagbar_type_javascript = {
     \ 'ctagstype' : 'JavaScript',
     \ 'kinds'     : [
@@ -276,6 +273,3 @@ let g:tagbar_type_javascript = {
 
 "===SCRATCH SPACE==="
 " Anything below here is considered temporary, and may be removed whenever
-
-
-
