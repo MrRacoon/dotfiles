@@ -1,21 +1,20 @@
 "== Pathogen =="
 
 " To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
+" let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
 " if !has('python3')
 "    call add(g:pathogen_disabled, 'YouCompleteMe')
 " endif
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
+" I also will assume that all file locations relevent to dotfiles will
+" be in the dotfiles dir in the user's homedir, Cause that's how I like
+" it for now...
 execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}')
-", '~/.vim/bundle/{}')
 
-" I always figure that the leader information should always be located at the
-" top of this file for anyone who might want to try, and need a quick way to
-" find out.
-let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
+" let mapleader="\<space>"                      " Get my Leader keys all situated. I'm a sucker for common comma
 let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
-set backspace=2                               " Do the delete button thing
+map <space> <leader>
 
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
@@ -52,6 +51,8 @@ set laststatus=2                              " Make sure that we use two lines 
 set t_Co=256                                  " Make sure vim uses 256 color mode
 set undolevels=1000                           " Store a ton of undo operations
 set hidden
+set backspace=2                               " Do the delete button thing
+
 
 
 " set the colors
@@ -102,12 +103,27 @@ autocmd BufWinEnter *.* silent loadview
 " Keystrokes define us, they grant us extra bonus perks that we can use
 " to slay our enemies.
 
+" The Insertion operator
+" | A binding made to take care of a very common keystroke in my life
+nnoremap <cr> o<esc>
+nnoremap <leader><cr> O<esc>
+
+" The Maintainer
+" | Git commands for the win
+nnoremap <leader>gg :Gstatus<cr> " I use g for efficiency, this is the most common case
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gv :Gvdiff<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gu :Gpull<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gf :Ggrep<cr>
+
 " The Alchemist
-" ev - Edit vimrc
+" | ev - Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 
 " The Shape Shifter
-" sv - Reload vimrc
+" | sv - Reload vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr> 
 
 " The Button Masher
@@ -169,6 +185,9 @@ inoremap <leader>K <Esc>:m .-2<CR>==gi
 vnoremap <leader>J :m '>+1<CR>gv=gv
 vnoremap <leader>K :m '<-2<CR>gv=gv
 
+" Two face
+" | Switch between spec files and source in an angularjs project
+nnoremap <leader>a :A<CR>
 
 
 "==Plugins=="
@@ -228,8 +247,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
+let g:UltiSnipsSnippetsDir =["~/dotFiles/vim/bundle/angular-vim-snippets/UltiSnips"]
 
 
 
