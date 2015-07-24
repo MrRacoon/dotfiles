@@ -102,12 +102,14 @@ nnoremap <leader><cr> O<esc>
 " The Maintainer
 " | For the cautious and exact carpenter
 nnoremap <leader>gg :Gstatus<cr> " I use g for efficiency, this is the most common case
+nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gv :Gvdiff<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gu :Gpull<cr>
 nnoremap <leader>gp :Gpush<cr>
-nnoremap <leader>gf :Ggrep<cr>
+nnoremap <leader>gf :Ggrep 
+nnoremap <leader>gl :Git lolas<cr>
 
 " The Alchemist
 " | ev - Edit vimrc
@@ -147,6 +149,12 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+nnoremap <leader>w <C-w>
+
+" The Bibliographer
+" | Always check your sources
+nnoremap <leader>h :help 
+
 
 " The Stalker
 " | Clear the search buffer
@@ -252,6 +260,7 @@ nnoremap <leader>pr :CtrlPMRU<cr>     " Find a file in recent files
 let g:airline#extensions#tabline#enabled = 1        " Enable the tab line when multiple files are opened
 let g:airline#extensions#tabline#fnamemod = ':t'    " Only show the filename
 let g:airline_powerline_fonts = 1                   " Yes, we have those damn fonts
+let g:airline_theme = 'badwolf'
 
 " CoVim
 " | (Plugin is a bust. Made in a senior capstone)
