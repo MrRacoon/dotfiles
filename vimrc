@@ -111,6 +111,13 @@ nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gf :Ggrep 
 nnoremap <leader>gl :Git lolas<cr>
 
+" The WebDev
+" | That guy who has to sift through countless lines of JS
+nnoremap <leader>jd :TernDoc<cr>
+nnoremap <leader>jt :TernType<cr>
+nnoremap <leader>jr :TernRefs<cr>
+
+
 " The Alchemist
 " | ev - Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
