@@ -134,7 +134,10 @@ nnoremap <leader>gv :Gvdiff<cr>
 nnoremap <leader>gg :Ggrep 
 nnoremap <leader>gu :Gpull<cr>
 nnoremap <leader>gp :Gpush<cr>
-nnoremap <leader>hg :help fugitive<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gl :Git hist<cr>
+nnoremap <leader>gh :help fugitive<cr>
+
 
 " The Nwb Pwnr
 " | I don't have a problem with this, But I put it here to make a point
