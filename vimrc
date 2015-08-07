@@ -18,6 +18,7 @@ map <space> <leader>
 
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
+set regexpengine=1
 syntax on
 
 " User indentation in plugins?
@@ -54,6 +55,8 @@ set hidden
 set backspace=2                               " Do the delete button thing
 set conceallevel=2                            " Ensure that the cool conceling options are set
 set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
+"set foldmethod=syntax
+"set foldlevelstart=0
 highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 
 " set the colors
@@ -103,6 +106,7 @@ nnoremap <leader><cr> O<esc>
 " | For the cautious and exact carpenter
 nnoremap <leader>gg :Gstatus<cr> " I use g for efficiency, this is the most common case
 nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gv :Gvdiff<cr>
 nnoremap <leader>gc :Gcommit<cr>
@@ -117,14 +121,23 @@ nnoremap <leader>jd :TernDoc<cr>
 nnoremap <leader>jt :TernType<cr>
 nnoremap <leader>jr :TernRefs<cr>
 
+" The Quick Buffer
+" | Quickly alternate through your buffers
+nnoremap <leader>bb :bnext<cr>
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bp :bprev<cr>
+nnoremap <leader>bq :bdelete<cr>
+nnoremap <leader>bx :w<cr>:bdelete<cr>
+
+" One Terminal Man
+" | Run the current file, give the user the option to provide options
+nnoremap <leader>rb :! clear; chmod +x % && ./%
+nnoremap <leader>rn :! clear; node %
 
 " The Alchemist
-" | ev - Edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
-
-" The Shape Shifter
-" | sv - Reload vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr> 
+" | Quickly edit this vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " The Button Masher
 " | Another escape sequence for the Insert Mode
@@ -229,8 +242,8 @@ omap <leader>f <Plug>(easymotion-tn)
 " VimJavascript
 " | Some highlighting for javascript
 let javascript_enable_domhtmlcss=1    " Enables HTML/CSS syntax highlighting in your JavaScript file.
-let b:javascript_fold=1               " Enables JavaScript code folding.
-let javascript_ignore_javaScriptdoc=0 " Disables JSDoc syntax highlighting
+"let b:javaScript_fold=1               " Enables JavaScript code folding.
+"let javascript_ignore_javaScriptdoc=0 " Disables JSDoc syntax highlighting
 " Enable concealing characters to impress
 let g:javascript_conceal_function   = "ƒ"
 let g:javascript_conceal_null       = "ø"
@@ -239,7 +252,6 @@ let g:javascript_conceal_return     = "⇚"
 let g:javascript_conceal_undefined  = "¿"
 let g:javascript_conceal_NaN        = "ℕ"
 let g:javascript_conceal_prototype  = "¶"
-
 
 " UltiSnips and YouCompleteMe and SuperTab
 " | better key bindings for UltiSnipsExpandTrigger
