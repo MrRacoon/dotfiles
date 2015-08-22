@@ -127,11 +127,12 @@ noremap : ;
 
 " The maintainer
 " | An assortmant of git commands
+nnoremap <leader>gg :Gstatus<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gv :Gvdiff<cr>
-nnoremap <leader>gg :Ggrep 
+nnoremap <leader>gf :Ggrep 
 nnoremap <leader>gu :Gpull<cr>
 nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gb :Gblame<cr>

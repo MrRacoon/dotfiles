@@ -30,7 +30,7 @@ antigen bundle tmux
 # Apply all the above declarations.
 antigen apply
 
-PATH="$HOME/bin:$HOME/npm/bin:$HOME/.cabal/bin:$HOME/.npm_packages/bin:$PATH"
+#PATH="$HOME/bin:$HOME/npm/bin:$HOME/.cabal/bin:$HOME/.npm_packages/bin:$PATH"
 
 # If the aliases file is present, then scoop it up.
 [ -e "~/.aliases" ] && . ~/.aliases
