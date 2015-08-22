@@ -146,17 +146,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- interac with lifx
 
 
-    -- Add commands to turn my bulbs different colors
-    , ((modm .|. controlMask , xK_0           ), spawn $ (bulbs "off" []))
-    , ((modm .|. controlMask , xK_1           ), spawn $ (bulbs "on" []))
-    , ((modm .|. controlMask , xK_2           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=red"]))
-    , ((modm .|. controlMask , xK_3           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=orange"]))
-    , ((modm .|. controlMask , xK_4           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=yellow"]))
-    , ((modm .|. controlMask , xK_5           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=green"]))
-    , ((modm .|. controlMask , xK_6           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=blue"]))
-    , ((modm .|. controlMask , xK_7           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=black"]))
-    , ((modm .|. controlMask , xK_8           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=purple"]))
-    , ((modm .|. controlMask , xK_9           ), spawn $ (bulbs "change" ["lum=medium", "sat=color", "hue=pink"]))
+    -- Add commands to turn my bulbs different color
+    , ((modm .|. controlMask , xK_0           ), spawn "lifxcli --off")
+    , ((modm .|. controlMask , xK_1           ), spawn "lifxcli --on")
+    , ((modm .|. controlMask , xK_2           ), spawn "lifxcli -c red")
+    , ((modm .|. controlMask , xK_3           ), spawn "lifxcli -c orange")
+    , ((modm .|. controlMask , xK_4           ), spawn "lifxcli -c yellow")
+    , ((modm .|. controlMask , xK_5           ), spawn "lifxcli -c green")
+    , ((modm .|. controlMask , xK_6           ), spawn "lifxcli -c cyan")
+    , ((modm .|. controlMask , xK_7           ), spawn "lifxcli -c blue")
+    , ((modm .|. controlMask , xK_8           ), spawn "lifxcli -c magenta")
+    , ((modm .|. controlMask , xK_9           ), spawn "lifxcli -c white")
 
 
     -- Toggle the status bar gap
@@ -212,12 +212,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
-bulbs comand argList = "curl localhost:3333/lighting/" ++ end
-  where
-    end  = if null argList
-            then comand
-            else comand ++ " -X POST -d '" ++ concat args ++ "'"
-    args = intersperse "&" argList
 ------------------------------------------------------------------------
 -- Layouts:
 myLayout = Full ||| tiled ||| Mirror tiled
