@@ -25,9 +25,10 @@ syntax on
 filetype plugin indent on
 
 "== Settings =="
+set shortmess+=I                              " Disable the intro text in vim
 set nowrap                                    " Do not wrap lines
 set number                                    " Get the line numbers going
-set nospell                                   " Turn Spelling on
+set spell                                     " Turn Spelling on
 set showmatch                                 " Show matching parenthesis
 syntax on                                     " Turn that syntax highlighting on
 set autoindent                                " Automatically indent the lines to match the previous indent
@@ -54,7 +55,7 @@ set undolevels=1000                           " Store a ton of undo operations
 set hidden
 set backspace=2                               " Do the delete button thing
 set conceallevel=2                            " Ensure that the cool conceling options are set
-set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
+set colorcolumn=80,120                            " set an indicator for showing me where i can never be caugh outside
 "set foldmethod=syntax
 "set foldlevelstart=0
 highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
@@ -102,6 +103,30 @@ autocmd BufWinEnter *.* silent loadview
 nnoremap <cr> o<esc>
 nnoremap <leader><cr> O<esc>
 
+" Playing the angles (Angular bindings)
+" | Switch between spec files and source in an angularjs project
+nnoremap <leader>as :A<CR>
+
+" The Quick Buffer
+" | Quickly alternate through your buffers
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bb :bprev<cr>
+nnoremap <leader>bq :bdelete<cr>
+nnoremap <leader>bx :w<cr>:bdelete<cr>
+nnoremap <leader>b= :tab sball<cr>
+
+" Clojure commands
+" | Commands specific to developing in clojure
+nnoremap <leader>cc :!lein check<cr>
+" nnoremap <leader>cc :!bash -c "lein check 2>&1 | grep Exception"<CR>
+nnoremap <leader>cd :!lein deps<cr>
+nnoremap <leader>cr :!lein deps<cr>
+
+" EasyMotion
+" | Find stuff in the file with awesome ease
+nnoremap  <leader>ff <Plug>(easymotion-sn)
+omap      <leader>ff <Plug>(easymotion-tn)
+
 " The Maintainer
 " | For the cautious and exact carpenter
 nnoremap <leader>gg :Gstatus<cr> " I use g for efficiency, this is the most common case
@@ -115,29 +140,52 @@ nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gf :Ggrep 
 nnoremap <leader>gl :Git lolas<cr>
 
+" The Bibliographer
+" | Always check your sources
+nnoremap <leader>h :help 
+
 " The WebDev
 " | That guy who has to sift through countless lines of JS
 nnoremap <leader>jd :TernDoc<cr>
 nnoremap <leader>jt :TernType<cr>
 nnoremap <leader>jr :TernRefs<cr>
 
-" The Quick Buffer
-" | Quickly alternate through your buffers
-nnoremap <leader>bb :bnext<cr>
-nnoremap <leader>bn :bnext<cr>
-nnoremap <leader>bp :bprev<cr>
-nnoremap <leader>bq :bdelete<cr>
-nnoremap <leader>bx :w<cr>:bdelete<cr>
+" Markdown shortcuts
+" | I love markdown, Time to make it that much sweeter
+nnoremap <leader>m- yyp^Vr-
+nnoremap <leader>m= yyp^Vr=
+nnoremap <leader>mh1 I# <esc>
+nnoremap <leader>mh2 I## <esc>
+nnoremap <leader>mh3 I### <esc>
+nnoremap <leader>mh4 I#### <esc>
+
+" The Smirk
+" | replace all tabs in the current file with space characters
+nnoremap <leader>nt :retab<cr>
+
+" Ctrlp
+" | Fuzzy searching for project things
+let g:ctrlp_extensions = ['tag']
+nnoremap <leader>pp :CtrlPLastMode<cr> " Most common case
+nnoremap <leader>pf :CtrlP<cr>        " Find a file
+nnoremap <leader>pt :CtrlPTag<cr>     " Find tags in the project
+nnoremap <leader>pb :CtrlPBuffer<cr>  " Find a term in the current buffer
+nnoremap <leader>pr :CtrlPMRU<cr>     " Find a file in recent files
 
 " One Terminal Man
 " | Run the current file, give the user the option to provide options
 nnoremap <leader>rb :! clear; chmod +x % && ./%
 nnoremap <leader>rn :! clear; node %
 
+" The Digger
+" | Dig down those function definitions
+nnoremap <leader>tt <C-]>
+nnoremap <leader>tu <C-t>
+
 " The Alchemist
 " | Quickly edit this vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
 
 " The Button Masher
 " | Another escape sequence for the Insert Mode
@@ -158,11 +206,6 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-" The Digger
-" | Dig down those function definitions
-nnoremap <leader>tt <C-]>
-nnoremap <leader>tu <C-t>
-
 " The Quick Draw
 " | Cut out the middle man. Quicker buffer navigation
 map <C-h> <C-w>h
@@ -170,10 +213,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 nnoremap <leader>w <C-w>
-
-" The Bibliographer
-" | Always check your sources
-nnoremap <leader>h :help 
 
 
 " The Stalker
@@ -183,10 +222,6 @@ nmap <silent> ,/ :nohlsearch<CR>
 " The Forgetful Oper
 " | For the case where I forget to sudo before editing configuration files
 cmap w!! w !sudo tee % >/dev/null
-
-" The Smirk
-" | replace all tabs in the current file with space characters
-nnoremap <leader>nt :retab<cr>
 
 " The Flip Flopper
 " | Flop back and forth quicker from the beggining to the end of the line
@@ -205,10 +240,6 @@ inoremap <leader>J <Esc>:m .+1<CR>==gi
 inoremap <leader>K <Esc>:m .-2<CR>==gi
 vnoremap <leader>J :m '>+1<CR>gv=gv
 vnoremap <leader>K :m '<-2<CR>gv=gv
-
-" Two face
-" | Switch between spec files and source in an angularjs project
-nnoremap <leader>a :A<CR>
 
 "==Plugins=="
 
@@ -233,11 +264,6 @@ highlight GitGutterAdd ctermfg=green guifg=darkgreen
 highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
-
-" EasyMotion
-" | Find stuff in the file with awesome ease
-map  <leader>f <Plug>(easymotion-sn)
-omap <leader>f <Plug>(easymotion-tn)
 
 " VimJavascript
 " | Some highlighting for javascript
@@ -264,15 +290,6 @@ let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " | makes everything tab-completable!
 let g:SuperTabDefaultCompletionType    = '<C-n>'
-
-" Ctrlp
-" | Fuzzy searching for project things
-let g:ctrlp_extensions = ['tag']
-nnoremap <leader>pp :CtrlPLastMode<cr> " Most common case
-nnoremap <leader>pf :CtrlP<cr>        " Find a file
-nnoremap <leader>pt :CtrlPTag<cr>     " Find tags in the project
-nnoremap <leader>pb :CtrlPBuffer<cr>  " Find a term in the current buffer
-nnoremap <leader>pr :CtrlPMRU<cr>     " Find a file in recent files
 
 " VimAirline
 " | I Love this thing...once you figure out the damn fonts

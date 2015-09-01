@@ -33,7 +33,16 @@ PATH="$HOME/bin:$HOME/npm/bin:$HOME/.cabal/bin:$HOME/.node_packages/bin:$PATH"
 
 export GEM_HOME=$HOME/gems
 export GEM_PATH=$HOME/gems:/usr/lib/ruby/gems/1.8/
+
 export PATH=$PATH:$HOME/gems/bin
 export PATH=$PATH:$HOME/.gem/ruby/1.8/bin
 
-bindkey -v
+# Vim keybindings
+# bindkey -v
+
+# Jenv Settings
+eval "$(jenv init -)"
+
+
+
+

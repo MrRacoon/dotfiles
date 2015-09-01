@@ -137,3 +137,12 @@
 [submodule "vim/bundle/vim-javascript-syntax"]
 	path = vim/bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "vim/bundle/vim-fireplace"]
+	path = vim/bundle/vim-fireplace
+	url = git://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/vim-eastwood"]
+	path = vim/bundle/vim-eastwood
+	url = https://github.com/venantius/vim-eastwood.git
+[submodule "vim/bundle/pgsql.vim"]
+	path = vim/bundle/pgsql.vim
+	url = https://github.com/exu/pgsql.vim
