@@ -1,34 +1,35 @@
 "== Pathogen =="
 
 " To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
+" let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
 " if !has('python3')
 "    call add(g:pathogen_disabled, 'YouCompleteMe')
 " endif
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
+" I also will assume that all file locations relevent to dotfiles will
+" be in the dotfiles dir in the user's homedir, Cause that's how I like
+" it for now...
 execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}')
-", '~/.vim/bundle/{}')
 
 " I always figure that the leader information should always be located at the
 " top of this file for anyone who might want to try, and need a quick way to
 " find out.
 map <SPACE> <leader>
-"let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
-
-set backspace=2                               " Do the delete button thing
 
 " Get that Syntax Highlighting
 " Arguably the developer's best friend
+set regexpengine=1
 syntax on
 
 " User indentation in plugins?
 filetype plugin indent on
 
 "== Settings =="
+set shortmess+=I                              " Disable the intro text in vim
 set nowrap                                    " Do not wrap lines
 set number                                    " Get the line numbers going
-set nospell                                   " Turn Spelling on
+set spell                                     " Turn Spelling on
 set showmatch                                 " Show matching parenthesis
 syntax on                                     " Turn that syntax highlighting on
 set autoindent                                " Automatically indent the lines to match the previous indent
@@ -53,43 +54,36 @@ set laststatus=2                              " Make sure that we use two lines 
 set t_Co=256                                  " Make sure vim uses 256 color mode
 set undolevels=1000                           " Store a ton of undo operations
 set hidden
-
+set backspace=2                               " Do the delete button thing
+set conceallevel=2                            " Ensure that the cool conceling options are set
+set colorcolumn=80,120                            " set an indicator for showing me where i can never be caugh outside
+"set foldmethod=syntax
+"set foldlevelstart=0
+highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
 
 " set the colors
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
-if v:version >= 704
-
-   "== Persistent file changing =="
-   set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
-   set undofile                                  " Save all undos into a file
-   if !isdirectory(&undodir)
-      echom "Creating undo directory"
-      call system('mkdir ' . &undodir)
-   endif
-   set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
-   highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
-
-   " Enable concealing characters to impress
-   set conceallevel=2                            " Ensure that the cool conceling options are set
-   let g:javascript_conceal_function   = "ƒ"
-   let g:javascript_conceal_null       = "ø"
-   let g:javascript_conceal_this       = "@"
-   let g:javascript_conceal_return     = "⇚"
-   let g:javascript_conceal_undefined  = "¿"
-   let g:javascript_conceal_NaN        = "ℕ"
-   let g:javascript_conceal_prototype  = "¶"
-
-endif
+" Persistent file changing
+set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
+set undofile                                  " Save all undos into a file
 " Ensure that the undo folder exists, and create it if it doesn't
+if !isdirectory(&undodir)
+    echom "Creating undo directory"
+    call system('mkdir ' . &undodir)
+endif
 
-"== Ctags =="
 
-" C-] Follows a function to its definition
-" C-T Pops back up the ctag stack
-set tags+=./tags;/                            " Check the current directory, and then work up to the root, looking for tags
+if v:version >= 704
+   " echom "Woot vim > 7.04"
+endif
+
+
+" Ctags
+" Check the current directory, and then work up to the root, looking for tags
+set tags+=./tags;/
 " Open up function definitions in a vertical split
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Open up function definitions in a new tab
@@ -99,37 +93,99 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
+" Carriage Returns
+nnoremap <cr> o<esc>
+nnoremap <leader><cr> O<esc>
 
+" Angular
+nnoremap <leader>as :A<CR>
+
+" Buffer Management
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bb :bprev<cr>
+nnoremap <leader>bq :bdelete<cr>
+nnoremap <leader>bx :w<cr>:bdelete<cr>
+nnoremap <leader>b= :tab sball<cr>
+
+" Clojure
+nnoremap <leader>cc :!lein check<cr>
+nnoremap <leader>cd :!lein deps<cr>
+nnoremap <leader>cr :!lein deps<cr>
+
+" EasyMotion
+nnoremap  <leader>ff <Plug>(easymotion-sn)
+omap      <leader>ff <Plug>(easymotion-tn)
+
+" Git shortcuts
+nnoremap <leader>gg :Gstatus<cr> " I use g for efficiency, this is the most common case
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gv :Gvdiff<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gu :Gpull<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gf :Ggrep 
+nnoremap <leader>gl :Git lolas<cr>
+
+" Get Help
+nnoremap <leader>h :help 
+
+" Javascript
+nnoremap <leader>jd :TernDoc<cr>
+nnoremap <leader>jt :TernType<cr>
+nnoremap <leader>jr :TernRefs<cr>
+
+" Livescript
 nnoremap <leader>lm :LiveScriptMake<cr>
 nnoremap <leader>lc :LiveScriptCompile<cr>
 nnoremap <leader>lr :LiveScriptRun<cr>
 
+" Markdown shortcuts
+nnoremap <leader>m- yyp^Vr-
+nnoremap <leader>m= yyp^Vr=
+nnoremap <leader>mh1 I# <esc>
+nnoremap <leader>mh2 I## <esc>
+nnoremap <leader>mh3 I### <esc>
+nnoremap <leader>mh4 I#### <esc>
 
-"== keystrokes =="
-" Keystrokes define us, they grant us extra bonus perks that we can use
-" to slay our enemies.
+" Replace all tabs in the current file with space characters
+nnoremap <leader>nt :retab<cr>
+
+" Ctrlp
+" | Fuzzy searching for project things
+let g:ctrlp_extensions = ['tag']
+nnoremap <leader>pp :CtrlPLastMode<cr> " Most common case
+nnoremap <leader>pf :CtrlP<cr>        " Find a file
+nnoremap <leader>pt :CtrlPTag<cr>     " Find tags in the project
+nnoremap <leader>pb :CtrlPBuffer<cr>  " Find a term in the current buffer
+nnoremap <leader>pr :CtrlPMRU<cr>     " Find a file in recent files
+
+" One Terminal Man
+" | Run the current file, give the user the option to provide options
+nnoremap <leader>rb :! clear; chmod +x % && ./%
+nnoremap <leader>rn :! clear; node %
+
+" The Digger
+" | Dig down those function definitions
+nnoremap <leader>tt <C-]>
+nnoremap <leader>tu <C-t>
 
 " The Alchemist
-" ev - Edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
-
-" The Shape Shifter
-" sv - Reload vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr> 
+" | Quickly edit this vimrc
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
 
 " The Button Masher
-" Another escape sequence for the Insert Mode
+" | Another escape sequence for the Insert Mode
 inoremap kj <esc>
-" The Button Masher (Upgrade)
-" turn off the <esc> key for returning to normal mode from insert mode
+" | turn off the <esc> key for returning to normal mode from insert mode
 inoremap <esc> <nop>
 
 " The Quick Scoper
-" Cut out like 3 keystrokes from nearly every command
+" | Cut out like 3 keystrokes from nearly every command
+" | Beast Mode level command usage
 noremap ; :
-" The NoScoper
-" Beast Mode level command usage
-" 'damn this is hard to relearn' - me
 noremap : ;
 
 " The Nwb Pwnr
@@ -143,8 +199,10 @@ map <right> <nop>
 " | Cut out the middle man. Quicker buffer navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
-"map <C-k> <C-w>k
+map <C-k> <C-w>k
 map <C-l> <C-w>l
+nnoremap <leader>w <C-w>
+
 
 " The Stalker
 " | Clear the search buffer
@@ -153,10 +211,6 @@ nmap <silent> ,/ :nohlsearch<CR>
 " The Forgetful Oper
 " | For the case where I forget to sudo before editing configuration files
 cmap w!! w !sudo tee % >/dev/null
-
-" The Smirk
-" | replace all tabs in the current file with space characters
-nnoremap <leader>nt :retab<cr>
 
 " The Flip Flopper
 " | Flop back and forth quicker from the beggining to the end of the line
@@ -178,79 +232,84 @@ vnoremap <leader>K :m '<-2<CR>gv=gv
 
 "==Plugins=="
 
-"~NERDTree~"
-" f2 -> Toggle NerdTree
-" Map f2 to toggle the NERDTree
+" NERDTree
+" | Toggle the NERDTree
 noremap <f2> :NERDTreeToggle<cr>
-" f3 -> Toggle NerdTreeTabs
-" NerdTree that is persistent acros open tabs
+" | NerdTree that is persistent acros open tabs
 noremap <f3> <plug>NERDTreeTabsToggle<CR>
 
 " TagBar
-" f4 -> Toggle the tagbar
+" | Toggle the tagbar
 noremap <f4> :TagBarToggle<cr>
 
-"~UndoTree~"
-" f5 -> Toggle the UndoTree window
-" Toggle the undo tree
-" Awesome Plugins
+" UndoTree
+" | Toggle the UndoTree window
 noremap <f5> :UndotreeToggle<cr>
 
-"~GitGutter~"
-" Change the coloring in the GitGutter to ensure that is is actually visable
+" GitGutter
+" | Change the coloring in the GitGutter to ensure that is is actually visable
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=green guifg=darkgreen
 highlight GitGutterChange ctermfg=yellow guifg=darkyellow
 highlight GitGutterDelete ctermfg=red guifg=darkred
 highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
-"~EasyMotion~"
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" VimJavascript
+" | Some highlighting for javascript
+let javascript_enable_domhtmlcss=1    " Enables HTML/CSS syntax highlighting in your JavaScript file.
+"let b:javaScript_fold=1               " Enables JavaScript code folding.
+"let javascript_ignore_javaScriptdoc=0 " Disables JSDoc syntax highlighting
+" Enable concealing characters to impress
+let g:javascript_conceal_function   = "ƒ"
+let g:javascript_conceal_null       = "ø"
+let g:javascript_conceal_this       = "@"
+let g:javascript_conceal_return     = "⇚"
+let g:javascript_conceal_undefined  = "¿"
+let g:javascript_conceal_NaN        = "ℕ"
+let g:javascript_conceal_prototype  = "¶"
 
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
-" EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-noremap n <Plug>(easymotion-next)
-noremap N <Plug>(easymotion-prev)
-
-"~VimJavascript~"
-" Enables HTML/CSS syntax highlighting in your JavaScript file.
-let javascript_enable_domhtmlcss=1
-" Enables JavaScript code folding.
-let b:javascript_fold=1
-" Disables JSDoc syntax highlighting
-let javascript_ignore_javaScriptdoc=0
-
-"~UltiSnips~"
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" UltiSnips and YouCompleteMe and SuperTab
+" | better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger           = "<tab>"
+let g:UltiSnipsJumpForwardTrigger      = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger     = "<s-tab>"
+let g:UltiSnipsSnippetsDir             = ["~/dotFiles/vim/bundle/angular-vim-snippets/UltiSnips"]
+" | make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+"let g:SuperTabDefaultCompletionType = '<C-n>'
+""
+"" " better key bindings for UltiSnipsExpandTrigger
+"let g:UltiSnipsExpandTrigger = "c-`"
+"let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"" let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
 "
-" " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "c-`"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
+"
+"
+""~VimAirline~"
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline_powerline_fonts = 1
+"
+let g:SuperTabDefaultCompletionType    = '<C-n>'
 
+" VimAirline
+" | I Love this thing...once you figure out the damn fonts
+let g:airline#extensions#tabline#enabled = 1        " Enable the tab line when multiple files are opened
+let g:airline#extensions#tabline#fnamemod = ':t'    " Only show the filename
+let g:airline_powerline_fonts = 1                   " Yes, we have those damn fonts
+let g:airline_theme = 'badwolf'
 
-
-"~VimAirline~"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts = 1
-
-"~CoVim~"
-" (Plugin is a bust. Made in a senior capstone)
-" Awesome Idea though...
+" CoVim
+" | (Plugin is a bust. Made in a senior capstone)
+" | Awesome Idea though...
 let CoVim_default_name = "MrRacoon"
 let CoVim_default_port = "13337"
 
-"~TagBar~"
-" Tell it how to javascript
+" TagBar
+" | Tell it how to javascript
 let g:tagbar_type_javascript = {
     \ 'ctagstype' : 'JavaScript',
     \ 'kinds'     : [
@@ -263,6 +322,3 @@ let g:tagbar_type_javascript = {
 
 "===SCRATCH SPACE==="
 " Anything below here is considered temporary, and may be removed whenever
-
-
-
