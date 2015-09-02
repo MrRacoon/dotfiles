@@ -1,3 +1,5 @@
 vim/undos
 vim/snippets
 *.swp
+xmonad/*
+!xmonad/xmonad.hs

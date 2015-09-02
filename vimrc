@@ -13,8 +13,9 @@ execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}
 " I always figure that the leader information should always be located at the
 " top of this file for anyone who might want to try, and need a quick way to
 " find out.
-let mapleader=","                             " Get my Leader keys all situated. I'm a sucker for common comma
-let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
+map <SPACE> <leader>
+"let localleader="\\"                          " and the backslash came from 'Learn VimScript the hard way'"
+
 set backspace=2                               " Do the delete button thing
 
 " Get that Syntax Highlighting
@@ -98,6 +99,12 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
+
+nnoremap <leader>lm :LiveScriptMake<cr>
+nnoremap <leader>lc :LiveScriptCompile<cr>
+nnoremap <leader>lr :LiveScriptRun<cr>
+
+
 "== keystrokes =="
 " Keystrokes define us, they grant us extra bonus perks that we can use
 " to slay our enemies.
@@ -169,8 +176,6 @@ inoremap <leader>K <Esc>:m .-2<CR>==gi
 vnoremap <leader>J :m '>+1<CR>gv=gv
 vnoremap <leader>K :m '<-2<CR>gv=gv
 
-
-
 "==Plugins=="
 
 "~NERDTree~"
@@ -225,7 +230,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 "
 " " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = "c-`"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
