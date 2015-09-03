@@ -117,16 +117,22 @@ nnoremap  <leader>ff <Plug>(easymotion-sn)
 omap      <leader>ff <Plug>(easymotion-tn)
 
 " Git shortcuts
-nnoremap <leader>gg :Gstatus<cr> " I use g for efficiency, this is the most common case
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gv :Gvdiff<cr>
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gu :Gpull<cr>
-nnoremap <leader>gp :Gpush<cr>
-nnoremap <leader>gf :Ggrep 
-nnoremap <leader>gl :Git lolas<cr>
+nnoremap <leader>gig :Gstatus<cr> " I use g for efficiency, this is the most common case
+nnoremap <leader>gis :Gstatus<cr>
+nnoremap <leader>gib :Gblame<cr>
+nnoremap <leader>gid :Gdiff<cr>
+nnoremap <leader>giv :Gvdiff<cr>
+nnoremap <leader>gic :Gcommit<cr>
+nnoremap <leader>giu :Gpull<cr>
+nnoremap <leader>gip :Gpush<cr>
+nnoremap <leader>gif :Ggrep 
+nnoremap <leader>gil :Git lolas<cr>
+
+" Grunt shortcuts
+nnoremap <leader>grg :!grunt<cr>
+nnoremap <leader>grt :!grunt test<cr>
+nnoremap <leader>grc :!grunt compile<cr>
+nnoremap <leader>grl :!grunt jshint<cr>
 
 " Get Help
 nnoremap <leader>h :help 
@@ -161,20 +167,24 @@ nnoremap <leader>pt :CtrlPTag<cr>     " Find tags in the project
 nnoremap <leader>pb :CtrlPBuffer<cr>  " Find a term in the current buffer
 nnoremap <leader>pr :CtrlPMRU<cr>     " Find a file in recent files
 
-" One Terminal Man
-" | Run the current file, give the user the option to provide options
+" Run the current file
 nnoremap <leader>rb :! clear; chmod +x % && ./%
 nnoremap <leader>rn :! clear; node %
 
-" The Digger
-" | Dig down those function definitions
+" Tag navigation
 nnoremap <leader>tt <C-]>
 nnoremap <leader>tu <C-t>
 
-" The Alchemist
-" | Quickly edit this vimrc
+" Vimrc editing on the fly
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
+
+" Navigate window splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+nnoremap <leader>w <C-w>
 
 " The Button Masher
 " | Another escape sequence for the Insert Mode
@@ -189,48 +199,23 @@ noremap ; :
 noremap : ;
 
 " The Nwb Pwnr
-" | I don't have a problem with this, But I put it here to make a point
+" | don't do vim wrong
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-" The Quick Draw
-" | Cut out the middle man. Quicker buffer navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-nnoremap <leader>w <C-w>
-
-
-" The Stalker
-" | Clear the search buffer
-nmap <silent> ,/ :nohlsearch<CR>
-
-" The Forgetful Oper
-" | For the case where I forget to sudo before editing configuration files
+" Forget to sudo before editing a file?
 cmap w!! w !sudo tee % >/dev/null
 
-" The Flip Flopper
-" | Flop back and forth quicker from the beggining to the end of the line
+" Jump to end and begining of a line with ease
 nnoremap H ^
 nnoremap L $
 
-" The Klutz
-" | No more will I accidently enter that damn Ex mode
+" No more Ex mode
 nnoremap Q <nop>
 
-" The Scrambler
-" | Moving Lines Up and Down
-nnoremap <leader>J :m .+1<CR>==
-nnoremap <leader>K :m .-2<CR>==
-inoremap <leader>J <Esc>:m .+1<CR>==gi
-inoremap <leader>K <Esc>:m .-2<CR>==gi
-vnoremap <leader>J :m '>+1<CR>gv=gv
-vnoremap <leader>K :m '<-2<CR>gv=gv
-
-"==Plugins=="
+"================= Plugins =================="
 
 " NERDTree
 " | Toggle the NERDTree
@@ -277,30 +262,22 @@ let g:UltiSnipsSnippetsDir             = ["~/dotFiles/vim/bundle/angular-vim-sni
 " | make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-"let g:SuperTabDefaultCompletionType = '<C-n>'
-""
-"" " better key bindings for UltiSnipsExpandTrigger
-"let g:UltiSnipsExpandTrigger = "c-`"
-"let g:UltiSnipsJumpForwardTrigger = "<tab>"
-"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"" let g:UltiSnipsSnippetsDir ="~/dotfiles/vim/snippets"
-"
-"
-"
-""~VimAirline~"
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline_powerline_fonts = 1
-"
+" | Go up or down the list? Go down
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 
 " VimAirline
 " | I Love this thing...once you figure out the damn fonts
-let g:airline#extensions#tabline#enabled = 1        " Enable the tab line when multiple files are opened
-let g:airline#extensions#tabline#fnamemod = ':t'    " Only show the filename
-let g:airline_powerline_fonts = 1                   " Yes, we have those damn fonts
-let g:airline_theme = 'badwolf'
+" Enable the tab line when multiple files are opened
+let g:airline#extensions#tabline#enabled  = 1
+" Only show the filename in the buffer/tab bar
+let g:airline#extensions#tabline#fnamemod = ':t'
+" Yes, we have those damn fonts
+let g:airline_powerline_fonts             = 1
+" I really like this theme
+let g:airline_theme                       = 'badwolf'
+
+"===SCRATCH SPACE==="
+" Anything below here is considered volatile
 
 " CoVim
 " | (Plugin is a bust. Made in a senior capstone)
@@ -319,6 +296,3 @@ let g:tagbar_type_javascript = {
         \ 's:strings'
     \ ]
     \ }
-
-"===SCRATCH SPACE==="
-" Anything below here is considered temporary, and may be removed whenever
