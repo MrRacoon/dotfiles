@@ -171,9 +171,23 @@ nnoremap <leader>pr :CtrlPMRU<cr>     " Find a file in recent files
 nnoremap <leader>rb :! clear; chmod +x % && ./%
 nnoremap <leader>rn :! clear; node %
 
+" Surround text currently selected while in visual mode
+" (The surrounded text is kept selected after being surround)
+" Taken from [Ernesto García](https://coderwall.com/gnapse)
+vmap <leader>s" S"lvi"
+vmap <leader>s' S'lvi'
+vmap <leader>s` S`lvi`
+vmap <leader>s( S)lvi(
+vmap <leader>s{ S}lvi{
+vmap <leader>s[ S]lvi[
+vmap <leader>s< S>lvi<
+
 " Tag navigation
 nnoremap <leader>tt <C-]>
 nnoremap <leader>tu <C-t>
+
+" Tabularize shortcut
+noremap <leader>ta :Tabularize /
 
 " Vimrc editing on the fly
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
