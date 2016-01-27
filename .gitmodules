@@ -124,9 +124,6 @@
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script
-[submodule "vim/bundle/vim-literate-coffeescript"]
-	path = vim/bundle/vim-literate-coffeescript
-	url = https://github.com/mintplant/vim-literate-coffeescript.git
 [submodule "vim/bundle/vim-fireplace"]
 	path = vim/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git

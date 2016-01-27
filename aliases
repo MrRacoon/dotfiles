@@ -18,11 +18,6 @@ alias ta="task add"
 alias tl="task list"
 alias td="task delete"
 
-
 tc() {
     task $1 done
 }
-
-
-
-

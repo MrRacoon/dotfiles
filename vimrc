@@ -1,14 +1,6 @@
 "== Pathogen =="
-
-" To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
-if !has('python3')
-   call add(g:pathogen_disabled, 'YouCompleteMe')
-endif
-
-" I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}')
-", '~/.vim/bundle/{}')
+source /home/erik/.vim/autoload/pathogen.vim
+execute pathogen#infect('$HOME/dotfiles/vim/bundle/{}', '$HOME/dotfiles/vim/languages/{}')
 
 " I always figure that the leader information should always be located at the
 " top of this file for anyone who might want to try, and need a quick way to
@@ -52,6 +44,7 @@ set laststatus=2                              " Make sure that we use two lines 
 set t_Co=256                                  " Make sure vim uses 256 color mode
 set undolevels=1000                           " Store a ton of undo operations
 set backspace=2                               " Do the delete button thing
+set mouse=r
 set hidden
 
 if v:version >= 704
