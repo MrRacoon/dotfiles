@@ -7,17 +7,13 @@ antigen use oh-my-zsh
 # Got to get the git
 antigen bundle git
 
-# Hehehe
-antigen bundle nyan
-
 # Cause Im sick of forgetting
 antigen bundle ssh-agent
 
 # Some web stuff I do.
 antigen bundle node
 antigen bundle npm
-
-antigen bundle cabal
+export PATH="/home/erik/.npm/bin:$PATH"
 
 # That awesome syntax highlighting.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -38,5 +34,4 @@ export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
 
-export PATH=$PATH:/home/erik/.npm/bin
 
