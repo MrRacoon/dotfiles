@@ -1,4 +1,5 @@
 source $HOME/dotfiles/zsh/antigen/antigen.zsh
+source $HOME/.aliases
 
 # Load the framework
 antigen use oh-my-zsh
@@ -24,9 +25,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Get my favorite theme.
 antigen theme bureau
 
-# Get my favorite theme.
-antigen bundle tmux
-
 # Apply all the above declarations.
 antigen apply
 
@@ -39,4 +37,6 @@ export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
+
+export PATH=$PATH:/home/erik/.npm/bin
 

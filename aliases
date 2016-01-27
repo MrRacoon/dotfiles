@@ -23,6 +23,5 @@ tc() {
     task $1 done
 }
 
-
-
+alias node="nodejs"
 

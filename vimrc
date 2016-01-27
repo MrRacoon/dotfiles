@@ -1,5 +1,7 @@
 "== Pathogen =="
 
+source /home/erik/dotfiles/vim/autoload/pathogen.vim
+
 " To disable a plugin, add it's bundle name to the following list
 let g:pathogen_disabled = ['Valloric/YouCompleteMe.git']
 if !has('python3')
