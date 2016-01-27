@@ -1,4 +1,5 @@
 source $HOME/dotfiles/zsh/antigen/antigen.zsh
+source $HOME/.aliases
 
 # Load the framework
 antigen use oh-my-zsh
@@ -6,17 +7,13 @@ antigen use oh-my-zsh
 # Got to get the git
 antigen bundle git
 
-# Hehehe
-antigen bundle nyan
-
 # Cause Im sick of forgetting
 antigen bundle ssh-agent
 
 # Some web stuff I do.
 antigen bundle node
 antigen bundle npm
-
-antigen bundle cabal
+export PATH="/home/erik/.npm/bin:$PATH"
 
 # That awesome syntax highlighting.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -36,6 +33,4 @@ export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
-
 PATH="$HOME/.npm/bin:$PATH"
-
