@@ -1,23 +1,29 @@
-# Run the keyboard setup util
-alias setKeyboard="sudo dpkg-reconfigure console-setup"
+# Utility
+alias sudo="sudo -ik"
+alias shutdown="sudo shutdown -h now"
 
-# switch to qwert Key bindings
-alias qwerty="setxkbmap us"
+# My box
+alias desk="ssh erik@10.50.1.106"
 
-# switch to colemac key bindings
-alias colemak="setxkbmap us -variant colemak"
+# node
+alias npmi="npm install"
+alias bowi="bower install"
 
-# switch to dvorak key bindings
-alias dvorak="setxkbmap dvorak"
+# Skills-navigator
+alias sn="$HOME/source/skills-navigator-frontend"
+alias snl="open http://localhost:8081/skills-navigator/educator"
+alias snt="open http://lb01.team03.map2.nweacolo.pvt/skills-navigator/educator"
+    # Grunt
+    alias gtd="grunt dev:team03"
+    alias gtt="grunt test"
+    alias gtat="grunt autotest"
 
-# Command line googling
-alias google="w3m https://google.com"
 
-# TaskWarrior Commands
-alias ta="task add"
-alias tl="task list"
-alias td="task delete"
+# Reporting-api
+alias rpi="$HOME/source/reporting-api"
 
-tc() {
-    task $1 done
-}
+# lein
+lnd="lein deps"
+lnr="lein repl"
+lnc="lein clean"
+

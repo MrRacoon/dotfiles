@@ -13,7 +13,7 @@ antigen bundle ssh-agent
 # Some web stuff I do.
 antigen bundle node
 antigen bundle npm
-export PATH="/home/erik/.npm/bin:$PATH"
+export PATH="$HOME/.npm/bin:$PATH"
 
 # That awesome syntax highlighting.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -33,4 +33,6 @@ export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
-PATH="$HOME/.npm/bin:$PATH"
+if [ -e /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PATH="$HOME/bin:$PATH"

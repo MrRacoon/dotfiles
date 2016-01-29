@@ -1,4 +1,4 @@
-source /home/erik/dotfiles/vim/autoload/pathogen.vim
+source $HOME/dotfiles/vim/autoload/pathogen.vim
 
 " I go with Pathogen for my plugin management. Unix Philosophy Right?
 execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}')
