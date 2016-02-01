@@ -73,17 +73,20 @@ noremap ; :
 noremap : ;
 
 " Git commands
-nnoremap <leader>gig :Gstatus<cr>
-nnoremap <leader>gis :Gstatus<cr>
+nnoremap <leader>gib :Gblame<cr>
 nnoremap <leader>gic :Gcommit<cr>
 nnoremap <leader>gid :Gdiff<cr>
-nnoremap <leader>giv :Gvdiff<cr>
 nnoremap <leader>gif :Ggrep 
-nnoremap <leader>giu :Gpull<cr>
-nnoremap <leader>gip :Gpush<cr>
-nnoremap <leader>gib :Gblame<cr>
-nnoremap <leader>gil :Git hist<cr>
+nnoremap <leader>gig :Gstatus<cr>
 nnoremap <leader>gih :help fugitive<cr>
+nnoremap <leader>gil :Git hist<cr>
+nnoremap <leader>gip :Gpush<cr>
+nnoremap <leader>gis :Gstatus<cr>
+nnoremap <leader>giu :Gpull<cr>
+nnoremap <leader>giv :Gvdiff<cr>
+
+nnoremap <leader>pf :CtrlP<cr>
+nnoremap <leader>pp :CtrlP<cr>
 
 " Edit vim key bindings
 nnoremap <leader>ve :vsplit $MYVIMRC<cr> 
