@@ -1,0 +1,2 @@
+alias Bedroom="lifxcli -g Room"
+alias LivingRoom="lifxcli -g Living\ Room"

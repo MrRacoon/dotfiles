@@ -1,0 +1,23 @@
+# NWEA ALIASES
+#
+# Kept in alphabetical order to better spot collisions
+#
+
+# Bower
+alias bowi="bower install"
+# Grunt
+alias gt-t="grunt test"
+alias gt-at="grunt autotest"
+# lein
+alias ln-d="lein deps"
+alias ln-r="lein repl"
+alias ln-c="lein clean"
+# node
+alias npmi="npm install"
+# Nyan cat
+alias nyan="telnet nyancat.dakko.us"
+# SUDO
+alias sudo="sudo -ik"
+# shutdown
+alias shutdown="sudo shutdown -h now"
+

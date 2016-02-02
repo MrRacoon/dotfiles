@@ -1,0 +1,88 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * https://atom.io/docs/latest/using-atom-basic-customization#customizing-key-bindings
+# * https://atom.io/docs/latest/behind-atom-keymaps-in-depth
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'atom-text-editor.vim-mode.insert-mode':
+    # I need my special escape sequence if I want to stave ofdf carpeltunal
+    'k j': 'vim-mode:reset-normal-mode'
+
+'atom-text-editor.vim-mode:not(.insert-mode)':
+    # Auto-wrap lines at 80th column
+    'g q'       : 'autoflow:reflow-selection'
+    # Align text on first common alignable char
+    'space t b' : 'atom-alignment:align'
+
+'atom-text-editor.vim-mode.operator-pending-mode, atom-text-editor.vim-mode.visual-mode':
+    # Auto-wrap lines at 80th column
+    'g q': 'autoflow:reflow-selection'
+
+'atom-text-editor.vim-mode.normal-mode':
+    # Flip these dam things
+    ';' : 'ex-mode:open'
+    ':' : 'vim-mode:repeat-find'
+    # Movements
+    'L'     : 'editor:move-to-end-of-line'
+    'H'     : 'editor:move-to-begining-of-line' # FIXME
+    # Window Navigation
+    'Ctrl+l' : 'window:focus-pane-on-right'
+    'Ctrl+h' : 'window:focus-pane-on-left'
+    'Ctrl+j' : 'window:focus-pane-above'
+    'Ctrl+k' : 'window:focus-pane-below'
+    # Git commnads
+    'space g i a' : 'git-plus:add'
+    'space g i c' : 'git-plus:commit'
+    'space g i d' : 'git-plus:diff'
+    'space g i g' : 'git-plus:run'
+    'space g i o' : 'git-plus:checkout'
+    'space g i p' : 'git-plus:push'
+    'space g i r' : 'git-plus:reset'
+    'space g i s' : 'git-plus:status'
+    'space g i -' : 'git-plus:add-all-and-commit'
+    'space g i =' : 'git-plus:add-all-commit-and-push'
+    # Haskell mode
+    'space h s l' : 'haskell-ghc-mod:lint-file'
+    # Markdown toggle
+    'space m d'   : 'markdown-preview:toggle'
+    # Open finders
+    'space p f' : 'fuzzy-finder:toggle-file-finder'
+    'space p p' : 'command-palette:toggle'
+    # Show the state of todo objects in the app
+    'space t d o' : 'todo-show:find-in-open-files'
+    'space t d p' : 'todo-show:find-in-project'
+    # Open a terminal in the project root
+    'space t o' : 'atom-terminal:open-project-root'
+    # Edit the Keymaps
+    'space v e' : 'application:open-your-keymap'
+    'space v i' : 'application:open-your-init-script'
+    'space v s' : 'application:open-your-snippets'
+    'space v o' : 'settings-view:open'
+    'space v r' : 'window:reload'
+
+'atom-text-editor.vim-mode:not(.insert-mode), .tree-view':
+    # Tree view commands
+    'space t r r' : 'tree-view:toggle-focus'
+    'space t r t' : 'tree-view:toggle'
