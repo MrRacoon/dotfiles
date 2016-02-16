@@ -3,18 +3,18 @@
 #
 # ==[ Title: short meaningful description ]=====|
 # The title needs to be fewer than 50 characters.
- 
+
 # ==[ Blank: Follow the Subject with a blank line, do NOT remove ]=====|
- 
+
 # ==[ Details: Describe what changed and explain why it changed ]======|
 # This and all following lines should be fewer than 72 characters.
 # Explain the reason behind your change!
 # https://help.github.com/articles/github-flavored-markdown
- 
+
 # ==[ Issue: issue number and title ]==================================|
 # Github will automatically link issues of the form #1 or user/repo#1
 # Issues will be closed when the commit is merged to the default branch.
- 
+
 #Issue #
 #Close #
 #
