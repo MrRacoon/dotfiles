@@ -1,8 +1,3 @@
-# NWEA ALIASES
-#
-# Kept in alphabetical order to better spot collisions
-#
-
 # Bower
 alias bowi="bower install"
 # Grunt

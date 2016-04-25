@@ -20,3 +20,7 @@ export PATH="$HOME/bin:$PATH"
 
 # Vim mode in Zsh
 bindkey -v
+
+export NVM_DIR="/home/erik/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
