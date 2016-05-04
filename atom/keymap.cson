@@ -57,6 +57,7 @@
     'space g i c' : 'git-plus:commit'
     'space g i d' : 'git-plus:diff'
     'space g i g' : 'git-plus:run'
+    'space g i l' : 'git-plus:pull'
     'space g i o' : 'git-plus:checkout'
     'space g i p' : 'git-plus:push'
     'space g i r' : 'git-plus:reset'
