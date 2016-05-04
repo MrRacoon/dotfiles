@@ -6,6 +6,8 @@ source $HOME/dotfiles/zsh/antigen/antigen.zsh    # Pull in antigen
 antigen use oh-my-zsh                            # Load the framework
 antigen theme bureau                             # Get my favorite theme.
 antigen bundle git                               # Got to get the git
+antigen bundle grunt                             # 
+antigen bundle gulp                              # 
 antigen bundle ssh-agent                         # Cause Im sick of forgetting
 antigen bundle node                              # Some web stuff I do.
 antigen bundle npm
@@ -20,3 +22,6 @@ export PATH="$HOME/bin:$PATH"
 
 # Vim mode in Zsh
 bindkey -v
+
+export NVM_DIR="/Users/erik.sutherland/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
