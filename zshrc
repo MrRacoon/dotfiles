@@ -8,6 +8,7 @@ antigen theme bureau                             # Get my favorite theme.
 antigen bundle git                               # Got to get the git
 antigen bundle grunt                             # 
 antigen bundle gulp                              # 
+antigen bundle docker                              # 
 antigen bundle ssh-agent                         # Cause Im sick of forgetting
 antigen bundle node                              # Some web stuff I do.
 antigen bundle npm
