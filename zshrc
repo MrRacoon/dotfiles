@@ -2,17 +2,17 @@ export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
-source $HOME/dotfiles/zsh/antigen/antigen.zsh    # Pull in antigen
+source $HOME/dotfiles/zsh/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen theme bureau
 antigen bundle docker
-antigen bundle vagrant
 antigen bundle git
 antigen bundle grunt
 antigen bundle gulp
 antigen bundle node
 antigen bundle npm
 antigen bundle ssh-agent
+antigen bundle vagrant
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
@@ -32,5 +32,5 @@ if [ -e /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh ]; then . /User
 bindkey -v
 
 # This loads nvm
-export NVM_DIR="/home/erik/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
