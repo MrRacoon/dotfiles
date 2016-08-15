@@ -1,10 +1,7 @@
-
-
-
 nnoremap s o
 nnoremap S t
 
 nnoremap J 5j
 nnoremap K 5k
 
-
+nnoremap ; :
