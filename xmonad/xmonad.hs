@@ -66,7 +66,8 @@ cmd name ops         = name ++ " " ++ ops
 myTerminal           = gnomeTerminal
 
 myFocusFollowsMouse  :: Bool
-myFocusFollowsMouse  = False
+myFocusFollowsMouse  = True
+
 myBorderWidth        = 2
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
@@ -275,7 +276,7 @@ main = do
 defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
+        focusFollowsMouse  = True,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
         -- numlockMask deprecated in 0.9.1

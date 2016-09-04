@@ -1,10 +1,18 @@
 
+let mapleader="\"
+map <Space> <Leader>
 
+nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
+
+nnoremap ; :
 
 nnoremap s o
 nnoremap S t
 
-nnoremap J 5j
-nnoremap K 5k
+nnoremap J 10j
+nnoremap K 10k
+
+nnoremap h :tabprevious<cr>
+nnoremap l :tabnext<cr>
 
 

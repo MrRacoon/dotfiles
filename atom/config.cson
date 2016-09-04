@@ -8,6 +8,7 @@
     invisibles: {}
   "exception-reporting":
     userId: "cc236ea3-5433-3e5a-7dd6-a71b5238d209"
+  minimap: {}
   "vim-mode": {}
   welcome:
     showOnStartup: false

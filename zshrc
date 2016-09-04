@@ -22,6 +22,9 @@ export PATH="$HOME/bin:$PATH"
 # For web deving
 export PATH="$HOME/.npm/bin:$PATH"
 
+# For haskell binaries
+export PATH="$HOME/.local/bin:$PATH"
+
 # If the nix package manager is around (i.e. OSX) then get that all setup
 if [ -e /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
@@ -34,3 +37,4 @@ bindkey -v
 # This loads nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+

@@ -46,7 +46,7 @@
     ':' : 'vim-mode:repeat-find'
     # Movements
     'L'     : 'editor:move-to-end-of-line'
-    'H'     : 'editor:move-to-begining-of-line' # FIXME
+    'H'     : 'editor:move-to-beginning-of-line'
     # Window Navigation
     'Ctrl+l' : 'window:focus-pane-on-right'
     'Ctrl+h' : 'window:focus-pane-on-left'
@@ -66,6 +66,10 @@
     'space g i =' : 'git-plus:add-all-commit-and-push'
     # Haskell mode
     'space h s l' : 'haskell-ghc-mod:lint-file'
+    'space h s i' : 'haskell-ghc-mod:show-info'
+    'space h s t' : 'haskell-ghc-mod:show-type'
+    # Markdown toggle
+    'space j a s' : 'window:run-package-specs'
     # Markdown toggle
     'space m d'   : 'markdown-preview:toggle'
     # Open finders
