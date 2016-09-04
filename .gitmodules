@@ -93,10 +93,6 @@
 [submodule "vim/bundle/tern_for_vim"]
 	path = vim/bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim.git
-[submodule "vim/bundle/CoVim"]
-	path = vim/bundle/CoVim
-	url = git://github.com/FredKSchott/CoVim.git
-    ignore = dirty
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git

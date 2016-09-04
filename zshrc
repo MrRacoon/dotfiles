@@ -26,7 +26,7 @@ export PATH="$HOME/.npm/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # If the nix package manager is around (i.e. OSX) then get that all setup
-if [ -e /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # pull in any aliases from ~/.alias
 [ -d "$HOME/.alias" ] && for FILE in `ls $HOME/.alias`; do . $HOME/.alias/$FILE; done

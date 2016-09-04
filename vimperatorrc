@@ -1,4 +1,3 @@
-
 let mapleader="\"
 map <Space> <Leader>
 
@@ -14,5 +13,3 @@ nnoremap K 10k
 
 nnoremap h :tabprevious<cr>
 nnoremap l :tabnext<cr>
-
-

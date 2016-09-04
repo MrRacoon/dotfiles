@@ -52,6 +52,11 @@
     'Ctrl+h' : 'window:focus-pane-on-left'
     'Ctrl+j' : 'window:focus-pane-above'
     'Ctrl+k' : 'window:focus-pane-below'
+    # pane switching
+    'space f j' : 'window:focus-pane-below'
+    'space f k' : 'window:focus-pane-above'
+    'space f h' : 'window:focus-pane-on-left'
+    'space f l' : 'window:focus-pane-on-right'
     # Git commnads
     'space g i a' : 'git-plus:add'
     'space g i c' : 'git-plus:commit'
@@ -75,6 +80,11 @@
     # Open finders
     'space p f' : 'fuzzy-finder:toggle-file-finder'
     'space p p' : 'command-palette:toggle'
+    # Window Splitting
+    'space s j' : 'pane:split-down'
+    'space s k' : 'pane:split-up'
+    'space s l' : 'pane:split-right'
+    'space s h' : 'pane:split-left'
     # Show the state of todo objects in the app
     'space t d o' : 'todo-show:find-in-open-files'
     'space t d p' : 'todo-show:find-in-project'
