@@ -1,10 +1,6 @@
-# NWEA ALIASES
-#
-# Kept in alphabetical order to better spot collisions
-#
-
 # Bower
 alias bowi="bower install"
+alias dir="tree | less"
 # Grunt
 alias gt-t="grunt test"
 alias gt-at="grunt autotest"

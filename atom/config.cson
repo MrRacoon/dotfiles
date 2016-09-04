@@ -33,6 +33,7 @@
       "source.litcoffee"
     ]
   "tree-view": {}
+  minimap: {}
   "vim-mode": {}
   welcome:
     showOnStartup: false

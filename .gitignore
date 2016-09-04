@@ -8,4 +8,12 @@ xmonad/xmonad.errors
 xmonad/xmonad.hi
 xmonad/xmonad.o
 npm-debug.log
+atom/
+
+atom/
+!atom/config.cson
+!atom/keymap.cson
+!atom/init.coffee
+!atom/snippets.cson
+!atom/styles.less
 
