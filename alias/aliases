@@ -16,8 +16,6 @@ alias ln-c="lein clean"
 alias npmi="npm install"
 # Nyan cat
 alias nyan="telnet nyancat.dakko.us"
-# SUDO
-alias sudo="sudo -ik"
 # shutdown
 alias shutdown="sudo shutdown -h now"
 

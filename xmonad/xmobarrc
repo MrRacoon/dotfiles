@@ -4,7 +4,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-12-*-*-*-*-*-*-*"
 , position = Top
 , lowerOnStart = False
 , commands = [ Run Weather "KPDX" ["-t","<tempF>F","-L","19","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
-             , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+             , Run Network "enp0s25" ["-L","0","-H","32","--normal","green","--high","red"] 10
              , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
              , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
              , Run Memory ["-t","<usedratio>%"] 10
@@ -23,6 +23,6 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-12-*-*-*-*-*-*-*"
              ]
 , sepChar = "%"
 , alignSep = "}{"
-, template = " %cpu% %coretemp% : %memory% : %battery% : %wlan0% } %date% : %KPDX% { %StdinReader% "
+, template = " %cpu% %coretemp% : %memory% : %battery% : %enp0s25% } %date% : %KPDX% { %StdinReader% "
 }
 

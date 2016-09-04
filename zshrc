@@ -13,10 +13,16 @@ antigen bundle zsh-users/zsh-syntax-highlighting # That awesome syntax highlight
 antigen apply                                    # Apply all the above declarations.
 
 export PATH="$HOME/.npm/bin:$PATH"
-if [ -e /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+
+if [ -e /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/erik.sutherland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 [ -d "$HOME/.alias" ] && for FILE in `ls $HOME/.alias`; do . $HOME/.alias/$FILE; done
 
 # Vim mode in Zsh
 bindkey -v
+
+
+export NVM_DIR="/home/erik/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

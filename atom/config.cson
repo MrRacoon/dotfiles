@@ -1,13 +1,38 @@
 "*":
+  "atom-alignment":
+    alignBy: [
+      "=>"
+      ":="
+      ":"
+      "="
+      "\\"
+    ]
+  "atom-beautify":
+    general:
+      _analyticsUserId: "dbf48092-edbc-4aae-b6ad-f4a2ea41f325"
   core:
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:
+    fontSize: 19
     invisibles: {}
   "exception-reporting":
     userId: "cc236ea3-5433-3e5a-7dd6-a71b5238d209"
+  "ide-haskell":
+    onCursorMove: "Show Tooltip"
+    panelPosition: "right"
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "source.litcoffee"
+    ]
+  "tree-view": {}
   "vim-mode": {}
   welcome:
     showOnStartup: false

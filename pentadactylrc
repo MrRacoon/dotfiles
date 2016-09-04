@@ -1,6 +1,37 @@
+let mapleader="\"
 
+map <Space> <Leader>
 
+" Stay in normal mode when a webpage loads
+set focuscontent
+
+" Private browsing mode
+map E :emenu File.New Private Window<Return>
+
+"Remove search highlighting quickly
+map <leader>/ :nohlsearch<Return>
+
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+inoremap kj <Escape>
+vnoremap kj <Escape>
 
 nnoremap s o
 nnoremap S t
+
+nnoremap l :tabnext<CR>
+nnoremap h :tabprevious<CR>
+
+nnoremap ; :
+
+nnoremap J 8j
+nnoremap K 8k
+
+nnoremap d :tabclose!<cr>
+
+nnoremap <Leader>b :bookmarks
+nnoremap <Leader>vr :source ~/.vimperatorrc<CR>
+
+nnoremap <Leader>pt :setl apptab<cr>
+nnoremap <Leader>npt :setl noapptab<cr>
 

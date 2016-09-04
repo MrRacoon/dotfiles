@@ -46,30 +46,44 @@
     ':' : 'vim-mode:repeat-find'
     # Movements
     'L'     : 'editor:move-to-end-of-line'
-    'H'     : 'editor:move-to-begining-of-line' # FIXME
+    'H'     : 'editor:move-to-beginning-of-line' # FIXME
     # Window Navigation
     'Ctrl+l' : 'window:focus-pane-on-right'
     'Ctrl+h' : 'window:focus-pane-on-left'
     'Ctrl+j' : 'window:focus-pane-above'
     'Ctrl+k' : 'window:focus-pane-below'
+    # Atom Score
+    'space a s t' : 'atom-score:toggle'
+    # Dev tools
+    'space d t' : 'window:toggle-dev-tools'
+    # smalls
+    'space f' : 'smalls:start'
     # Git commnads
     'space g i a' : 'git-plus:add'
     'space g i c' : 'git-plus:commit'
     'space g i d' : 'git-plus:diff'
     'space g i g' : 'git-plus:run'
+    'space g i l' : 'git-plus:pull'
     'space g i o' : 'git-plus:checkout'
     'space g i p' : 'git-plus:push'
     'space g i r' : 'git-plus:reset'
     'space g i s' : 'git-plus:status'
     'space g i -' : 'git-plus:add-all-and-commit'
     'space g i =' : 'git-plus:add-all-commit-and-push'
+    # Switch Grammars
+    'space g s' : 'grammar-selector:show'
     # Haskell mode
     'space h s l' : 'haskell-ghc-mod:lint-file'
+    'space h s i' : 'haskell-ghc-mod:show-info'
+    'space h s t' : 'haskell-ghc-mod:show-type'
+    # Markdown toggle
+    'space j a s' : 'window:run-package-specs'
     # Markdown toggle
     'space m d'   : 'markdown-preview:toggle'
     # Open finders
-    'space p f' : 'fuzzy-finder:toggle-file-finder'
-    'space p p' : 'command-palette:toggle'
+    'space p f'   : 'fuzzy-finder:toggle-file-finder'
+    'space p m'   : 'activate-power-mode:toggle' # Power Mode
+    'space p p'   : 'command-palette:toggle'
     # Show the state of todo objects in the app
     'space t d o' : 'todo-show:find-in-open-files'
     'space t d p' : 'todo-show:find-in-project'
@@ -81,6 +95,7 @@
     'space v s' : 'application:open-your-snippets'
     'space v o' : 'settings-view:open'
     'space v r' : 'window:reload'
+
 
 'atom-text-editor.vim-mode:not(.insert-mode), .tree-view':
     # Tree view commands
