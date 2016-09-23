@@ -1,4 +1,4 @@
-
+compton -f -i 0.8 -D 1 -b
 
 # Make sure to source the aliases file to get my favorite aliases
 [[ -e "$HOME/.aliases" ]] && source $HOME/.aliases
