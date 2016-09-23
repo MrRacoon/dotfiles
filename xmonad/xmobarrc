@@ -1,4 +1,4 @@
-Config { font = "xft:Monofur for Powerline:size=12:bold:antialias=true"
+Config { font = "xft:Monofur for Powerline:size=9:bold:antialias=true"
        , bgColor = "black"
        , fgColor = "white"
        , position = Top

@@ -33,7 +33,3 @@ bindkey -v
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# MAC
-synclient PalmDetect=1
-synclient ClickFinger3=
-

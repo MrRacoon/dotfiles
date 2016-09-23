@@ -1,6 +1,9 @@
+# Use a fading compositor
 compton -f -i 0.8 -D 1 -b
 
-# Make sure to source the aliases file to get my favorite aliases
-[[ -e "$HOME/.aliases" ]] && source $HOME/.aliases
+#Configure the touchpad
+synclient ClickFinger3=2
+synclient TapButton1=0
+synclient TapButton2=0
+synclient PalmDetect=1
 
-export PATH="/home/erik/.cabal/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/usr/bin/core_perl:/home/erik/bin:/home/erik/.gem/ruby/2.1.0/bin:/home/erik/npm/bin"
