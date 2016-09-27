@@ -8,8 +8,6 @@ alias gt-at="grunt autotest"
 alias ln-d="lein deps"
 alias ln-r="lein repl"
 alias ln-c="lein clean"
-# node
-alias npmi="npm install"
 # Nyan cat
 alias nyan="telnet nyancat.dakko.us"
 # shutdown

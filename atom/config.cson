@@ -16,7 +16,7 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 19
+    fontSize: 10
     invisibles: {}
   "exception-reporting":
     userId: "cc236ea3-5433-3e5a-7dd6-a71b5238d209"

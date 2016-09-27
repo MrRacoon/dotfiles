@@ -1,7 +1,12 @@
 let mapleader="\"
 map <Space> <Leader>
 
+inoremap kj <escape>
+
+set hintchars=asdflkjweroiucvmnbt
+
 nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
+nnoremap <Leader>ee :echo "woot"<cr>
 
 nnoremap <Leader>tt :tabdetach<cr>
 
