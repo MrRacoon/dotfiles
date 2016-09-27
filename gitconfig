@@ -16,21 +16,34 @@
     branch   = auto
 
 [alias]
-    st        = status
-    sup       = submodule update
-    sub       = submodule
-    sst       = submodule status
-    co        = checkout
+    a         = add
+    ac        = !git add . && git commit -am
+    ap        = add --patch
     b         = branch
     ba        = branch --all
-    ci        = commit
-    unstage   = reset HEAD --
-    last      = log -1 HEAD
+    c         = commit --verbose
+    ca        = commit -a --verbose
+    cam       = commit -a -m
+    cb        = checkout -b
+    cm        = commit -m
+    co        = checkout
+    d         = diff
+    ds        = diff --stat
+    dc        = diff --cached
     hist      = log --all --decorate --oneline --graph
-    show      = show --color --pretty=format:%b $COMMIT
-    nuke      = reset --hard
+    l         = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    last      = log -1 HEAD
     lg        = git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    su        = submodule update --init --recursive
+    nuke      = reset --hard
+    rao       = remote add origin
+    show      = show --color --pretty=format:%b $COMMIT
+    s         = status -s
+    st        = status
+    sst       = submodule status
+    sub       = submodule
+    sui       = submodule update --init --recursive
+    sup       = submodule update
+    unstage   = reset HEAD --
 
 [commit]
     template = ~/dotfiles/git-commit-template
