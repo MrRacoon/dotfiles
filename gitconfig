@@ -30,11 +30,15 @@
     d         = diff
     ds        = diff --stat
     dc        = diff --cached
+    f         = fetch
+    fa        = fetch --all
+    fp        = fetch --prune
     hist      = log --all --decorate --oneline --graph
     l         = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
     last      = log -1 HEAD
     lg        = git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     nuke      = reset --hard
+    p         = push
     rao       = remote add origin
     show      = show --color --pretty=format:%b $COMMIT
     s         = status -s
