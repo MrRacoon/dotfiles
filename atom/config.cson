@@ -23,6 +23,7 @@
   "ide-haskell":
     onCursorMove: "Show Tooltip"
     panelPosition: "right"
+  minimap: {}
   "spell-check":
     grammars: [
       "source.asciidoc"
@@ -33,7 +34,6 @@
       "source.litcoffee"
     ]
   "tree-view": {}
-  minimap: {}
   "vim-mode": {}
   welcome:
     showOnStartup: false

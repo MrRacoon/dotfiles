@@ -3,6 +3,8 @@ map <Space> <Leader>
 
 nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
 
+nnoremap <Leader>tt :tabdetach<cr>
+
 nnoremap ; :
 
 nnoremap s o

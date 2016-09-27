@@ -28,6 +28,7 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 
 # Vim mode in Zsh
 bindkey -v
+bindkey -M viins 'kj' vi-cmd-mode
 
 # This loads nvm
 export NVM_DIR="$HOME/.nvm"
