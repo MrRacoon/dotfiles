@@ -46,7 +46,7 @@
     ':' : 'vim-mode:repeat-find'
     # Movements
     'L'     : 'editor:move-to-end-of-line'
-    'H'     : 'editor:move-to-begining-of-line' # FIXME
+    'H'     : 'editor:move-to-beginning-of-line' # FIXME
     # Window Navigation
     'Ctrl+l' : 'window:focus-pane-on-right'
     'Ctrl+h' : 'window:focus-pane-on-left'
