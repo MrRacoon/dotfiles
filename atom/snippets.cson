@@ -19,3 +19,31 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.source.js':
+  'Use Babel':
+    'prefix': 'ub'
+    'body': '\'use babel\';\n'
+
+'.source.litcoffee':
+ 'Dependency Stanza':
+   'prefix': 'ddeps'
+   'body': '**Dependencies**\n\n\t'
+ 'Tests Stanza':
+   'prefix': 'dtest'
+   'body': '**Tests**\n\n\t'
+  'Full Template':
+    'prefix': 'cscs'
+    'body': """
+[Title]
+=======
+
+copy
+
+_description_
+
+**Dependencies**
+
+**Source**'
+
+"""

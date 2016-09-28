@@ -1,0 +1,27 @@
+alias npmb="npm run build"
+alias npmbd="npm run build:dev"
+alias npmbp="npm run build:production"
+alias npmbds="npm run build:dev:server"
+alias npmbdc="npm run build:dev:client"
+alias npmbps="npm run build:production:server"
+alias npmbpc="npm run build:production:client"
+
+alias npmc="npm run clean"
+
+alias npmi="npm install"
+alias npmid="npm install --save"
+alias npmidd="npm install --save-dev"
+alias npmig="npm install --global"
+
+
+alias npml="npm run lint"
+
+alias npmm="npm run mocha"
+alias npmmw="npm run mocha -- --watch"
+
+alias npmr="npm run"
+
+alias npms="npm start"
+
+alias npmt="npm run test"
+

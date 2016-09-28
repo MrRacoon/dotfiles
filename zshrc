@@ -17,11 +17,9 @@ antigen bundle vagrant
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
-# Grab any of my random scripts (lein)
-export PATH="$HOME/bin:$PATH"
-
-# For web deving
 export PATH="$HOME/.npm/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # If the nix package manager is around (i.e. OSX) then get that all setup
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
@@ -31,6 +29,7 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 
 # Vim mode in Zsh
 bindkey -v
+bindkey -M viins 'kj' vi-cmd-mode
 
 # This loads nvm
 export NVM_DIR="$HOME/.nvm"

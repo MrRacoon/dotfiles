@@ -1,5 +1,13 @@
-# If applied, this commit will ------------------|
+# ==[ Title: short meaningful description ]=====|
+# If applied, this commit will -----------------|
 
-# Explain why this change is being made -----------------------------|
+# ==[ Details: Describe what changed and explain why it changed ]======|
+# Explain why this change is being made -------------------------------|
 
-# Provide links to any relevant tickets, articles or other resources |
+# ==[ Issue: issue number and title ]==================================|
+# Github will automatically link issues of the form #1 or user/repo#1--|
+# Issues will be closed when the commit is merged to the default branch|
+# Provide links to any relevant tickets, articles or other resources---|
+
+#Issue #
+#Close #

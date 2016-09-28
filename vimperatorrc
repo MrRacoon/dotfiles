@@ -1,22 +1,23 @@
 let mapleader="\"
 map <Space> <Leader>
 
-nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
-
-set hintchars=hjklasdfgertyuicvbnqwpzxm
-
 set focuscontent
+set hintchars=asdflkjweroiucvmnbt
+
+:hi CompDesc -append font-size:18px
+:hi CmdLine -append font-size:18px
+
+inoremap kj <escape>
+nnoremap ; :
+
+nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
+nnoremap <Leader>tt :tabdetach<cr>
 
 nnoremap s o
 nnoremap S t
 
-nnoremap J 8j
-nnoremap K 8k
+nnoremap J 10j
+nnoremap K 10k
 
 nnoremap l :tabnext<cr>
 nnoremap h :tabprevious<cr>
-
-nnoremap ; :
-
-:hi CompDesc -append font-size:18px
-:hi CmdLine -append font-size:18px

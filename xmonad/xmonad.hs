@@ -66,7 +66,8 @@ cmd name ops         = name ++ " " ++ ops
 myTerminal           = gnomeTerminal
 
 myFocusFollowsMouse  :: Bool
-myFocusFollowsMouse  = False
+myFocusFollowsMouse  = True
+
 myBorderWidth        = 2
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
@@ -147,16 +148,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
 
     -- Add commands to turn my bulbs different color
-    , ((modm .|. controlMask , xK_0           ), spawn "lifxcli --off")
-    , ((modm .|. controlMask , xK_1           ), spawn "lifxcli --on")
-    , ((modm .|. controlMask , xK_2           ), spawn "lifxcli -c red")
-    , ((modm .|. controlMask , xK_3           ), spawn "lifxcli -c orange")
-    , ((modm .|. controlMask , xK_4           ), spawn "lifxcli -c yellow")
-    , ((modm .|. controlMask , xK_5           ), spawn "lifxcli -c green")
-    , ((modm .|. controlMask , xK_6           ), spawn "lifxcli -c cyan")
-    , ((modm .|. controlMask , xK_7           ), spawn "lifxcli -c blue")
-    , ((modm .|. controlMask , xK_8           ), spawn "lifxcli -c magenta")
-    , ((modm .|. controlMask , xK_9           ), spawn "lifxcli -c white")
+    , ((modm .|. controlMask , xK_0           ), spawn "lifxcli -0")
+    , ((modm .|. controlMask , xK_1           ), spawn "lifxcli -1")
+    , ((modm .|. controlMask , xK_2           ), spawnHere "lifxcli -c red")
+    , ((modm .|. controlMask , xK_3           ), spawnHere "lifxcli -C orange >> log")
+    , ((modm .|. controlMask , xK_4           ), spawnHere "lifxcli -C yellow")
+    , ((modm .|. controlMask , xK_5           ), spawn "lifxcli -C green")
+    , ((modm .|. controlMask , xK_6           ), spawn "lifxcli -C cyan")
+    , ((modm .|. controlMask , xK_7           ), spawn "lifxcli -C blue")
+    , ((modm .|. controlMask , xK_8           ), spawn "lifxcli -C magenta")
+    , ((modm .|. controlMask , xK_9           ), spawn "lifxcli -C white")
 
 
     -- Toggle the status bar gap
@@ -275,7 +276,7 @@ main = do
 defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
+        focusFollowsMouse  = True,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
         -- numlockMask deprecated in 0.9.1

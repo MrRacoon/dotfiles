@@ -52,7 +52,7 @@ set colorcolumn=80                            " set an indicator for showing me 
 set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
 set undofile                                  " Save all undos into a file
 set tags+=./tags;/                            " Check the current directory, and then work up to the root, looking for tags
-highlight colorcolumn ctermbg=cyan            " and make it cyan i guess
+highlight colorcolumn ctermbg=black            " and make it cyan i guess
 
 if !isdirectory(&undodir)
     echom "Creating undo directory"
@@ -90,7 +90,7 @@ nnoremap <leader>pp :CtrlP<cr>
 
 " Edit vim key bindings
 nnoremap <leader>ve :vsplit $MYVIMRC<cr> 
-nnoremap <leader>vs :source $MYVIMRC<cr> 
+nnoremap <leader>vr :source $MYVIMRC<cr> 
 
 map <up> <nop>
 map <down> <nop>
