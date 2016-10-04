@@ -17,6 +17,7 @@ alias npmig="npm install --global"
 alias npml="npm run lint"
 
 alias npmm="npm run mocha"
+alias npmmw="npm run mocha -- --watch"
 
 alias npmr="npm run"
 
