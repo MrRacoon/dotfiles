@@ -11,6 +11,7 @@ antigen bundle grunt
 antigen bundle gulp
 antigen bundle node
 antigen bundle npm
+antigen bundle nyan
 antigen bundle ssh-agent
 antigen bundle vagrant
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -34,3 +35,5 @@ bindkey -M viins 'kj' vi-cmd-mode
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# Load jenv if availible
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi

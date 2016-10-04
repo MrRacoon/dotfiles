@@ -1,16 +1,17 @@
 let mapleader="\"
 map <Space> <Leader>
 
-inoremap kj <escape>
-
+set focuscontent
 set hintchars=asdflkjweroiucvmnbt
 
-nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
-nnoremap <Leader>ee :echo "woot"<cr>
+:hi CompDesc -append font-size:18px
+:hi CmdLine -append font-size:18px
 
-nnoremap <Leader>tt :tabdetach<cr>
-
+inoremap kj <escape>
 nnoremap ; :
+
+nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
+nnoremap <Leader>tt :tabdetach<cr>
 
 nnoremap s o
 nnoremap S t
@@ -18,5 +19,5 @@ nnoremap S t
 nnoremap J 10j
 nnoremap K 10k
 
-nnoremap h :tabprevious<cr>
 nnoremap l :tabnext<cr>
+nnoremap h :tabprevious<cr>
