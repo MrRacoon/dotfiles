@@ -57,6 +57,11 @@
     'Ctrl+k' : 'window:focus-pane-below'
     # Atom Score
     'space a s t' : 'atom-score:toggle'
+    # Tam Manager
+    'space c a t' : 'tabs:close-all-tabs'
+    'space c o t' : 'tabs:close-other-tabs'
+    'space c l t' : 'tabs:close-tabs-to-left'
+    'space c r t' : 'tabs:close-tabs-to-right'
     # Dev tools
     'space d t' : 'window:toggle-dev-tools'
     # smalls
