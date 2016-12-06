@@ -1,0 +1,5 @@
+alias apmi="apm install"
+alias apms="apm search"
+alias apml="apm link"
+alias apmul="apm unlink"
+

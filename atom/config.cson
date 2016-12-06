@@ -11,13 +11,16 @@
     general:
       _analyticsUserId: "dbf48092-edbc-4aae-b6ad-f4a2ea41f325"
   core:
+    telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 10
     invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabType: "soft"
   "exception-reporting":
     userId: "cc236ea3-5433-3e5a-7dd6-a71b5238d209"
   "ide-haskell":
