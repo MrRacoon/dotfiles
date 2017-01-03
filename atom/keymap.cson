@@ -47,6 +47,9 @@
     # Movements
     'L'     : 'editor:move-to-end-of-line'
     'H'     : 'editor:move-to-beginning-of-line'
+    'g f'   : 'open-this:here'
+    'ctrl-w f': 'open-this:split-down'
+    'ctrl-w F': 'open-this:split-right'
     # Window Navigation
     'Ctrl+l' : 'window:focus-pane-on-right'
     'Ctrl+h' : 'window:focus-pane-on-left'
@@ -58,9 +61,11 @@
     'space a s w' : 'atom-score:display-points'
     'space a s e' : 'atom-score:display-items'
     'space a s r' : 'atom-score:display-equip'
-    # Pane problems
-    'space c o t' : 'tabs:close-other-tabs'
+    # Tab Manager
     'space c a t' : 'tabs:close-all-tabs'
+    'space c o t' : 'tabs:close-other-tabs'
+    'space c l t' : 'tabs:close-tabs-to-left'
+    'space c r t' : 'tabs:close-tabs-to-right'
     # Dev tools
     'space d t' : 'window:toggle-dev-tools'
     # smalls
@@ -88,7 +93,7 @@
     'space h s l' : 'haskell-ghc-mod:lint-file'
     'space h s i' : 'haskell-ghc-mod:show-info'
     'space h s t' : 'haskell-ghc-mod:show-type'
-    # Markdown toggle
+    # Atom package testing
     'space j a s' : 'window:run-package-specs'
     # Markdown toggle
     'space m d'   : 'markdown-preview:toggle'
@@ -112,7 +117,6 @@
     'space v s' : 'application:open-your-snippets'
     'space v o' : 'settings-view:open'
     'space v r' : 'window:reload'
-
 
 'atom-text-editor.vim-mode:not(.insert-mode), .tree-view':
     # Tree view commands

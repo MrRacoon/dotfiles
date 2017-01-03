@@ -1,12 +1,13 @@
 # ==[ Title: short meaningful description ]=====|
-
-# ==[ Blank: Follow the Subject with a blank line, do NOT remove ]=====|
+# If applied, this commit will -----------------|
 
 # ==[ Details: Describe what changed and explain why it changed ]======|
+# Explain why this change is being made -------------------------------|
 
 # ==[ Issue: issue number and title ]==================================|
-# Github will automatically link issues of the form #1 or user/repo#1
-# Issues will be closed when the commit is merged to the default branch.
+# Github will automatically link issues of the form #1 or user/repo#1--|
+# Issues will be closed when the commit is merged to the default branch|
+# Provide links to any relevant tickets, articles or other resources---|
 
 #Issue #
 #Close #
