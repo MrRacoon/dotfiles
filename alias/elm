@@ -1,0 +1,10 @@
+
+alias elml="elm-repl"
+
+alias elmm="elm-make"
+
+alias elmp="elm-package"
+alias elmpi="elm-package install"
+
+alias elmr="elm-reactor"
+
