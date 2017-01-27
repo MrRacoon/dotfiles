@@ -8,6 +8,7 @@ import XMonad.Layout.Fullscreen
 import XMonad.Layout.Circle
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
+import XMonad.Layout.Spacing
 
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
@@ -68,11 +69,11 @@ myTerminal           = gnomeTerminal
 myFocusFollowsMouse  :: Bool
 myFocusFollowsMouse  = True
 
-myBorderWidth        = 2
+myBorderWidth        = 10
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#f3993f"
+myFocusedBorderColor = "#99ff33"
 beepOptions = "-l 1000"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
@@ -159,7 +160,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask , xK_8           ), spawn "lifxcli -C magenta")
     , ((modm .|. controlMask , xK_9           ), spawn "lifxcli -C white")
 
-
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function fromv Hooks.DynamicLog.
@@ -215,7 +215,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 ------------------------------------------------------------------------
 -- Layouts:
-myLayout = Full ||| tiled ||| Mirror tiled
+myLayout = smartSpacing 15 (Full ||| tiled ||| Mirror tiled)
 -- myLayout = tiled ||| Mirror tiled ||| spiral (6/7) ||| tabbed shrinkText tabTheme
 -- myLayout = tabbed shrinkText tabTheme ||| spiral (6/7) ||| Mirror tiled
   where

@@ -34,6 +34,8 @@
   "one-dark-ui":
     layoutMode: "Compact"
     tabSizing: "Minimum"
+  "prettier-atom":
+    formatOnSave: true
   "spell-check":
     grammars: [
       "source.asciidoc"
