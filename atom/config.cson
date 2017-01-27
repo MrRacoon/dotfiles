@@ -21,7 +21,7 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 11
+    fontSize: 16
     invisibles: {}
     showInvisibles: true
     tabType: "soft"
@@ -30,7 +30,10 @@
   "ide-haskell":
     onCursorMove: "Show Tooltip"
     panelPosition: "right"
-  minimap: {}
+  "language-elm":
+    autocompleteEnabled: false
+  minimap:
+    displayMinimapOnLeft: true
   "one-dark-ui":
     layoutMode: "Compact"
     tabSizing: "Minimum"

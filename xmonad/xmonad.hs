@@ -69,11 +69,13 @@ myTerminal           = gnomeTerminal
 myFocusFollowsMouse  :: Bool
 myFocusFollowsMouse  = True
 
-myBorderWidth        = 10
+myBorderWidth        = 5
+myBorderSpace        = 20
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#99ff33"
+myFocusedBorderColor = "#33ffaa"
+
 beepOptions = "-l 1000"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
@@ -215,7 +217,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 ------------------------------------------------------------------------
 -- Layouts:
-myLayout = smartSpacing 15 (Full ||| tiled ||| Mirror tiled)
+myLayout = smartSpacing myBorderSpace (Full ||| tiled ||| Mirror tiled)
 -- myLayout = tiled ||| Mirror tiled ||| spiral (6/7) ||| tabbed shrinkText tabTheme
 -- myLayout = tabbed shrinkText tabTheme ||| spiral (6/7) ||| Mirror tiled
   where

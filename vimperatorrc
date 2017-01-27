@@ -15,6 +15,8 @@ nnoremap ; :
 nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
 nnoremap <Leader>tt :tabdetach<cr>
 
+nnoremap <Leader>pf :tabopen 
+
 nnoremap s o
 nnoremap S t
 
