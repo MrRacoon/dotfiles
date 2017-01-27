@@ -11,12 +11,14 @@
     general:
       _analyticsUserId: "dbf48092-edbc-4aae-b6ad-f4a2ea41f325"
   core:
+    autoHideMenuBar: true
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:
+    fontSize: 16
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -26,7 +28,13 @@
   "ide-haskell":
     onCursorMove: "Show Tooltip"
     panelPosition: "right"
-  minimap: {}
+  "language-elm":
+    autocompleteEnabled: false
+  minimap:
+    displayMinimapOnLeft: true
+  "one-dark-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
   "spell-check":
     grammars: [
       "source.asciidoc"

@@ -8,6 +8,7 @@ import XMonad.Layout.Fullscreen
 import XMonad.Layout.Circle
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
+import XMonad.Layout.Spacing
 
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
@@ -69,10 +70,11 @@ myFocusFollowsMouse  :: Bool
 myFocusFollowsMouse  = True
 
 myBorderWidth        = 2
+myBorderSpace        = 20
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#f3993f"
+myFocusedBorderColor = "#33ffaa"
 beepOptions = "-l 1000"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
@@ -215,7 +217,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 ------------------------------------------------------------------------
 -- Layouts:
-myLayout = Full ||| tiled ||| Mirror tiled
+myLayout = smartSpacing myBorderSpace (Full ||| tiled ||| Mirror tiled)
 -- myLayout = tiled ||| Mirror tiled ||| spiral (6/7) ||| tabbed shrinkText tabTheme
 -- myLayout = tabbed shrinkText tabTheme ||| spiral (6/7) ||| Mirror tiled
   where
