@@ -13,15 +13,23 @@ alias npmid="npm install --save"
 alias npmidd="npm install --save-dev"
 alias npmig="npm install --global"
 
+alias yn="yarn"
+alias yna="yarn add"
+alias ynad="yarn --dev add"
+alias ynag="yarn global add"
 
 alias npml="npm run lint"
-
-alias npmm="npm run mocha"
-alias npmmw="npm run mocha -- --watch"
+alias npmm="npm run mocha 2> /dev/null"
+alias npmmw="npm run mocha:watch"
 
 alias npmr="npm run"
-
 alias npms="npm start"
-
 alias npmt="npm run test"
 
+gitdiff () {                                                                     ⬡ 6.5.0 [±feature/questionModalValidation ✓]
+    while `true`; do
+        clear
+        git --no-pager diff
+        sleep 1
+    done
+}

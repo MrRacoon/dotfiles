@@ -2,7 +2,9 @@ let mapleader="\"
 map <Space> <Leader>
 
 set focuscontent
+
 set hintchars=asdflkjweroiucvmnbt
+set focuscontent
 
 :hi CompDesc -append font-size:18px
 :hi CmdLine -append font-size:18px

@@ -10,6 +10,9 @@
   "atom-beautify":
     general:
       _analyticsUserId: "dbf48092-edbc-4aae-b6ad-f4a2ea41f325"
+  "atom-score":
+    sideBarWidth: 300
+  "atom-terminal": {}
   core:
     autoHideMenuBar: true
     telemetryConsent: "no"
@@ -20,7 +23,6 @@
   editor:
     fontSize: 16
     invisibles: {}
-    showIndentGuide: true
     showInvisibles: true
     tabType: "soft"
   "exception-reporting":
@@ -44,6 +46,8 @@
       "text.plain.null-grammar"
       "source.litcoffee"
     ]
+  "todo-show":
+    sortBy: "Type"
   "tree-view": {}
   "vim-mode": {}
   welcome:

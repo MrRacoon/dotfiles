@@ -1,4 +1,6 @@
 alias/NWEA
+alias/nike
+
 vim/undos
 vim/view/*
 vim/snippets

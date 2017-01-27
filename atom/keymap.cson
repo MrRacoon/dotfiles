@@ -46,7 +46,7 @@
     ':' : 'vim-mode:repeat-find'
     # Movements
     'L'     : 'editor:move-to-end-of-line'
-    'H'     : 'editor:move-to-begining-of-line'
+    'H'     : 'editor:move-to-beginning-of-line'
     'g f'   : 'open-this:here'
     'ctrl-w f': 'open-this:split-down'
     'ctrl-w F': 'open-this:split-right'
@@ -57,7 +57,11 @@
     'Ctrl+k' : 'window:focus-pane-below'
     # Atom Score
     'space a s t' : 'atom-score:toggle'
-    # Tam Manager
+    'space a s q' : 'atom-score:display-none'
+    'space a s w' : 'atom-score:display-points'
+    'space a s e' : 'atom-score:display-items'
+    'space a s r' : 'atom-score:display-equip'
+    # Tab Manager
     'space c a t' : 'tabs:close-all-tabs'
     'space c o t' : 'tabs:close-other-tabs'
     'space c l t' : 'tabs:close-tabs-to-left'
@@ -89,7 +93,7 @@
     'space h s l' : 'haskell-ghc-mod:lint-file'
     'space h s i' : 'haskell-ghc-mod:show-info'
     'space h s t' : 'haskell-ghc-mod:show-type'
-    # Markdown toggle
+    # Atom package testing
     'space j a s' : 'window:run-package-specs'
     # Markdown toggle
     'space m d'   : 'markdown-preview:toggle'
@@ -103,8 +107,8 @@
     'space s l' : 'pane:split-right'
     'space s h' : 'pane:split-left'
     # Show the state of todo objects in the app
+    'space t d a' : 'todo-show:find-in-project'
     'space t d o' : 'todo-show:find-in-open-files'
-    'space t d p' : 'todo-show:find-in-project'
     # Open a terminal in the project root
     'space t o' : 'atom-terminal:open-project-root'
     # Edit the Keymaps
