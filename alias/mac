@@ -1,0 +1,5 @@
+alias screenRes="xrandr --output eDP --mode 1920x1200"
+
+bright () {
+    xrandr --output eDP --brightness $1
+}

@@ -69,12 +69,13 @@ myTerminal           = gnomeTerminal
 myFocusFollowsMouse  :: Bool
 myFocusFollowsMouse  = True
 
-myBorderWidth        = 2
+myBorderWidth        = 5
 myBorderSpace        = 20
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
 myFocusedBorderColor = "#33ffaa"
+
 beepOptions = "-l 1000"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
@@ -160,7 +161,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. controlMask , xK_7           ), spawn "lifxcli -C blue")
     , ((modm .|. controlMask , xK_8           ), spawn "lifxcli -C magenta")
     , ((modm .|. controlMask , xK_9           ), spawn "lifxcli -C white")
-
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
