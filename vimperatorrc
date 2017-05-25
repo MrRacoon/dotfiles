@@ -2,7 +2,9 @@ let mapleader="\"
 map <Space> <Leader>
 
 set focuscontent
+
 set hintchars=asdflkjweroiucvmnbt
+set focuscontent
 
 :hi CompDesc -append font-size:18px
 :hi CmdLine -append font-size:18px
@@ -12,6 +14,8 @@ nnoremap ; :
 
 nnoremap <Leader>vr :source ~/.vimperatorrc<cr>
 nnoremap <Leader>tt :tabdetach<cr>
+
+nnoremap <Leader>pf :tabopen 
 
 nnoremap s o
 nnoremap S t

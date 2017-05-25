@@ -10,20 +10,35 @@
   "atom-beautify":
     general:
       _analyticsUserId: "dbf48092-edbc-4aae-b6ad-f4a2ea41f325"
+  "atom-score":
+    sideBarWidth: 300
+  "atom-terminal": {}
   core:
+    autoHideMenuBar: true
+    telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 10
+    fontSize: 24
     invisibles: {}
+    showInvisibles: true
+    tabType: "soft"
   "exception-reporting":
     userId: "cc236ea3-5433-3e5a-7dd6-a71b5238d209"
   "ide-haskell":
     onCursorMove: "Show Tooltip"
     panelPosition: "right"
-  minimap: {}
+  "language-elm":
+    autocompleteEnabled: false
+  minimap:
+    displayMinimapOnLeft: true
+  "one-dark-ui":
+    layoutMode: "Compact"
+    tabSizing: "Minimum"
+  "prettier-atom":
+    formatOnSave: true
   "spell-check":
     grammars: [
       "source.asciidoc"
@@ -33,6 +48,8 @@
       "text.plain.null-grammar"
       "source.litcoffee"
     ]
+  "todo-show":
+    sortBy: "Type"
   "tree-view": {}
   "vim-mode": {}
   welcome:
