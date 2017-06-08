@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# initialize all submodules everywhere
-git submodule --init --recursive
-
 # Where is this repo? Presuppose you run this script from the dotfiles repo
-DOT_FILE_DIR=$PWD
+DOT_FILE_DIR=$HOME/dotfiles
+
+cd $DOT_FILE_DIR
+
+# initialize all submodules everywhere
+git submodule update --init --recursive
 
 cp $DOT_FILE_DIR/gitconfig $HOME/.gitconfig
 
@@ -31,3 +33,5 @@ ln -s $DOT_FILE_DIR/zshrc $HOME/.zshrc
 
 # Install NVM
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+
+cd -
