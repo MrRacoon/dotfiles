@@ -129,3 +129,6 @@
 [submodule "vim/bundle/vimwiki"]
 	path = vim/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
+[submodule "fonts"]
+	path = fonts
+	url = https://github.com/powerline/fonts.git
