@@ -2,7 +2,7 @@
 
 # Install the toys
 sudo apt update
-sudo apt install rofi xmonad git slock vim screen zsh
+sudo apt install rofi xmonad git slock vim screen zsh exuberant-ctags
 
 # Assume the dotfils repo is in $HOME
 DOT_FILE_DIR=$HOME/dotfiles
