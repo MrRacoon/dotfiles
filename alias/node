@@ -8,15 +8,14 @@ alias npmbpc="npm run build:production:client"
 
 alias npmc="npm run clean"
 
+alias npmd="npm run docs"
+
+alias npme="npm run e2e"
+
 alias npmi="npm install"
 alias npmid="npm install --save"
 alias npmidd="npm install --save-dev"
 alias npmig="npm install --global"
-
-alias yn="yarn"
-alias yna="yarn add"
-alias ynad="yarn --dev add"
-alias ynag="yarn global add"
 
 alias npml="npm run lint"
 alias npmm="npm run mocha 2> /dev/null"
@@ -24,9 +23,15 @@ alias npmmw="npm run mocha:watch"
 
 alias npmr="npm run"
 alias npms="npm start"
+alias npmst="npm run storybook"
 alias npmt="npm run test"
 
 alias npmw="npm run watch"
+
+alias yn="yarn"
+alias yna="yarn add"
+alias ynad="yarn --dev add"
+alias ynag="yarn global add"
 
 gitdiff () {                                                                     ⬡ 6.5.0 [±feature/questionModalValidation ✓]
     while `true`; do

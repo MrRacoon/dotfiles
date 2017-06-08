@@ -38,3 +38,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load jenv if availible
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# exercism completion
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+    . ~/.config/exercism/exercism_completion.zsh
+fi

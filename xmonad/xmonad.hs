@@ -25,6 +25,8 @@ import Data.List
 import Data.Monoid
 import System.Exit
 
+import XMonad.Config.Mate
+
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -74,15 +76,14 @@ myBorderSpace        = 20
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#33ffaa"
+myFocusedBorderColor = "#800080"
 
 beepOptions = "-l 1000"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- launch dmenu
-    --, ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu -b -i -l 20` && eval \"exec $exe\"")
-    , ((modm,               xK_p     ), spawn "dmenu_run -i -l 10")
+    , ((modm,               xK_p     ), spawn "rofi -show run")
     -- Volume Controls
     , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008ff11), spawn "amixer -q set Master 2- unmute")
@@ -93,11 +94,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, 0x1008ff02), spawn "sudo bright screen up")
     , ((0, 0x1008ff06), spawn "sudo bright keyboard down")
     , ((0, 0x1008ff05), spawn "sudo bright keyboard up")
+
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
     -- lock the machine
     , ((modm .|. shiftMask, xK_l     ), spawn "slock")
+
+    -- Convert to colmak
+    , ((modm,               xK_minus ), spawn "setxkbmap us")
+
+    -- Convert to qwerty
+    , ((modm,               xK_equal), spawn "setxkbmap us -variant colemak")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -272,8 +280,7 @@ myStartupHook = setWMName "LG3D" >> do
         return ()
 
 main = do
-     -- spawnPipe "/home/erik/.cabal/bin/xmobar /home/erik/.xmobarrc"
-     xmonad =<< xmobar defaults
+     xmonad defaults -- =<< xmobar defaults
 
 defaults = defaultConfig {
       -- simple stuff

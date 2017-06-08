@@ -18,6 +18,7 @@ ln -s $DOT_FILE_DIR/alias $HOME/.alias
 
 # Install dot files
 ln -s $DOT_FILE_DIR/ghci $HOME/.ghci
+ln -s $DOT_FILE_DIR/haskeline $HOME/.haskeline
 ln -s $DOT_FILE_DIR/xmonad $HOME/.xmonad
 ln -s $DOT_FILE_DIR/xmobarrc $HOME/.xmobarrc
 
