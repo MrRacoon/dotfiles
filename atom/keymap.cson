@@ -39,7 +39,7 @@
     ';' : 'vim-mode-plus-ex-mode:open'
     ':' : 'vim-mode-plus:repeat-find'
 
-'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
+'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode-plus':
     # Auto-wrap lines at 80th column
     'g q': 'autoflow:reflow-selection'
 

@@ -21,7 +21,7 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 22
+    fontSize: 24
     invisibles: {}
     showInvisibles: true
     tabType: "soft"
