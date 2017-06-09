@@ -21,7 +21,7 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 16
+    fontSize: 22
     invisibles: {}
     showInvisibles: true
     tabType: "soft"
@@ -32,8 +32,9 @@
     panelPosition: "right"
   "language-elm":
     autocompleteEnabled: false
-  minimap:
-    displayMinimapOnLeft: true
+  "linter-ui-default":
+    showPanel: true
+  minimap: {}
   "one-dark-ui":
     layoutMode: "Compact"
     tabSizing: "Minimum"

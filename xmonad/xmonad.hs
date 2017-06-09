@@ -83,8 +83,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- launch dmenu
-    --, ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu -b -i -l 20` && eval \"exec $exe\"")
-    , ((modm,               xK_p     ), spawn "dmenu_run -i -l 10")
+    , ((modm,               xK_p     ), spawn "rofi -show run")
     -- Volume Controls
     , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008ff11), spawn "amixer -q set Master 2- unmute")
