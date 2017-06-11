@@ -3,6 +3,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.SetWMName
+import XMonad.Config.Mate
 
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Circle
@@ -74,7 +75,7 @@ myBorderSpace        = 20
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#33ffaa"
+myFocusedBorderColor = "#3366aa"
 
 beepOptions = "-l 1000"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -273,9 +274,9 @@ myStartupHook = setWMName "LG3D" >> do
 
 main = do
      -- spawnPipe "/home/erik/.cabal/bin/xmobar /home/erik/.xmobarrc"
-     xmonad =<< xmobar defaults
+     xmonad defaults
 
-defaults = defaultConfig {
+defaults = mateConfig {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = True,

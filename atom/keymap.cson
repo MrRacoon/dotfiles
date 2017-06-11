@@ -97,6 +97,8 @@
     'space j a s' : 'window:run-package-specs'
     # Markdown toggle
     'space m d'   : 'markdown-preview:toggle'
+    # Minimap toggling
+    'space m m t' : 'minimap:toggle'
     # Open finders
     'space p f'   : 'fuzzy-finder:toggle-file-finder'
     'space p m'   : 'activate-power-mode:toggle' # Power Mode

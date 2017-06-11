@@ -10,8 +10,7 @@
   "atom-beautify":
     general:
       _analyticsUserId: "dbf48092-edbc-4aae-b6ad-f4a2ea41f325"
-  "atom-score":
-    sideBarWidth: 300
+  "atom-score": {}
   "atom-terminal": {}
   core:
     autoHideMenuBar: true
@@ -21,12 +20,17 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 24
     invisibles: {}
     showInvisibles: true
     tabType: "soft"
   "exception-reporting":
     userId: "cc236ea3-5433-3e5a-7dd6-a71b5238d209"
+  fonts:
+    fontFamily: "Source Code Pro Light"
+    preview: "The Quick brown fox { 0 !== \"O\" }asdf"
+  "git-plus":
+    general:
+      _analyticsUserId: "d1be6164-f2bb-4517-9c1d-4dce36071ad6"
   "ide-haskell":
     onCursorMove: "Show Tooltip"
     panelPosition: "right"
@@ -50,7 +54,8 @@
     ]
   "todo-show":
     sortBy: "Type"
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode": {}
   welcome:
     showOnStartup: false

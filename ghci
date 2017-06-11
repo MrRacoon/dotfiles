@@ -5,7 +5,7 @@
 :set prompt "%s λ: "
 
 -- Show type information, Like a G
-:set +t
+-- :set +t
 
 -- Why should I ever have to quit ghci just to go shell around?
 :def z \_ -> return ":! zsh"
