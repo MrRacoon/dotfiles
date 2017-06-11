@@ -27,23 +27,29 @@
     cb        = checkout -b
     cm        = commit -m
     co        = checkout
-    d         = diff
+    d         = diff -w --word-diff
     ds        = diff --stat
     dc        = diff --cached
     f         = fetch
     fa        = fetch --all
     fp        = fetch --prune
-    hist      = log --all --decorate --oneline --graph
+    graph     = log --graph --all --decorate --stat --date=iso
+    h         = log --all --decorate --oneline --graph
     l         = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    last      = log -1 HEAD
+    lst       = log -1 HEAD
     lg        = git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     nuke      = reset --hard
+    overview  = log --all --oneline --no-merges
     p         = push
+    praise    = blame
     rao       = remote add origin
+    recap     = log --all --oneline --no-merges --author=erik.sutherland@nike.com
+    recent    = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
     show      = show --color --pretty=format:%b $COMMIT
     s         = status -s
-    st        = status
     sst       = submodule status
+    st        = status
+    stats     = shortlog -sn
     sub       = submodule
     sui       = submodule update --init --recursive
     sup       = submodule update

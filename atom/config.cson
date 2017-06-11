@@ -36,8 +36,9 @@
     panelPosition: "right"
   "language-elm":
     autocompleteEnabled: false
-  minimap:
-    displayMinimapOnLeft: true
+  "linter-ui-default":
+    showPanel: true
+  minimap: {}
   "one-dark-ui":
     layoutMode: "Compact"
     tabSizing: "Minimum"

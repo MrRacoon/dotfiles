@@ -27,7 +27,7 @@ set autoindent                                " Automatically indent the lines t
 "set smartindent                               " Automatically indent in the contents of functions
 set shiftround                                " Use a multiple of shift width when indenting with '<' or '>
 set copyindent                                " Copy the previous indentation
-set tabstop=4                                 " Turn tabs into 4 spaces
+set tabstop=2                                 " Turn tabs into 4 spaces
 set shiftwidth=4                              " Let each indent equal 4 spaces
 set expandtab                                 " Use spaces instead of tabs
 set smarttab                                  " Use shift width to set tabs instead of tabstop

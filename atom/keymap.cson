@@ -26,24 +26,24 @@
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
-'atom-text-editor.vim-mode.insert-mode':
+'atom-text-editor.vim-mode-plus.insert-mode':
     # I need my special escape sequence if I want to stave ofdf carpeltunal
-    'k j': 'vim-mode:reset-normal-mode'
+    'k j': 'vim-mode-plus:reset-normal-mode'
 
-'atom-text-editor.vim-mode:not(.insert-mode)':
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
     # Auto-wrap lines at 80th column
     'g q'       : 'autoflow:reflow-selection'
     # Align text on first common alignable char
     'space t b' : 'atom-alignment:align'
+    # Flip these dam things
+    ';' : 'vim-mode-plus-ex-mode:open'
+    ':' : 'vim-mode-plus:repeat-find'
 
-'atom-text-editor.vim-mode.operator-pending-mode, atom-text-editor.vim-mode.visual-mode':
+'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode-plus':
     # Auto-wrap lines at 80th column
     'g q': 'autoflow:reflow-selection'
 
-'atom-text-editor.vim-mode.normal-mode':
-    # Flip these dam things
-    ';' : 'ex-mode:open'
-    ':' : 'vim-mode:repeat-find'
+'atom-text-editor.vim-mode-plus.normal-mode':
     # Movements
     'L'     : 'editor:move-to-end-of-line'
     'H'     : 'editor:move-to-beginning-of-line'
@@ -120,7 +120,7 @@
     'space v o' : 'settings-view:open'
     'space v r' : 'window:reload'
 
-'atom-text-editor.vim-mode:not(.insert-mode), .tree-view':
+'atom-text-editor.vim-mode-plus:not(.insert-mode), .tree-view':
     # Tree view commands
     'space t r r' : 'tree-view:toggle-focus'
     'space t r t' : 'tree-view:toggle'
