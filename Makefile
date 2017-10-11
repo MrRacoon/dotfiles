@@ -1,47 +1,91 @@
+DOTFILES = $(HOME)/dotfiles
 
-INSTALL_DF := vimrc zshrc ctags ghci
-DIR = $(shell pwd)
+all: vim git zsh haskell aliases utils fonts
 
-# build all the submodules
-submodule_update:
+# =============================================================================
+# Vim
+#
+vim: $(HOME)/.vim $(HOME)/.vimrc $(HOME)/.vimperatorrc
+
+$(HOME)/.vim:
+	ln -s $(DOTFILES)/vim $(HOME)/.vim
+
+$(HOME)/.vimrc:
+	ln -s $(DOTFILES)/vimrc $(HOME)/.vimrc
+
+$(HOME)/.vimperatorrc:
+	ln -s $(DOTFILES)/vimperatorrc $(HOME)/.vimperatorrc
+
+# =============================================================================
+# Zsh
+#
+zsh: $(HOME)/.zshrc
+
+$(HOME)/.zshrc:
+	ln -s $(DOTFILES)/zshrc $(HOME)/.zshrc
+
+# =============================================================================
+# Git
+#
+git: $(HOME)/.git-commit-template $(HOME)/.gitconfig
+
+$(HOME)/.git-commit-template:
+	ln -s $(DOTFILES)/git-commit-template $(HOME)/.git-commit-template
+
+$(HOME)/.gitconfig:
+	cp $(DOTFILES)/gitconfig $(HOME)/.gitconfig
+
+
+# =============================================================================
+# haskell
+#
+haskell: $(HOME)/.ghci $(HOME)/.xmonad $(HOME)/.xmobarrc $(HOME)/.haskeline
+
+$(HOME)/.ghci:
+	ln -s $(DOTFILES)/ghci $(HOME)/.ghci
+
+$(HOME)/.xmonad:
+	ln -s $(DOTFILES)/xmonad $(HOME)/.xmonad
+
+$(HOME)/.xmobarrc:
+	ln -s $(DOTFILES)/xmobarrc $(HOME)/.xmobarrc
+
+$(HOME)/.haskeline:
+	ln -s $(DOTFILES)/haskeline $(HOME)/.haskeline
+
+# =============================================================================
+# alias
+#
+aliases: $(HOME)/.alias
+
+$(HOME)/.alias:
+	ln -s $(DOTFILES)/alias $(HOME)/.alias
+
+# =============================================================================
+# utils
+#
+utils: $(HOME)/.screenrc $(HOME)/.Xresources $(HOME)/.profile $(HOME)/.tmux.conf
+
+$(HOME)/.screenrc:
+	ln -s $(DOTFILES)/screenrc $(HOME)/.screenrc
+
+$(HOME)/.Xresources:
+	ln -s $(DOTFILES)/Xresources $(HOME)/.Xresources
+
+$(HOME)/.profile:
+	ln -s $(DOTFILES)/profile $(HOME)/.profile
+
+$(HOME)/.tmux.conf:
+	ln -s $(DOTFILES)/tmux.conf $(HOME)/.tmux.conf
+
+# =============================================================================
+# fonts
+#
+fonts: $(HOME)/.local/share/fonts
+
+$(DOTFILES)/fonts/install.sh:
 	git submodule update --init --recursive
 
-# Update the apt package list
-sysUpdate:
-	sudo apt-get update
+$(HOME)/.local/share/fonts: $(DOTFILES)/fonts/install.sh
+	$(DOTFILES)/fonts/install.sh
 
-# Upgrade the apt package list
-sysUpgrade: sysUpdate
-	sudo apt-get -y dist-upgrade
-
-sysClean:
-	sudo apt-get autoclean; \
-	sudo apt-get -y autoremove
-
-# Vim Plugins
-
-# YouCompleteMe
-deps_you_complete_me:
-	sudo apt-get install build-essential cmake python-dev
-
-build_you_complete_me: you_complete_me_deps
-	cd vim/bundle/YouCompleteMe && ./install.sh
-
-# VimProc
-build_vimproc:
-	cd vim/bundle/vimproc.vim; make
-
-# Tern
-deps_tern:
-	sudo apt-get install npm
-
-
-build_tern: deps_tern
-	cd vim/bundle/tern_for_vim && npm install
-
-# Make the whole shebang
-install:
-	@for i in $(INSTALL_DF); \
-	do \
-		echo "ln -s $(DIR)/$$i ~/.$$i" ; \
-	done
