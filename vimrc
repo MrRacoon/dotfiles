@@ -126,6 +126,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
+Plug 'isruslan/vim-es6'
 
 " Syntactic checking
 Plug 'scrooloose/syntastic'
@@ -146,8 +147,12 @@ Plug 'majutsushi/tagbar'
 
 " Movement Booster
 Plug 'easymotion/vim-easymotion'
+Plug 'unblevable/quick-scope'
 
 " Completion
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'godlygeek/tabular'
 Plug 'raimondi/delimitmate'
 Plug 'ervandew/supertab'
@@ -172,6 +177,11 @@ Plug 'vim-scripts/restore_view.vim'
 
 " alignment
 Plug 'junegunn/tabularize'
+
+" testing
+Plug 'janko-m/vim-test'
+
+Plug 'elmcast/elm-vim'
 
 call plug#end()
 
@@ -232,4 +242,19 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 vnoremap <leader>tb :Tabularize/
 vnoremap <leader>tb= :Tabularize/=<cr>
 vnoremap <leader>tb" :Tabularize/"<cr>
+vnoremap <leader>tb, :Tabularize/,<cr>
+
+" vim test
+nnoremap <silent> <leader>vtt :TestNearest<CR>
+nnoremap <silent> <leader>vtf :TestFile<CR>
+nnoremap <silent> <leader>vta :TestSuite<CR>
+nnoremap <silent> <leader>vtl :TestLast<CR>
+nnoremap <silent> <leader>vtg :TestVisit<CR>
+
+" neo
+let g:neocomplete#enable_at_startup = 1
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+
+" elm
+let g:elm_make_show_warnings = 1
 
