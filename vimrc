@@ -151,13 +151,13 @@ Plug 'unblevable/quick-scope'
 
 " Completion
 Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'godlygeek/tabular'
 Plug 'raimondi/delimitmate'
 Plug 'ervandew/supertab'
 
 " Snippets
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'

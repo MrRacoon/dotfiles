@@ -87,5 +87,5 @@ $(DOTFILES)/fonts/install.sh:
 	git submodule update --init --recursive
 
 $(HOME)/.local/share/fonts: $(DOTFILES)/fonts/install.sh
-	$(DOTFILES)/fonts/install.sh
+	bash $(DOTFILES)/fonts/install.sh
 
