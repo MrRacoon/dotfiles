@@ -6,7 +6,7 @@ map <space> <leader>
 " Arguably the developer's best friend
 syntax on
 
-" User indentation in plugins?
+" Ensure filetype specific plugins
 filetype plugin indent on
 
 " =============================================================================
@@ -118,7 +118,75 @@ nnoremap L $
 " =============================================================================
 " Plugins
 
-" VimFugitive
+call plug#begin('~/dotfiles/vim/plugged')
+
+" sensible defaults
+" Plug 'tpope/vim-sensible'
+
+" Git integrations
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Javascript integrations
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'leshill/vim-json'
+
+" Syntactic checking
+Plug 'scrooloose/syntastic'
+
+" Fuzzy file finding
+Plug 'kien/ctrlp.vim'
+
+" Solarized
+Plug 'altercation/vim-colors-solarized'
+
+" Airline statusbar
+Plug 'bling/vim-airline'
+
+" Sidebar and commenting plugins
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'majutsushi/tagbar'
+
+" Movement Booster
+Plug 'easymotion/vim-easymotion'
+
+" Completion
+Plug 'godlygeek/tabular'
+Plug 'raimondi/delimitmate'
+Plug 'ervandew/supertab'
+
+" Snippets
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+
+" Boost the power of the '.' command
+Plug 'tpope/vim-repeat'
+
+" Html completion
+Plug 'mattn/emmet-vim'
+
+" Indent guides
+Plug 'nathanaelkane/vim-indent-guides'
+
+call plug#end()
+
+" =============================================================================
+" Plugin settings
+
+" enable flowtypes
+let g:javascript_plugin_flow = 1
+" enable jsx highlighting in .js files
+let g:jsx_ext_required = 0
+
+" =============================================================================
+" Plugin keystrokes
+
+" VimFugitive git integrations
 nnoremap <leader>gib :Gblame<cr>
 nnoremap <leader>gic :Gcommit<cr>
 nnoremap <leader>gid :Gdiff<cr>
@@ -130,4 +198,33 @@ nnoremap <leader>gip :Gpush<cr>
 nnoremap <leader>gis :Gstatus<cr>
 nnoremap <leader>giu :Gpull<cr>
 nnoremap <leader>giv :Gvdiff<cr>
+
+" Vim-Plug commands
+nnoremap <leader>pc :PlugClean<cr>
+nnoremap <leader>pi :PlugInstall<cr>
+nnoremap <leader>pu :PlugUpdate<cr>
+
+" Nerd tree
+nnoremap <leader>tr :NERDTreeToggle<cr>
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Solarized
+colorscheme solarized
+
+" EasyMotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" SuperTab
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
