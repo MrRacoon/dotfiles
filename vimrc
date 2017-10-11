@@ -63,14 +63,9 @@ set undofile                                  " save all undos into a file
 set undolevels=1000                           " store a ton of undo operations
 set undodir=~/dotfiles/vim/undos/             " save undos into dotfile dir
 if !isdirectory(&undodir)
-    echom "Creating undo directory"
-    call system('mkdir ' . &undodir)
+  echom "Creating undo directory"
+  call system('mkdir ' . &undodir)
 endif
-
-" Auto Save/Reload VimViews
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
-
 
 " =============================================================================
 " Vim keystrokes
@@ -163,7 +158,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
-
 " Boost the power of the '.' command
 Plug 'tpope/vim-repeat'
 
@@ -172,6 +166,12 @@ Plug 'mattn/emmet-vim'
 
 " Indent guides
 Plug 'nathanaelkane/vim-indent-guides'
+
+" Preserve folding and position
+Plug 'vim-scripts/restore_view.vim'
+
+" alignment
+Plug 'junegunn/tabularize'
 
 call plug#end()
 
@@ -227,4 +227,9 @@ map  N <Plug>(easymotion-prev)
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" Tabularize
+vnoremap <leader>tb :Tabularize/
+vnoremap <leader>tb= :Tabularize/=<cr>
+vnoremap <leader>tb" :Tabularize/"<cr>
 
