@@ -10,5 +10,3 @@ synclient ClickFinger3=2
 synclient TapButton1=0
 synclient TapButton2=0
 synclient PalmDetect=1
-
-if [ -e /home/esuth1/.nix-profile/etc/profile.d/nix.sh ]; then . /home/esuth1/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

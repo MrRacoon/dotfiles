@@ -1,0 +1,6 @@
+alias nix="nix-env"
+alias nixe="nix-env -e"
+alias nixi="nix-env -i"
+alias nixq="nix-env -q"
+alias nixqa="nix-env -qa"
+alias nixrm="nix-env -e"

@@ -83,10 +83,6 @@
 [submodule "vim/bundle/vim-thematic"]
     path = vim/bundle/vim-thematic
     url = https://github.com/reedes/vim-thematic
-[submodule "vim/bundle/YouCompleteMe"]
-    path = vim/bundle/YouCompleteMe
-    url = https://github.com/Valloric/YouCompleteMe.git
-    ignore = dirty
 [submodule "vim/bundle/ultisnips"]
     path = vim/bundle/ultisnips
     url = https://github.com/SirVer/ultisnips.git

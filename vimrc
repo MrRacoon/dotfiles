@@ -180,16 +180,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" YouCompleteMe
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-
-" CoVim
-" (Plugin is a bust. Made in a senior capstone)
-" Awesome Idea though...
-let CoVim_default_name = "MrRacoon"
-let CoVim_default_port = "13337"
-
 " TagBar
 " Tell it how to javascript
 let g:tagbar_type_javascript = {

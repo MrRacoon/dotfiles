@@ -67,13 +67,13 @@ urxvt                = "rxvt-unicode" ++ urxvtOpts
 
 cmd name ops         = name ++ " " ++ ops
 
-myTerminal           = gnomeTerminal
+myTerminal           = "xterm"
 
 myFocusFollowsMouse  :: Bool
 myFocusFollowsMouse  = True
 
 myBorderWidth        = 5
-myBorderSpace        = 20
+myBorderSpace        = 10
 myModMask            = mod4Mask
 myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
 myNormalBorderColor  = "#000000"
@@ -185,14 +185,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Open Grid Select
     , ((modm              , xK_z     ), goToSelected myGsConfig)
 
-    , ((modm .|. shiftMask, xK_z     ), spawnSelected defaultGSConfig ["firefox",
-                                                                       "gnome-terminal",
-                                                                       "gnome-terminal -e pianobar",
-                                                                       "evolution",
-                                                                       "gnome-terminal -e screen",
-                                                                       "pidgin",
-                                                                       "idea.sh",
-                                                                       "mosh dev"]) 
+    , ((modm .|. shiftMask, xK_z     ), spawnSelected defaultGSConfig
+        [ "firefox"
+        , "gnome-terminal"
+        , "gnome-terminal -e pianobar"
+        , "evolution"
+        , "gnome-terminal -e screen"
+        , "pidgin"
+        , "idea.sh"
+        , "mosh dev"
+        ])
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -276,12 +278,12 @@ myLogHook   = fadeInactiveLogHook 0.5
 myStartupHook :: X ()
 myStartupHook = setWMName "LG3D" >> do
         spawnOn "Main"  myTerminal
-        spawnOn "Main"  "firefox"
+        spawnOn "Main"  "chromium"
         spawnOn "Music" "spotify"
         return ()
 
 main = do
-    xmonad defaults -- =<< xmobar defaults
+    xmonad =<< xmobar defaults
 
 defaults = mateConfig {
       -- simple stuff

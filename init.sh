@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Install the toys
-sudo apt update
-sudo apt install rofi xmonad mate git slock vim screen zsh exuberant-ctags
+# sudo apt update
+# sudo apt install rofi xmonad mate git slock vim screen zsh exuberant-ctags
 
 # Assume the dotfils repo is in $HOME
 DOT_FILE_DIR=$HOME/dotfiles
@@ -25,6 +25,7 @@ ln -s $DOT_FILE_DIR/xmonad $HOME/.xmonad
 ln -s $DOT_FILE_DIR/xmobarrc $HOME/.xmobarrc
 ln -s $DOT_FILE_DIR/git-commit-template $HOME/.git-commit-template
 ln -s $DOT_FILE_DIR/screenrc $HOME/.screenrc
+ln -s $DOT_FILE_DIR/Xresources $HOME/.Xresources
 
 # Vim install
 ln -s $DOT_FILE_DIR/vimrc $HOME/.vimrc
