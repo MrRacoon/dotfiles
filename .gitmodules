@@ -1,9 +1,6 @@
 [submodule "zsh/antigen"]
     path = zsh/antigen
     url = https://github.com/zsh-users/antigen.git
-[submodule "vim/autoload/vim-pathogen"]
-	path = vim/autoload/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts.git

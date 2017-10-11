@@ -1,8 +1,3 @@
-source $HOME/dotfiles/vim/autoload/pathogen.vim
-
-" I go with Pathogen for my plugin management. Unix Philosophy Right?
-execute pathogen#infect('~/dotfiles/vim/bundle/{}', '~/dotfiles/vim/languages/{}', '~/dotfiles/vim/themes/{}')
-
 " I always figure that the leader information should always be located at the
 " top of this file for anyone who might want to try, and need a quick way to
 " find out.
