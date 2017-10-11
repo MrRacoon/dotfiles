@@ -1,8 +1,5 @@
-" I always figure that the leader information should always be located at the
-" top of this file for anyone who might want to try, and need a quick way to
-" find out.
 " I map leader to the space bar. Because it simply rocks. I use map here
-" because it seems to work better in insery mode.
+" because it seems to work better in insert mode.
 map <space> <leader>
 
 " Get that Syntax Highlighting
@@ -12,43 +9,59 @@ syntax on
 " User indentation in plugins?
 filetype plugin indent on
 
-"== Settings =="
-set nowrap                                    " Do not wrap lines
-set number                                    " Get the line numbers going
-set nospell                                   " Turn Spelling on
-set showmatch                                 " Show matching parenthesis
-syntax on                                     " Turn that syntax highlighting on
-set autoindent                                " Automatically indent the lines to match the previous indent
-"set smartindent                               " Automatically indent in the contents of functions
-set shiftround                                " Use a multiple of shift width when indenting with '<' or '>
-set copyindent                                " Copy the previous indentation
-set tabstop=2                                 " Turn tabs into 4 spaces
-set shiftwidth=4                              " Let each indent equal 4 spaces
-set expandtab                                 " Use spaces instead of tabs
-set smarttab                                  " Use shift width to set tabs instead of tabstop
-set ignorecase                                " Ignore case when searching
-set smartcase                                 " case insensitive if search term is all lowercased
-set pastetoggle=<f12>                         " Set the past toggle to F-12 because pasting can be hard :P
-set history=1000                              " Lets tore a bunch of old commands and things
-set wildignore=*.swp,*.bak,*.pyc,*.class      " Ignore any of the files with the following extensions in tab completion
-set title                                     " Let Vim set the window's title
-set visualbell                                " Please no sounds, other then the patter of my fingers
-set noerrorbells                              " Please no sounds, other then the patter of my fingers
-set list                                      " Highlight whitespace
-set listchars=tab:>.,trail:.,extends:#,nbsp:. " Set whitspace characters
-set laststatus=2                              " Make sure that we use two lines for using status bars
-set t_Co=256                                  " Make sure vim uses 256 color mode
-set undolevels=1000                           " Store a ton of undo operations
-set backspace=2                               " Do the delete button thing
-set mouse=r
-set hidden
-set conceallevel=2                            " Ensure that the cool conceling options are set
-set colorcolumn=80                            " set an indicator for showing me where i can never be caugh outside
-set undodir=~/dotfiles/vim/undos/             " save these indos into a dile in .undos in the dotfiles dir
-set undofile                                  " Save all undos into a file
-set tags+=./tags;/                            " Check the current directory, and then work up to the root, looking for tags
-highlight colorcolumn ctermbg=black            " and make it cyan i guess
+" =============================================================================
+" Settings
 
+" Gui
+set nowrap                                    " no line wrapping
+set number                                    " show line numbers
+set nospell                                   " spelling off by default
+set showmatch                                 " show matching parenthesis
+
+" Highlighting
+syntax on                                     " use syntax highlighting
+
+" Indents
+set autoindent                                " automatically indent lines
+set smartindent                               " automatically indent for context
+set copyindent                                " copy the previous indentation
+
+" Tabbing
+set shiftround                                " use a multiple of shiftWidth when indenting with '<' or '>
+set tabstop=2                                 " turn tabs into 2 spaces
+set shiftwidth=2                              " let each indent equal 2 spaces
+set expandtab                                 " use spaces instead of tabs
+set smarttab                                  " use shift width to set tabs instead of tabstop
+
+" Searching
+set ignorecase                                " ignore case when searching
+set smartcase                                 " case insensitive if search term is all lowercased
+
+" Process
+set pastetoggle=<f12>                         " set the past toggle to F-12 because pasting can be hard :P
+set history=1000                              " lets tore a bunch of old commands and things
+set title                                     " let vim set the window's title
+set visualbell                                " disable sounds
+set noerrorbells                              " disable sounds
+set laststatus=2                              " make sure that we use two lines for using status bars
+set t_Co=256                                  " make sure vim uses 256 color mode
+set backspace=2                               " sane delete button
+set mouse=r                                   " enable mouse usage
+set hidden                                    " hiding buffers
+set colorcolumn=80                            " set the maximum line width
+highlight colorcolumn ctermbg=black           " and make it cyan i guess
+
+" Whitespace
+set list                                      " highlight whitespace
+set listchars=tab:>.,trail:.,extends:#,nbsp:. " set whitespace characters
+
+" Concealment
+set conceallevel=2                            " add concealment
+
+" Undos
+set undofile                                  " save all undos into a file
+set undolevels=1000                           " store a ton of undo operations
+set undodir=~/dotfiles/vim/undos/             " save undos into dotfile dir
 if !isdirectory(&undodir)
     echom "Creating undo directory"
     call system('mkdir ' . &undodir)
@@ -58,16 +71,54 @@ endif
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
-"== keystrokes =="
 
-" better <esc> key sequences
+" =============================================================================
+" Vim keystrokes
+
+" personal <esc> key sequences
 inoremap kj <esc>
 
-" Swap the commmand key and that.. other.. thing...
+" swap the commmand key with ';'
 noremap ; :
 noremap : ;
 
-" Git commands
+" Ctrl-p searching
+nnoremap <leader>pf :CtrlP<cr>
+nnoremap <leader>pp :CtrlP<cr>
+
+" vimrc sourcing/editing
+nnoremap <leader>ve :vsplit $MYVIMRC<cr> 
+nnoremap <leader>vr :source $MYVIMRC<cr> 
+
+" remove the arrow key functionality
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" remove the 'Q' functionality
+nnoremap Q <nop>
+
+" split switching
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" force escalated privilege saves
+cmap w!! w !sudo tee % >/dev/null
+
+" remove tabs
+nnoremap <leader>nt :retab<cr>
+
+" full line width movement
+nnoremap H ^
+nnoremap L $
+
+" =============================================================================
+" Plugins
+
+" VimFugitive
 nnoremap <leader>gib :Gblame<cr>
 nnoremap <leader>gic :Gcommit<cr>
 nnoremap <leader>gid :Gdiff<cr>
@@ -79,44 +130,4 @@ nnoremap <leader>gip :Gpush<cr>
 nnoremap <leader>gis :Gstatus<cr>
 nnoremap <leader>giu :Gpull<cr>
 nnoremap <leader>giv :Gvdiff<cr>
-
-nnoremap <leader>pf :CtrlP<cr>
-nnoremap <leader>pp :CtrlP<cr>
-
-" Edit vim key bindings
-nnoremap <leader>ve :vsplit $MYVIMRC<cr> 
-nnoremap <leader>vr :source $MYVIMRC<cr> 
-
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-nmap <silent> ,/ :nohlsearch<CR>
-
-cmap w!! w !sudo tee % >/dev/null
-
-nnoremap <leader>nt :retab<cr>
-
-nnoremap H ^
-nnoremap L $
-
-nnoremap Q <nop>
-
-nnoremap <leader>J :m .+1<CR>==
-nnoremap <leader>K :m .-2<CR>==
-inoremap <leader>J <Esc>:m .+1<CR>==gi
-inoremap <leader>K <Esc>:m .-2<CR>==gi
-vnoremap <leader>J :m '>+1<CR>gv=gv
-vnoremap <leader>K :m '<-2<CR>gv=gv
-
-nnoremap <CR> o<ESC>
-nnoremap <leader><CR> O<ESC>
-
-"===== Plugins ====="
 
