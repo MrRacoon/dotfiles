@@ -1,6 +1,6 @@
 DOTFILES = $(HOME)/dotfiles
 
-all: vim git zsh haskell aliases utils fonts
+all: vim git zsh haskell aliases utils fonts ssh
 
 # =============================================================================
 # Vim
@@ -88,4 +88,15 @@ $(DOTFILES)/fonts/install.sh:
 
 $(HOME)/.local/share/fonts: $(DOTFILES)/fonts/install.sh
 	bash $(DOTFILES)/fonts/install.sh
+
+# =============================================================================
+# ssh
+#
+ssh: $(HOME)/.ssh/id_rsa
+
+$(HOME)/.ssh:
+	mkdir $(HOME)/.ssh
+
+$(HOME)/.ssh/id_rsa: $(HOME)/.ssh
+	ssh-keygen -o -a 100 -t ed25519 -f $(HOME)/.ssh/id_rsa
 
