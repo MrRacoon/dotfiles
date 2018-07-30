@@ -101,7 +101,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " force escalated privilege saves
-cmap w!! w !sudo tee % >/dev/null
+cmap w!!  w !sudo dd of=%
 
 " remove tabs
 nnoremap <leader>nt :retab<cr>
@@ -135,7 +135,7 @@ Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 
 " Solarized
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 
 " Airline statusbar
 Plug 'bling/vim-airline'

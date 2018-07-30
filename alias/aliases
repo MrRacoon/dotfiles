@@ -13,3 +13,6 @@ alias nyan="telnet nyancat.dakko.us"
 # shutdown
 alias shutdown="sudo shutdown -h now"
 
+function gacp() {
+  git add --all && git commit -m "$@" && git push
+}
