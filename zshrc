@@ -27,6 +27,7 @@ export PATH="$HOME/.npm/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # If the nix package manager is around (i.e. OSX) then get that all setup
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

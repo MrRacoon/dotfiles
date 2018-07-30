@@ -100,3 +100,23 @@ $(HOME)/.ssh:
 $(HOME)/.ssh/id_rsa: $(HOME)/.ssh
 	ssh-keygen -o -a 100 -t ed25519 -f $(HOME)/.ssh/id_rsa
 
+# =============================================================================
+# atom
+#
+atom: $(HOME)/.atom/keymap.cson $(HOME)/.atom/snippets.cson $(HOME)/.atom/config.cson
+
+$(HOME)/.atom:
+	mkdir $(HOME)/.atom
+
+$(HOME)/.atom/keymap.cson: $(HOME)/.atom
+	ln -s $(DOTFILES)/atom/keymap.cson $(HOME)/.atom/keymap.cson
+
+$(HOME)/.atom/config.cson: $(HOME)/.atom
+	ln -s $(DOTFILES)/atom/config.cson $(HOME)/.atom/config.cson
+
+$(HOME)/.atom/snippets.cson: $(HOME)/.atom
+	ln -s $(DOTFILES)/atom/snippets.cson $(HOME)/.atom/snippets.cson
+
+
+
+

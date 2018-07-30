@@ -65,7 +65,6 @@ gnomeTerminal        = "gnome-terminal" ++ gnomeTerminalOpts
 urxvtOpts            = "+sb -fg white -bg black -fade 70 -fadecolor black"
 urxvt                = "rxvt-unicode" ++ urxvtOpts
 
-cmd name ops         = name ++ " " ++ ops
 
 myTerminal           = "xterm"
 
@@ -156,20 +155,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
-    -- interac with lifx
-
-
+    -- interface with lifx
     -- Add commands to turn my bulbs different color
-    , ((modm .|. controlMask , xK_0           ), spawn "lifxcli -0")
-    , ((modm .|. controlMask , xK_1           ), spawn "lifxcli -1")
-    , ((modm .|. controlMask , xK_2           ), spawnHere "lifxcli -c red")
-    , ((modm .|. controlMask , xK_3           ), spawnHere "lifxcli -C orange >> log")
-    , ((modm .|. controlMask , xK_4           ), spawnHere "lifxcli -C yellow")
-    , ((modm .|. controlMask , xK_5           ), spawn "lifxcli -C green")
-    , ((modm .|. controlMask , xK_6           ), spawn "lifxcli -C cyan")
-    , ((modm .|. controlMask , xK_7           ), spawn "lifxcli -C blue")
-    , ((modm .|. controlMask , xK_8           ), spawn "lifxcli -C magenta")
-    , ((modm .|. controlMask , xK_9           ), spawn "lifxcli -C white")
+    , ((modm .|. controlMask , xK_0           ), spawn "lifx -0")
+    , ((modm .|. controlMask , xK_1           ), spawn "lifx -1")
+    , ((modm .|. controlMask , xK_2           ), spawnHere "lifx -c red")
+    , ((modm .|. controlMask , xK_3           ), spawnHere "lifx -C orange >> log")
+    , ((modm .|. controlMask , xK_4           ), spawnHere "lifx -C yellow")
+    , ((modm .|. controlMask , xK_5           ), spawn "lifx -C green")
+    , ((modm .|. controlMask , xK_6           ), spawn "lifx -C cyan")
+    , ((modm .|. controlMask , xK_7           ), spawn "lifx -C blue")
+    , ((modm .|. controlMask , xK_8           ), spawn "lifx -C magenta")
+    , ((modm .|. controlMask , xK_9           ), spawn "lifx -C white")
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -278,7 +275,7 @@ myLogHook   = fadeInactiveLogHook 0.5
 myStartupHook :: X ()
 myStartupHook = setWMName "LG3D" >> do
         spawnOn "Main"  myTerminal
-        spawnOn "Main"  "chromium"
+        spawnOn "Main"  "firefox"
         spawnOn "Music" "spotify"
         return ()
 
