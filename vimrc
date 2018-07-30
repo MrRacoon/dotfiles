@@ -227,7 +227,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Solarized
-colorscheme solarized
+" colorscheme solarized
 
 " EasyMotion
 map  / <Plug>(easymotion-sn)

@@ -10,7 +10,7 @@ antigen bundle docker
 antigen bundle git
 antigen bundle git-flow
 antigen bundle grunt
-antigen bundle git@github.com:spwhitt/nix-zsh-completions.git
+# antigen bundle git@github.com:spwhitt/nix-zsh-completions.git
 antigen bundle man
 antigen bundle node
 antigen bundle nyan

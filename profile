@@ -6,7 +6,8 @@ if [ "$XDG_SESSION_DESKTOP" = "xmonad" ]; then
 fi
 
 #Configure the touchpad
-synclient ClickFinger3=2
-synclient TapButton1=0
-synclient TapButton2=0
-synclient PalmDetect=1
+# synclient ClickFinger3=2
+# synclient TapButton1=0
+# synclient TapButton2=0
+# synclient PalmDetect=1
+xrandr --output DP-1 --left-of HDMI-1
