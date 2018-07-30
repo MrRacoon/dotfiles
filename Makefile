@@ -1,6 +1,6 @@
 DOTFILES = $(HOME)/dotfiles
 
-all: vim git zsh haskell aliases utils fonts ssh
+all: vim git zsh haskell aliases utils fonts atom ssh
 
 # =============================================================================
 # Vim
