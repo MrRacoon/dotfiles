@@ -74,8 +74,8 @@ endif
 inoremap kj <esc>
 
 " swap the commmand key with ';'
-noremap ; :
-noremap : ;
+"noremap ; :
+"noremap : ;
 
 " Ctrl-p searching
 nnoremap <leader>pf :CtrlP<cr>
