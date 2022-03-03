@@ -1,7 +1,6 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.SetWMName
 import XMonad.Config.Mate
 
@@ -12,7 +11,6 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.Spacing
 
 import XMonad.Actions.FindEmptyWorkspace
-import XMonad.Actions.GridSelect
 import XMonad.Actions.NoBorders
 
 import XMonad.Actions.SpawnOn
@@ -31,33 +29,22 @@ import XMonad.Config.Mate
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-startupToggle = True
+black   = "#000000"
+white   = "#FFFFFF"
+red     = "#FF0001"
+orange  = "#FFA500"
+yellow  = "#FFFF00"
+green   = "#008000"
+blue    = "#0000FF"
+purple  = "#800080"
+pink    = "#FF1493"
+magenta = "#FF00FF"
+cyan    = "#00FFFF"
+lime    = "#00FF00"
 
-flipToggle True f = f
-flipToggle _ f    = return () 
+myModMask            = mod4Mask -- Super key
 
-myGsConfig = defaultGSConfig { gs_cellheight = 120, gs_cellwidth = 300 }
-gsconfig2 colorizer = (buildDefaultGSConfig colorizer) { gs_cellheight = 120, gs_cellwidth = 300 }
-
--- | A green monochrome colorizer based on window class
-myColorizer = colorRangeFromClassName
-    black -- lowest inactive bg
-    red   -- highest inactive bg
-    pink  -- active bg
-    cyan  -- inactive fg
-    black -- active fg
-  where black   = (0x00, 0x00, 0x00)
-        white   = (0xFF, 0xFF, 0xFF)
-        red     = (0xFF, 0x00, 0x00)
-        orange  = (0xFF, 0xA5, 0x00)
-        yellow  = (0xFF, 0xFF, 0x00)
-        green   = (0x00, 0x80, 0x00)
-        blue    = (0x00, 0x00, 0xFF)
-        purple  = (0x80, 0x00, 0x80)
-        pink    = (0xFF, 0x14, 0x93)
-        magenta = (0xFF, 0x00, 0xFF)
-        cyan    = (0x00, 0xFF, 0xFF)
-        lime    = (0x00, 0xFF, 0x00)
+myTerminal           = gnomeTerminal
 
 gnomeTerminalOpts    = ""
 gnomeTerminal        = "gnome-terminal" ++ gnomeTerminalOpts
@@ -65,47 +52,40 @@ gnomeTerminal        = "gnome-terminal" ++ gnomeTerminalOpts
 urxvtOpts            = "+sb -fg white -bg black -fade 70 -fadecolor black"
 urxvt                = "rxvt-unicode" ++ urxvtOpts
 
+myBorderWidth        = 3
+myBorderSpace        = 1
+myNormalBorderColor  = white
+myFocusedBorderColor = magenta
 
-myTerminal           = "xterm"
-
-myFocusFollowsMouse  :: Bool
-myFocusFollowsMouse  = True
-
-myBorderWidth        = 5
-myBorderSpace        = 10
-myModMask            = mod4Mask
-myWorkspaces         = ["Main","Dev","Music","Scratch","5","6","7","8","9"]
-myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#800080"
-
-beepOptions = "-l 1000"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "rofi -show run")
-    -- Volume Controls
-    , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
-    , ((0, 0x1008ff11), spawn "amixer -q set Master 2- unmute")
-    , ((0, 0x1008ff13), spawn "amixer -q set Master 2+ unmute")
-    , ((0, 0x1008ff4a), spawn "synclient TouchpadOff=0")
-    , ((0, 0x1008ff4b), spawn "synclient TouchpadOff=1")
-    , ((0, 0x1008ff03), spawn "sudo bright screen down")
-    , ((0, 0x1008ff02), spawn "sudo bright screen up")
-    , ((0, 0x1008ff06), spawn "sudo bright keyboard down")
-    , ((0, 0x1008ff05), spawn "sudo bright keyboard up")
 
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+    -- launch screenshotter
+    , ((modm,               xK_s), spawn "scrot 'Pictures/scrot_%Y-%m-%d_%s.png' -e 'eog $f'")
+    , ((modm .|. shiftMask, xK_s), spawn "sleep 0.2; scrot 'Pictures/scrot_%Y-%m-%d_%s.png' -s -e 'eog $f'")
+
+    -- Volume Controls
+    -- , ((0, 0x1008ff12), spawn "amixer -q set Master toggle")
+    -- , ((0, 0x1008ff11), spawn "amixer -q set Master 2- unmute")
+    -- , ((0, 0x1008ff13), spawn "amixer -q set Master 2+ unmute")
+    -- , ((0, 0x1008ff4a), spawn "synclient TouchpadOff=0")
+    -- , ((0, 0x1008ff4b), spawn "synclient TouchpadOff=1")
+    -- , ((0, 0x1008ff03), spawn "sudo bright screen down")
+    -- , ((0, 0x1008ff02), spawn "sudo bright screen up")
+    -- , ((0, 0x1008ff06), spawn "sudo bright keyboard down")
+    -- , ((0, 0x1008ff05), spawn "sudo bright keyboard up")
 
     -- lock the machine
     , ((modm .|. shiftMask, xK_l     ), spawn "slock")
 
     -- Convert to colmak
-    , ((modm,               xK_minus ), spawn "setxkbmap us")
+    -- , ((modm,               xK_minus ), spawn "setxkbmap us")
 
     -- Convert to qwerty
-    , ((modm,               xK_equal), spawn "setxkbmap us -variant colemak")
+    -- , ((modm,               xK_equal), spawn "setxkbmap us -variant colemak")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -120,16 +100,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_n     ), refresh)
 
     -- Move focus to the next window
-    , ((modm,               xK_Tab   ), windows W.focusDown)
-
-    -- Move focus to the next window
     , ((modm,               xK_k     ), windows W.focusDown)
 
     -- Move focus to the previous window
     , ((modm,               xK_j     ), windows W.focusUp  )
-
-    -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster  )
 
     -- Swap the focused window and the master window
     , ((modm,               xK_Return), windows W.swapMaster)
@@ -159,9 +133,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Add commands to turn my bulbs different color
     , ((modm .|. controlMask , xK_0           ), spawn "lifx -0")
     , ((modm .|. controlMask , xK_1           ), spawn "lifx -1")
-    , ((modm .|. controlMask , xK_2           ), spawnHere "lifx -c red")
-    , ((modm .|. controlMask , xK_3           ), spawnHere "lifx -C orange >> log")
-    , ((modm .|. controlMask , xK_4           ), spawnHere "lifx -C yellow")
+    , ((modm .|. controlMask , xK_2           ), spawn "lifx -c red")
+    , ((modm .|. controlMask , xK_3           ), spawn "lifx -C orange")
+    , ((modm .|. controlMask , xK_4           ), spawn "lifx -C yellow")
     , ((modm .|. controlMask , xK_5           ), spawn "lifx -C green")
     , ((modm .|. controlMask , xK_6           ), spawn "lifx -C cyan")
     , ((modm .|. controlMask , xK_7           ), spawn "lifx -C blue")
@@ -178,20 +152,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_y     ), spawn "xmonad --recompile; xmonad --restart")
-
-    -- Open Grid Select
-    , ((modm              , xK_z     ), goToSelected myGsConfig)
-
-    , ((modm .|. shiftMask, xK_z     ), spawnSelected defaultGSConfig
-        [ "firefox"
-        , "gnome-terminal"
-        , "gnome-terminal -e pianobar"
-        , "evolution"
-        , "gnome-terminal -e screen"
-        , "pidgin"
-        , "idea.sh"
-        , "mosh dev"
-        ])
     ]
     ++
     -- mod-[1..9], Switch to workspace N
@@ -199,7 +159,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+    ]
     ++
     --
     -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
@@ -207,7 +168,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_e, xK_w, xK_r] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
+    ]
 
 
 ------------------------------------------------------------------------
@@ -226,8 +188,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Layouts:
 myLayout = smartSpacing myBorderSpace (Full ||| tiled ||| Mirror tiled)
--- myLayout = tiled ||| Mirror tiled ||| spiral (6/7) ||| tabbed shrinkText tabTheme
--- myLayout = tabbed shrinkText tabTheme ||| spiral (6/7) ||| Mirror tiled
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
@@ -248,39 +208,16 @@ myLayout = smartSpacing myBorderSpace (Full ||| tiled ||| Mirror tiled)
       activeTextColor     = white,
       inactiveTextColor   = white,
       urgentTextColor     = black
-      } where black   = "#000000"
-              white   = "#FFFFFF"
-              red     = "#FF0001"
-              orange  = "#FFA500"
-              yellow  = "#FFFF00"
-              green   = "#008000"
-              blue    = "#0000FF"
-              purple  = "#800080"
-              pink    = "#FF1493"
-              magenta = "#FF00FF"
-              cyan    = "#00FFFF"
-              lime    = "#00FF00"
+      } where 
 ------------------------------------------------------------------------
 -- Window rules:
-myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
-
-myEventHook = mempty
-
-myLogHook   = fadeInactiveLogHook 0.5
-
 myStartupHook :: X ()
 myStartupHook = setWMName "LG3D" >> do
-        spawnOn "Main"  myTerminal
-        spawnOn "Main"  "firefox"
-        spawnOn "Music" "spotify"
+        spawnOn "1"  myTerminal
+        spawnOn "1" "google-chrome-stable"
+        spawnOn "1" "spotify"
+        spawnOn "1" "slack"
         return ()
-
-main = do
-    xmonad =<< xmobar defaults
 
 defaults = mateConfig {
       -- simple stuff
@@ -290,7 +227,7 @@ defaults = mateConfig {
         modMask            = myModMask,
         -- numlockMask deprecated in 0.9.1
         -- numlockMask        = myNumlockMask,
-        workspaces         = myWorkspaces,
+        workspaces         = ["1","2","3","4","5","6","7","8","9"],
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
       -- key bindings
@@ -298,8 +235,12 @@ defaults = mateConfig {
         mouseBindings      = myMouseBindings,
       -- hooks, layouts
         layoutHook         = avoidStruts $ myLayout,
-        manageHook         = manageDocks <+> myManageHook,
-        handleEventHook    = myEventHook,
-        logHook            = myLogHook,
-        startupHook        = (flipToggle startupToggle myStartupHook)
+        manageHook         = manageDocks <+> mempty,
+        handleEventHook    = mempty,
+        logHook            = mempty,
+        startupHook        = myStartupHook
     }
+
+main = do
+    xmonad =<< xmobar defaults
+

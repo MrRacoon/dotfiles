@@ -117,6 +117,3 @@ $(HOME)/.atom/config.cson: $(HOME)/.atom
 $(HOME)/.atom/snippets.cson: $(HOME)/.atom
 	ln -s $(DOTFILES)/atom/snippets.cson $(HOME)/.atom/snippets.cson
 
-
-
-

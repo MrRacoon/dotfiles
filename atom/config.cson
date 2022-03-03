@@ -14,6 +14,9 @@
   "atom-beautify":
     general:
       _analyticsUserId: "dbf48092-edbc-4aae-b6ad-f4a2ea41f325"
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
   "atom-score": {}
   "atom-terminal": {}
   core:
@@ -24,7 +27,9 @@
       "solarized-dark-syntax"
     ]
   editor:
+    fontSize: 18
     invisibles: {}
+    showIndentGuide: true
     showInvisibles: true
     tabType: "soft"
   "exception-reporting":
@@ -47,6 +52,8 @@
     tabSizing: "Minimum"
   "prettier-atom":
     formatOnSave: true
+  "save-autorun":
+    notifications: false
   "spell-check":
     grammars: [
       "source.asciidoc"
@@ -58,7 +65,10 @@
     ]
   "todo-show":
     sortBy: "Type"
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode": {}
+  "vim-mode-plus":
+    askOptInToEditorScrollPastEnd: false
   welcome:
     showOnStartup: false
